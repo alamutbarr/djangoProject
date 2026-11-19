@@ -399,7 +399,7 @@ export default function Onboarding({
                       <label className="secondary-btn upload-btn">
                         {doc ? "جایگزینی مدرک" : "انتخاب و بارگذاری"}
                         <input
-                          className="tw:sr-only"
+                          className="tw:sr-only!"
                           type="file"
                           accept=".pdf,.png,.jpg,.jpeg"
                           disabled={busy}

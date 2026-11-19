@@ -47,7 +47,7 @@ export default function Account({
               <label className="text-link">
                 تصویر پروفایل
                 <input
-                  className="tw:sr-only"
+                  className="tw:sr-only!"
                   type="file"
                   accept=".jpg,.jpeg,.png"
                   onChange={(event) => {

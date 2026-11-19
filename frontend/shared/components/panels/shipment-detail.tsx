@@ -486,7 +486,7 @@ export default function ShipmentDetail({
                   <input
                     type="file"
                     accept=".pdf,.png,.jpg,.jpeg"
-                    className="tw:sr-only"
+                    className="tw:sr-only!"
                     disabled={busy}
                     onChange={async (e) => {
                       const file = e.target.files?.[0];
