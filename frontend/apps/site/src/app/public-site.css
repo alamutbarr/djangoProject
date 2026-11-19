@@ -7,31 +7,31 @@
   --public-heading: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
   --public-card-title: clamp(1.125rem, 1.02rem + 0.5vw, 1.375rem);
   --public-gutter: clamp(1.125rem, 4vw, 2rem);
-  font-family: var(--font-vazir, Vazirmatn), Arial, sans-serif;
-  font-size: var(--public-text);
-  line-height: 1.85;
+  @apply tw:font-app;
+  @apply tw:text-public-body;
+  @apply tw:leading-[1.85];
 }
 
 .public-site :is(h1, h2, h3, .eyebrow) {
-  letter-spacing: normal;
+  @apply tw:[letter-spacing:normal];
 }
 
 .public-site .brand b {
-  font-family: inherit;
-  font-size: 1.0625rem;
-  font-weight: 700;
+  @apply tw:[font-family:inherit];
+  @apply tw:text-[1.0625rem];
+  @apply tw:font-bold;
 }
 
 .public-site .brand small {
-  font-size: var(--public-note);
+  @apply tw:text-public-note;
 }
 
 .public-site :is(.btn, .secondary-btn, .outline-btn, .text-link, .eyebrow) {
-  font-size: var(--public-label);
+  @apply tw:text-public-label;
 }
 
 .public-site :is(input, select, textarea) {
-  font-size: var(--public-text);
+  @apply tw:text-public-body;
 }
 
 .public-site
@@ -41,27 +41,27 @@
     .public-nav,
     .public-nav .outline-btn
   ) {
-  font-size: var(--public-label);
+  @apply tw:text-public-label;
 }
 
 .public-site :is(.content-hero, .service-page) h1 {
-  font-size: var(--public-title);
-  line-height: 1.5;
+  @apply tw:text-public-title;
+  @apply tw:leading-[1.5];
 }
 
 .public-site :is(.content-hero p, .service-page > p) {
-  font-size: var(--public-lead);
-  line-height: 1.95;
+  @apply tw:text-public-lead;
+  @apply tw:leading-[1.95];
 }
 
 .public-site :is(.content-hero h2, .article-body h2, .content-cta h2) {
-  font-size: var(--public-heading);
-  line-height: 1.6;
+  @apply tw:text-public-heading;
+  @apply tw:leading-[1.6];
 }
 
 .public-site :is(.info-card, .article-card, .app-card) h2 {
-  font-size: var(--public-card-title);
-  line-height: 1.65;
+  @apply tw:text-public-card-title;
+  @apply tw:leading-[1.65];
 }
 
 .public-site
@@ -72,14 +72,14 @@
     .article-card p,
     .app-card p
   ) {
-  font-size: var(--public-text);
-  line-height: 2;
+  @apply tw:text-public-body;
+  @apply tw:leading-[2];
 }
 
 .public-site :is(.breadcrumbs, .article-meta, .article-card > div) {
-  font-size: var(--public-note);
+  @apply tw:text-public-note;
 }
 
 .public-site .site-footer .brand {
-  transform: none;
+  @apply tw:transform-none;
 }

@@ -1,305 +1,227 @@
 table {
-  width: 100%;
-  border-collapse: collapse;
-  @apply tw:text-right tw:whitespace-nowrap;
-  font-size: 11px;
+  @apply tw:w-full tw:border-collapse tw:text-right tw:whitespace-nowrap tw:text-[11px];
 }
 th {
-  background: #f7f8f1;
-  border-top: 1px solid #edf0e6;
-  border-bottom: 1px solid #edf0e6;
-  padding: 11px 19px;
-  font-size: 10px;
-  font-weight: 400;
-  color: #91a087;
+  @apply tw:bg-[#f7f8f1] tw:[border-top:1px_solid_#edf0e6];
+  @apply tw:[border-bottom:1px_solid_#edf0e6] tw:py-[11px] tw:px-[19px] tw:text-[10px];
+  @apply tw:font-normal tw:text-[#91a087];
 }
 td {
-  padding: 18px 19px;
-  border-bottom: 1px solid #edf0e6;
-  color: #4f654c;
+  @apply tw:py-4.5 tw:px-[19px] tw:[border-bottom:1px_solid_#edf0e6] tw:text-[#4f654c];
 }
 tbody tr:last-child td {
-  border-bottom: 0;
+  @apply tw:[border-bottom:0];
 }
 tbody tr:hover {
-  background: #fafbf5;
+  @apply tw:bg-[#fafbf5];
 }
 .shipment-name b {
-  font-size: 11px;
-  @apply tw:font-medium tw:block;
-  color: #425c40;
+  @apply tw:text-[11px];
+  @apply tw:font-medium tw:block tw:text-[#425c40];
 }
 .shipment-name small {
-  font-family: Arial, sans-serif;
-  font-size: 8px;
-  color: #a2ac98;
-  @apply tw:block tw:text-right tw:mt-1;
-  letter-spacing: 0.5px;
+  @apply tw:font-latin;
+  @apply tw:text-[8px] tw:text-[#a2ac98] tw:block tw:text-right tw:mt-1 tw:tracking-[0.5px];
 }
 .table-route svg {
-  color: #a4b198;
+  @apply tw:text-[#a4b198];
 }
 .table-route + small {
-  font-size: 8px;
-  margin-top: 3px;
-  display: block;
+  @apply tw:text-[8px] tw:mt-[3px] tw:block;
 }
 .page-heading {
-  @apply tw:flex tw:items-center tw:justify-between tw:gap-5;
-  margin-bottom: 27px;
+  @apply tw:flex tw:items-center tw:justify-between tw:gap-5 tw:mb-[27px];
 }
 .page-heading h1 {
-  font-size: 27px;
+  @apply tw:text-[27px];
 }
 .page-heading p {
-  font-size: 11px;
-  color: #8e9c85;
-  margin-top: 5px;
+  @apply tw:text-[11px] tw:text-[#8e9c85] tw:mt-[5px];
 }
 .page-heading .btn {
-  font-size: 11px;
-  @apply tw:min-h-10.5 tw:gap-2.5;
+  @apply tw:text-[11px] tw:min-h-10.5 tw:gap-2.5;
 }
 .list-toolbar select {
-  font-size: 11px;
-  min-height: 40px;
-  width: 170px;
-  padding: 8px 12px;
+  @apply tw:text-[11px] tw:min-h-10 tw:w-[170px] tw:py-2 tw:px-3;
 }
 .search-field input {
-  background: none;
-  border: 0;
-  min-height: 40px;
-  font-size: 11px;
-  @apply tw:p-2 tw:flex-1;
+  @apply tw:[background:none] tw:[border:0] tw:min-h-10 tw:text-[11px] tw:p-2 tw:flex-1;
 }
 .search-field .text-link {
-  font-size: 10px;
-  white-space: nowrap;
+  @apply tw:text-[10px] tw:whitespace-nowrap;
 }
 .list-toolbar > a {
   @apply tw:mr-auto tw:whitespace-nowrap;
 }
 .big-route > div {
-  position: relative;
+  @apply tw:relative;
 }
 .big-route > div > svg {
-  color: var(--teal);
-  margin: 0 auto 7px;
+  @apply tw:text-brand tw:[margin:0_auto_7px];
 }
 .big-route small {
-  display: block;
-  color: #97a58c;
-  font-size: 10px;
+  @apply tw:block tw:text-[#97a58c] tw:text-[10px];
 }
 .big-route h2 {
-  font-size: 23px;
-  margin-top: 4px;
+  @apply tw:text-[23px] tw:mt-1;
 }
 .big-route .route-dash {
-  flex: 1;
-  border-top: 1px dashed #b7c7ab;
-  margin: 0 35px;
-  height: 1px;
+  @apply tw:flex-1 tw:[border-top:1px_dashed_#b7c7ab] tw:my-0 tw:mx-[35px] tw:h-px;
 }
 .route-dash svg {
-  position: absolute;
-  top: -15px;
-  background: #f3f6ee;
-  right: 40%;
-  @apply tw:p-1 tw:w-9 tw:h-7.5;
+  @apply tw:absolute tw:top-[-15px] tw:bg-[#f3f6ee];
+  @apply tw:right-[40%] tw:p-1 tw:w-9 tw:h-7.5;
 }
 .detail-grid {
-  gap: 0 30px;
+  @apply tw:gap-[0_30px];
 }
 .detail-grid > div {
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
+  @apply tw:py-3.5 tw:px-0 tw:[border-bottom:1px_solid_var(--line)];
 }
 dt {
-  font-size: 10px;
-  color: #9ba58f;
-  margin-bottom: 5px;
+  @apply tw:text-[10px] tw:text-[#9ba58f] tw:mb-[5px];
 }
 dd {
-  margin: 0;
-  font-size: 12px;
-  overflow-wrap: anywhere;
+  @apply tw:m-0 tw:text-[12px] tw:wrap-anywhere;
 }
 .shipment-actions .btn {
-  font-size: 11px;
-  padding: 10px 15px;
-  gap: 8px;
+  @apply tw:text-[11px] tw:py-2.5 tw:px-[15px] tw:gap-2;
 }
 .rating-form h2,
 .rating-form .full,
 .rating-form .btn {
-  grid-column: 1 / -1;
+  @apply tw:col-span-full;
 }
 .rating-form h2 {
-  margin: 0;
-  font-size: 16px;
+  @apply tw:m-0 tw:text-[16px];
 }
 .rating-form label {
-  @apply tw:grid tw:gap-1.5;
-  font-size: 13px;
+  @apply tw:grid tw:gap-1.5 tw:text-[13px];
 }
 .detail-section > h2 {
-  font-size: 16px;
-  margin-bottom: 17px;
+  @apply tw:text-[16px] tw:mb-[17px];
 }
 .detail-section .card-head {
-  padding: 0 0 12px;
+  @apply tw:[padding:0_0_12px];
 }
 .list-row:last-child {
-  border: 0;
+  @apply tw:[border:0];
 }
 .list-row p {
-  font-size: 11px;
-  color: #8a9a7e;
-  white-space: pre-wrap;
+  @apply tw:text-[11px] tw:text-[#8a9a7e] tw:whitespace-pre-wrap;
 }
 .documents > a {
-  @apply tw:flex tw:items-center;
-  gap: 15px;
-  padding: 12px 15px;
-  background: #f5f7ef;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  color: #708b63;
-  font-size: 11px;
+  @apply tw:flex tw:items-center tw:gap-[15px] tw:py-3 tw:px-[15px] tw:bg-[#f5f7ef]
+    tw:[border:1px_solid_var(--line)];
+  @apply tw:rounded-[7px] tw:text-[#708b63] tw:text-[11px];
 }
 .documents > a > svg:last-child {
-  margin-right: auto;
+  @apply tw:mr-auto;
 }
 .documents > a span {
-  overflow-wrap: anywhere;
+  @apply tw:wrap-anywhere;
 }
 .upload-btn {
-  cursor: pointer;
+  @apply tw:cursor-pointer;
 }
 .inspection-row p {
-  font-size: 11px;
-  color: #9aa58f;
+  @apply tw:text-[11px] tw:text-[#9aa58f];
 }
 .inspection-row b {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .timeline-card h2 {
-  font-size: 17px;
+  @apply tw:text-[17px];
 }
 .timeline li {
-  border-right: 1px solid #e0e7d7;
-  position: relative;
-  padding: 0 22px 28px 0;
+  @apply tw:[border-right:1px_solid_#e0e7d7] tw:relative tw:[padding:0_22px_28px_0];
 }
 .timeline li:last-child {
-  border-right-color: transparent;
-  padding-bottom: 5px;
+  @apply tw:border-r-transparent tw:pb-[5px];
 }
 .timeline li > i {
-  position: absolute;
-  right: -5px;
-  top: 8px;
-  width: 9px;
-  height: 9px;
-  background: #d4decb;
-  border: 2px solid #fffefa;
-  border-radius: 50%;
+  @apply tw:absolute tw:right-[-5px];
+  @apply tw:top-2 tw:w-[9px] tw:h-[9px] tw:bg-[#d4decb] tw:[border:2px_solid_#fffefa];
+  @apply tw:rounded-[50%];
 }
 .timeline li.latest > i {
-  background: var(--teal);
-  box-shadow: 0 0 0 4px #087f8c14;
+  @apply tw:bg-brand tw:[box-shadow:0_0_0_4px_#087f8c14];
 }
 .timeline b {
-  font-size: 11px;
-  font-weight: 500;
+  @apply tw:text-[11px];
+  @apply tw:font-medium;
 }
 .timeline p {
-  font-size: 10px;
-  color: #93a087;
-  margin-top: 5px;
+  @apply tw:text-[10px] tw:text-[#93a087] tw:mt-[5px];
 }
 .timeline small {
-  font-size: 8px;
-  color: #afb6a5;
-  margin-top: 5px;
-  display: block;
+  @apply tw:text-[8px] tw:text-[#afb6a5] tw:mt-[5px] tw:block;
 }
 @media (min-width: 1600px) {
   td {
-    padding: 20px 25px;
+    @apply tw:py-5 tw:px-[25px];
   }
   .shipment-name b {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
   table {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
 }
 @media (max-width: 760px) {
   table {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   th {
-    padding: 10px 15px;
-    font-size: 9px;
+    @apply tw:py-2.5 tw:px-[15px] tw:text-[9px];
   }
   td {
-    padding: 16px 15px;
+    @apply tw:py-4 tw:px-[15px];
   }
   .shipment-name b {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   .table-route + small {
-    font-size: 8px;
+    @apply tw:text-[8px];
   }
   .page-heading {
-    align-items: start;
-    gap: 13px;
-    flex-direction: column;
-    margin-bottom: 23px;
+    @apply tw:[align-items:start] tw:gap-[13px] tw:flex-col tw:mb-[23px];
   }
   .page-heading h1 {
-    font-size: 24px;
+    @apply tw:text-[24px];
   }
   .page-heading p {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   .page-heading .btn {
-    min-height: 39px;
-    font-size: 10px;
-    padding: 8px 14px;
+    @apply tw:min-h-[39px] tw:text-[10px] tw:py-2 tw:px-3.5;
   }
   .page-heading > .badge {
-    align-self: flex-end;
-    margin-top: -30px;
+    @apply tw:self-end tw:-mt-7.5;
   }
   .list-toolbar select {
-    @apply tw:w-auto tw:flex-1;
-    font-size: 10px;
+    @apply tw:w-auto tw:flex-1 tw:text-[10px];
   }
   .list-toolbar > a {
-    font-size: 10px;
-    padding: 8px 10px;
+    @apply tw:text-[10px] tw:py-2 tw:px-2.5;
   }
   .search-field {
-    flex-basis: 100%;
+    @apply tw:basis-full;
   }
   .big-route h2 {
-    font-size: 20px;
+    @apply tw:text-[20px];
   }
   .big-route .route-dash {
-    margin: 0 25px;
+    @apply tw:my-0 tw:mx-[25px];
   }
   .detail-grid {
-    gap: 0 20px;
+    @apply tw:gap-[0_20px];
   }
   dd {
-    font-size: 11px;
+    @apply tw:text-[11px];
   }
   .shipment-actions .btn {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
 }
 .page-heading p,
@@ -308,26 +230,26 @@ dd {
 .detail-grid dt,
 .timeline p,
 .timeline small {
-  color: #64745e;
+  @apply tw:text-[#64745e];
 }
 table {
-  font-size: 13px;
+  @apply tw:text-[13px];
 }
 th {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .shipment-name b {
-  font-size: 13px;
+  @apply tw:text-[13px];
 }
 .shipment-name small {
-  font-size: 11px;
+  @apply tw:text-[11px];
 }
 .detail-grid dt,
 .timeline small {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .detail-grid dd {
-  font-size: 14px;
+  @apply tw:text-[14px];
 }
 
 /* Keep absolutely positioned accessible table labels inside the scroll container. */

@@ -894,11 +894,12 @@ function PlaceFields({
         />
       </label>
       {matches.length > 0 && query.trim() !== city.trim() && (
-        <ul className="map-results tw:list-none tw:m-0 tw:p-0 tw:border tw:border-line tw:rounded-[12px] tw:max-h-45 tw:overflow-auto full">
+        <ul className="tw:list-none tw:m-0 tw:p-0 tw:border tw:border-line tw:rounded-[12px] tw:max-h-45 tw:overflow-auto full">
           {matches.map((item) => (
             <li key={item.name + item.province}>
               <button
                 type="button"
+                className="tw:w-full tw:bg-transparent tw:px-3 tw:py-2 tw:text-right"
                 onClick={() => {
                   setQuery(item.name);
                   onChange({

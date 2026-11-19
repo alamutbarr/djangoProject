@@ -1,100 +1,65 @@
 .welcome .eyebrow {
-  font-size: 10px;
-  color: #899980;
-  margin-bottom: 6px;
+  @apply tw:text-[10px] tw:text-[#899980] tw:mb-1.5;
 }
 .welcome h1 {
-  font-size: 28px;
-  letter-spacing: -1px;
-  font-weight: 700;
+  @apply tw:text-[28px] tw:tracking-[-1px];
+  @apply tw:font-bold;
 }
 .welcome p {
-  font-size: 11px;
-  color: #8c9887;
-  margin-top: 5px;
+  @apply tw:text-[11px] tw:text-[#8c9887] tw:mt-[5px];
 }
 .today > span {
-  font-size: 9px;
-  color: #a0a991;
-  display: block;
+  @apply tw:text-[9px] tw:text-[#a0a991] tw:block;
 }
 .today b {
-  font-size: 11px;
+  @apply tw:text-[11px];
   @apply tw:block tw:font-medium;
 }
 .today small {
-  font-size: 9px;
-  color: #97a28d;
-  @apply tw:flex tw:items-center tw:justify-end;
-  gap: 7px;
-  margin-top: 3px;
+  @apply tw:text-[9px] tw:text-[#97a28d] tw:flex tw:items-center tw:justify-end tw:gap-[7px] tw:mt-[3px];
 }
 .today i {
-  @apply tw:w-1 tw:h-1;
-  background: #8bac78;
-  display: inline-block;
-  border-radius: 50%;
+  @apply tw:w-1 tw:h-1 tw:bg-[#8bac78] tw:inline-block tw:rounded-[50%];
 }
 .stat-card > div {
-  @apply tw:flex tw:justify-between tw:items-center;
-  font-size: 11px;
-  color: #7e8b77;
+  @apply tw:flex tw:justify-between tw:items-center tw:text-[11px] tw:text-[#7e8b77];
 }
 .stat-card > div > svg {
-  color: #98a88e;
+  @apply tw:text-[#98a88e];
 }
 .stat-card strong {
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  display: block;
-  margin: 8px 0 2px;
-  line-height: 1.5;
+  @apply tw:text-[30px];
+  @apply tw:font-semibold tw:tracking-[-1px] tw:block tw:[margin:8px_0_2px];
+  @apply tw:leading-[1.5];
 }
 .stat-card small {
-  font-size: 9px;
-  color: #98a18e;
-  display: block;
+  @apply tw:text-[9px] tw:text-[#98a18e] tw:block;
 }
 .stat-card.featured {
-  background: #214f46;
-  border-color: #214f46;
-  color: #fbfcf3;
+  @apply tw:bg-[#214f46] tw:border-[#214f46] tw:text-[#fbfcf3];
 }
 .stat-card.featured > div {
-  color: #d7e2d1;
+  @apply tw:text-[#d7e2d1];
 }
 .stat-card.featured > div > svg {
-  color: #9cba9b;
+  @apply tw:text-[#9cba9b];
 }
 .stat-card.featured small {
-  color: #a6bca1;
+  @apply tw:text-[#a6bca1];
 }
 .stat-card.featured:after {
-  content: "";
-  @apply tw:absolute tw:w-30 tw:h-30;
-  border: 1px solid #b1c6a61a;
-  border-radius: 50%;
-  left: -55px;
-  bottom: -70px;
-  box-shadow:
-    0 0 0 22px #b1c6a60b,
-    0 0 0 44px #b1c6a608;
+  @apply tw:[content:""] tw:absolute tw:w-30 tw:h-30 tw:[border:1px_solid_#b1c6a61a];
+  @apply tw:rounded-[50%] tw:left-[-55px];
+  @apply tw:-bottom-17.5 tw:[box-shadow:0_0_0_22px_#b1c6a60b,0_0_0_44px_#b1c6a608];
 }
 .route-card .card-head {
-  padding-bottom: 0;
+  @apply tw:pb-0;
 }
 .live-label i {
-  background: #92b16f;
-  width: 5px;
-  height: 5px;
-  display: inline-block;
-  border-radius: 50%;
+  @apply tw:bg-[#92b16f] tw:w-[5px] tw:h-[5px] tw:inline-block tw:rounded-[50%];
 }
 .route-visual svg {
-  width: 100%;
-  height: 180px;
-  opacity: 0.75;
+  @apply tw:w-full tw:h-[180px] tw:opacity-75;
 }
 .route-summary > span {
   @apply tw:flex tw:items-center tw:gap-1.5;
@@ -103,168 +68,156 @@
   @apply tw:flex tw:gap-1.5 tw:items-center tw:mr-auto tw:text-brand;
 }
 .attention-card .eyebrow {
-  font-size: 9px;
-  color: #8b9b7f;
+  @apply tw:text-[9px] tw:text-[#8b9b7f];
 }
 .attention-card h2 {
-  font-size: 24px;
-  margin-top: 10px;
-  line-height: 1.65;
-  font-weight: 600;
+  @apply tw:text-[24px] tw:mt-2.5;
+  @apply tw:leading-[1.65];
+  @apply tw:font-semibold;
 }
 .attention-card h2 em {
-  color: #617e52;
+  @apply tw:text-[#617e52];
 }
 .attention-card p {
-  font-size: 10px;
-  color: #8b9980;
-  max-width: 255px;
-  margin-top: 11px;
-  @apply tw:relative tw:z-1;
+  @apply tw:text-[10px] tw:text-[#8b9980] tw:max-w-[255px] tw:mt-[11px] tw:relative tw:z-1;
 }
 .attention-card .btn {
-  padding: 9px 16px;
-  min-height: 38px;
-  font-size: 10px;
-  @apply tw:mt-5.5 tw:relative tw:z-1 tw:gap-4;
+  @apply tw:py-[9px] tw:px-4 tw:min-h-9.5 tw:text-[10px] tw:mt-5.5 tw:relative tw:z-1 tw:gap-4;
 }
 @media (min-width: 1600px) {
   .welcome h1 {
-    font-size: 32px;
+    @apply tw:text-[32px];
   }
   .route-visual svg {
-    height: 215px;
+    @apply tw:h-[215px];
   }
   .attention-card h2 {
-    font-size: 28px;
+    @apply tw:text-[28px];
   }
   .attention-card p {
-    font-size: 12px;
-    max-width: 320px;
+    @apply tw:text-[12px] tw:max-w-[320px];
   }
   .attention-card .btn {
-    font-size: 11px;
+    @apply tw:text-[11px];
   }
 }
 @media (max-width: 1200px) {
   .stat-card strong {
-    font-size: 26px;
+    @apply tw:text-[26px];
   }
   .attention-card h2 {
-    font-size: 22px;
+    @apply tw:text-[22px];
   }
   .route-summary > a {
-    display: none;
+    @apply tw:hidden;
   }
   .route-visual svg {
-    height: 180px;
+    @apply tw:h-[180px];
   }
 }
 @media (max-width: 950px) {
   .welcome h1 {
-    font-size: 23px;
+    @apply tw:text-[23px];
   }
   .welcome .today b {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
 }
 @media (max-width: 760px) {
   .welcome h1 {
-    font-size: 22px;
+    @apply tw:text-[22px];
   }
   .welcome p {
-    font-size: 10px;
-    max-width: 220px;
+    @apply tw:text-[10px] tw:max-w-[220px];
   }
   .welcome .eyebrow {
-    font-size: 9px;
+    @apply tw:text-[9px];
   }
   .today > span {
-    font-size: 8px;
+    @apply tw:text-[8px];
   }
   .today b {
-    font-size: 9px !important;
+    @apply tw:text-[9px]!;
   }
   .today small {
-    display: none;
+    @apply tw:hidden;
   }
   .stat-card > div {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   .stat-card > div svg {
-    width: 18px;
+    @apply tw:w-4.5;
   }
   .stat-card strong {
-    font-size: 25px;
+    @apply tw:text-[25px];
   }
   .stat-card small {
-    font-size: 8px;
+    @apply tw:text-[8px];
   }
   .route-card .card-head {
-    padding: 19px 17px 0;
+    @apply tw:[padding:19px_17px_0];
   }
   .route-visual svg {
-    height: 155px;
+    @apply tw:h-[155px];
   }
   .route-summary > a {
-    display: flex;
-    font-size: 8px;
+    @apply tw:flex tw:text-[8px];
   }
 }
 @media (max-width: 400px) {
   .welcome h1 {
-    font-size: 19px;
+    @apply tw:text-[19px];
   }
   .welcome p {
-    font-size: 9px;
+    @apply tw:text-[9px];
   }
   .stat-card strong {
-    font-size: 23px;
+    @apply tw:text-[23px];
   }
   .stat-card > div {
-    font-size: 9px;
+    @apply tw:text-[9px];
   }
 }
 .stat-card > div {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .stat-card small {
-  font-size: 10px;
+  @apply tw:text-[10px];
 }
 @media (max-width: 760px) {
   .stat-card > div {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   .stat-card small {
-    font-size: 8px;
+    @apply tw:text-[8px];
   }
 }
 .welcome p,
 .stat-card small,
 .today > span,
 .today small {
-  color: #64745e;
+  @apply tw:text-[#64745e];
 }
 .stat-card.featured small {
-  color: #c6d7bd;
+  @apply tw:text-[#c6d7bd];
 }
 .stat-card > div {
-  font-size: 14px;
+  @apply tw:text-[14px];
 }
 .stat-card small {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .stat-card strong {
-  font-size: 32px;
+  @apply tw:text-[32px];
 }
 @media (max-width: 760px) {
   .stat-card strong {
-    font-size: 29px;
+    @apply tw:text-[29px];
   }
   .stat-card > div {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
   .stat-card small {
-    font-size: 11px;
+    @apply tw:text-[11px];
   }
 }

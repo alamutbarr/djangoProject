@@ -1,37 +1,37 @@
 .workspace-main p {
-  font-size: 13px;
+  @apply tw:text-[13px];
 }
 .workspace-main h1 {
-  font-size: 30px;
+  @apply tw:text-[30px];
 }
 .workspace-main :where(.card-head) p {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .welcome p {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .page-heading p,
 .timeline p {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .ticket-item p,
 .profile-summary p {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 @media (max-width: 760px) {
   .workspace-main h1 {
-    font-size: 25px;
+    @apply tw:text-[25px];
   }
   .workspace-main p {
-    font-size: 13px;
+    @apply tw:text-[13px];
   }
   .welcome p {
-    font-size: 13px;
+    @apply tw:text-[13px];
   }
   .welcome h1 {
-    font-size: 24px;
+    @apply tw:text-[24px];
   }
   .page-heading p {
-    font-size: 13px;
+    @apply tw:text-[13px];
   }
 }

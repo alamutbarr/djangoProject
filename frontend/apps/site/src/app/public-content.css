@@ -1,42 +1,37 @@
 .service-page {
-  max-width: 1000px;
+  @apply tw:max-w-[1000px];
 }
 .service-page h1 {
-  font-size: 40px;
-  margin: 25px 0;
+  @apply tw:text-[40px] tw:my-[25px] tw:mx-0;
 }
 .service-page > p {
-  font-size: 18px;
-  margin: 22px 0 35px;
+  @apply tw:text-[18px] tw:[margin:22px_0_35px];
 }
 .service-page .card {
-  margin: 30px 0;
+  @apply tw:my-7.5 tw:mx-0;
 }
 .service-page li {
-  padding: 8px;
-  font-size: 16px;
+  @apply tw:p-2 tw:text-[16px];
 }
 .service-page > .text-link {
-  margin-right: 24px;
+  @apply tw:mr-6;
 }
 .service-faq details {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
+  @apply tw:py-5 tw:px-0 tw:[border-bottom:1px_solid_var(--line)];
 }
 .service-faq summary {
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 500;
+  @apply tw:cursor-pointer tw:text-[18px];
+  @apply tw:font-medium;
 }
 .service-faq p {
-  margin-top: 18px;
+  @apply tw:mt-4.5;
 }
 @media (max-width: 760px) {
   .service-page h1 {
-    font-size: 29px;
+    @apply tw:text-[29px];
   }
   .service-page > p {
-    font-size: 16px;
+    @apply tw:text-[16px];
   }
   .service-page > .text-link {
     @apply tw:flex tw:my-5 tw:mx-0;
@@ -46,188 +41,158 @@
   @apply tw:flex tw:items-center tw:justify-center tw:gap-5.5 tw:flex-1;
 }
 .site-header a {
-  font-size: 14px;
+  @apply tw:text-[14px];
 }
 .site-header > nav a:hover {
-  color: var(--teal);
+  @apply tw:text-brand;
 }
 .content-page {
-  max-width: 1180px;
-  margin: auto;
-  padding: 32px 36px 80px;
+  @apply tw:max-w-[1180px] tw:m-auto tw:[padding:32px_36px_80px];
 }
 .content-hero {
-  padding: 45px 0 44px;
-  max-width: 850px;
+  @apply tw:[padding:45px_0_44px] tw:max-w-[850px];
 }
 .content-hero h1 {
-  font-size: clamp(30px, 4vw, 52px);
-  line-height: 1.6;
-  margin: 14px 0 22px;
-  letter-spacing: -1px;
+  @apply tw:text-[clamp(30px,4vw,52px)];
+  @apply tw:leading-[1.6] tw:[margin:14px_0_22px] tw:tracking-[-1px];
 }
 .content-hero h2 {
-  font-size: 23px;
-  font-weight: 500;
+  @apply tw:text-[23px];
+  @apply tw:font-medium;
 }
 .content-hero p {
-  font-size: 17px;
-  line-height: 2.15;
-  color: #58706a;
-  margin-top: 20px;
-  max-width: 760px;
+  @apply tw:text-[17px];
+  @apply tw:leading-[2.15] tw:text-[#58706a] tw:mt-5 tw:max-w-[760px];
 }
 .info-card {
-  padding: 30px;
+  @apply tw:p-7.5;
 }
 .info-card p,
 .info-card li {
-  line-height: 2.15;
-  font-size: 16px;
+  @apply tw:leading-[2.15];
+  @apply tw:text-[16px];
 }
 .info-card li + li {
-  margin-top: 14px;
+  @apply tw:mt-3.5;
 }
 .info-card h2 {
-  font-size: 22px;
-  line-height: 1.8;
-  margin: 12px 0;
+  @apply tw:text-[22px];
+  @apply tw:leading-[1.8] tw:my-3 tw:mx-0;
 }
 .section-number {
-  font: 15px Arial;
-  color: var(--gold);
+  @apply tw:[font:15px_Arial] tw:text-gold;
 }
 .content-cta h2 {
-  flex: 1;
-  font-size: 24px;
+  @apply tw:flex-1 tw:text-[24px];
 }
 .article-card h2 {
-  font-size: 23px;
-  line-height: 1.8;
-  margin: 16px 0;
+  @apply tw:text-[23px];
+  @apply tw:leading-[1.8] tw:my-4 tw:mx-0;
 }
 .article-card p {
-  color: #58706a;
-  line-height: 2;
-  flex: 1;
+  @apply tw:text-[#58706a] tw:leading-[2] tw:flex-1;
 }
 .article-card > div {
-  @apply tw:flex tw:gap-6 tw:flex-wrap;
-  color: #71827a;
-  font-size: 13px;
-  margin: 18px 0;
+  @apply tw:flex tw:gap-6 tw:flex-wrap tw:text-[#71827a] tw:text-[13px] tw:my-4.5 tw:mx-0;
 }
 .article-search label,
 .faq-filter label {
-  flex: 1;
+  @apply tw:flex-1;
 }
 .article-detail {
-  max-width: 960px;
+  @apply tw:max-w-[960px];
 }
 .article-body section {
-  margin-bottom: 34px;
+  @apply tw:mb-8.5;
 }
 .article-body h2 {
-  font-size: 25px;
-  margin-bottom: 16px;
+  @apply tw:text-[25px] tw:mb-4;
 }
 .article-body p {
-  white-space: pre-wrap;
+  @apply tw:whitespace-pre-wrap;
 }
 .article-body,
 .article-card,
 .info-card,
 .content-hero {
-  overflow-wrap: anywhere;
+  @apply tw:wrap-anywhere;
 }
 .public-contact label {
   @apply tw:block tw:mb-5;
 }
 .public-contact .btn {
-  margin-top: 12px;
+  @apply tw:mt-3;
 }
 .app-card img {
-  border-radius: 18px;
+  @apply tw:rounded-[18px];
 }
 .app-card h2,
 .app-card p {
-  margin: 0;
+  @apply tw:m-0;
 }
 .app-card p {
-  flex: 1;
-  color: #58706a;
+  @apply tw:flex-1 tw:text-[#58706a];
 }
 .public-site .breadcrumbs {
-  font-size: 13px;
+  @apply tw:text-[13px];
 }
 .public-site input,
 .public-site select,
 .public-site textarea {
-  font-size: 16px;
+  @apply tw:text-[16px];
 }
 @media (max-width: 1100px) {
   .site-header > nav {
-    gap: 12px;
+    @apply tw:gap-3;
   }
   .site-header > nav a {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
 }
 @media (max-width: 850px) {
   .site-header > nav,
   .site-header > .secondary-btn {
-    display: none;
+    @apply tw:hidden;
   }
   .site-mobile-menu summary {
-    cursor: pointer;
-    border: 1px solid var(--line);
-    padding: 10px 14px;
-    border-radius: 8px;
+    @apply tw:cursor-pointer tw:[border:1px_solid_var(--line)] tw:py-2.5 tw:px-3.5;
+    @apply tw:rounded-[8px];
   }
   .site-mobile-menu nav {
-    position: absolute;
-    inset-inline: 20px;
-    top: 90px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 16px 40px #183e461a;
-    @apply tw:z-50 tw:grid tw:gap-3.5;
+    @apply tw:absolute tw:inset-x-5;
+    @apply tw:top-22.5 tw:bg-white tw:[border:1px_solid_var(--line)];
+    @apply tw:rounded-[12px] tw:p-5 tw:[box-shadow:0_16px_40px_#183e461a] tw:z-50 tw:grid tw:gap-3.5;
   }
   .content-page {
-    padding-inline: 24px;
+    @apply tw:px-6;
   }
   .content-hero {
-    padding: 32px 0;
+    @apply tw:py-8 tw:px-0;
   }
   .content-hero p {
-    font-size: 16px;
+    @apply tw:text-[16px];
   }
 }
 @media (max-width: 600px) {
   .content-page {
-    padding: 20px 18px 48px;
+    @apply tw:[padding:20px_18px_48px];
   }
   .info-card {
-    padding: 22px;
+    @apply tw:p-5.5;
   }
   .content-hero h1 {
-    font-size: 31px;
-    letter-spacing: -0.5px;
+    @apply tw:text-[31px] tw:tracking-[-0.5px];
   }
   .content-hero h2 {
-    font-size: 20px;
+    @apply tw:text-[20px];
   }
   .content-cta h2 {
-    flex-basis: 100%;
-    font-size: 22px;
+    @apply tw:basis-full tw:text-[22px];
   }
   .article-body h2 {
-    font-size: 22px;
+    @apply tw:text-[22px];
   }
   .public-site .brand {
-    transform: scale(0.92);
-    transform-origin: right center;
+    @apply tw:[transform:scale(0.92)] tw:origin-[right_center];
   }
 }

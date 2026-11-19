@@ -66,7 +66,7 @@ export function Empty({
 export function Loading() {
   return (
     <div className="tw:flex tw:gap-3 tw:items-center tw:justify-center tw:min-h-[50svh] tw:text-[#829475] tw:text-[12px]" role="status">
-      <LoaderCircle className="spin" /> در حال دریافت اطلاعات…
+      <LoaderCircle className="tw:animate-loading" /> در حال دریافت اطلاعات…
     </div>
   );
 }

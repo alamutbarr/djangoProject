@@ -86,9 +86,10 @@ export default function Security() {
         />
       ) : (
         <>
-          <div className="mfa-key tw:my-[25px] tw:mx-0 tw:p-5.5 tw:bg-[#f4f6ee] tw:rounded-[10px] tw:text-center">
+          <div className="tw:my-[25px] tw:mx-0 tw:p-5.5 tw:bg-[#f4f6ee] tw:rounded-[10px] tw:text-center">
             {qr && (
               <img
+                className="tw:mx-auto tw:mb-4.5"
                 src={qr}
                 width={210}
                 height={210}
@@ -96,7 +97,7 @@ export default function Security() {
               />
             )}
             <p>کلید دستی برای برنامه احراز هویت:</p>
-            <code dir="ltr">{setup.secret}</code>
+            <code className="tw:block tw:wrap-anywhere tw:text-[14px]" dir="ltr">{setup.secret}</code>
           </div>
           <ActionForm
             fields={[

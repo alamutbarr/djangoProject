@@ -1,247 +1,198 @@
 .financial-summary > div {
-  padding: 24px 28px;
-  background: #eaf1e6;
-  border: 1px solid #dce6d5;
-  border-radius: 10px;
+  @apply tw:py-6 tw:px-7 tw:bg-[#eaf1e6] tw:[border:1px_solid_#dce6d5];
+  @apply tw:rounded-[10px];
 }
 .financial-summary > div:last-child {
-  background: #f5efdf;
-  border-color: #e9e0c9;
+  @apply tw:bg-[#f5efdf] tw:border-[#e9e0c9];
 }
 .financial-summary span {
-  color: #89977d;
-  font-size: 11px;
-  display: block;
+  @apply tw:text-[#89977d] tw:text-[11px] tw:block;
 }
 .financial-summary strong {
-  display: block;
-  font-size: 24px;
+  @apply tw:block tw:text-[24px];
   @apply tw:mt-2.5 tw:font-semibold;
 }
 .report-card h2 {
-  font-size: 17px;
-  margin-bottom: 25px;
+  @apply tw:text-[17px] tw:mb-[25px];
 }
 .bar-row > div:first-child {
-  @apply tw:flex tw:justify-between;
-  font-size: 11px;
-  margin-bottom: 8px;
+  @apply tw:flex tw:justify-between tw:text-[11px] tw:mb-2;
 }
 .bar-track i {
-  height: 100%;
-  background: #6e9b7d;
-  display: block;
-  border-radius: 4px;
+  @apply tw:h-full tw:bg-[#6e9b7d] tw:block tw:rounded-[4px];
 }
 .report-metric strong {
-  font-size: 27px;
+  @apply tw:text-[27px];
   @apply tw:font-medium tw:text-brand;
 }
 .report-card > .secondary-btn {
-  margin-top: 25px;
+  @apply tw:mt-[25px];
 }
 .tickets-layout {
-  align-items: start;
+  @apply tw:[align-items:start];
 }
 .ticket-item > div {
   @apply tw:flex tw:justify-between tw:items-center tw:gap-2.5;
 }
 .ticket-item b {
-  font-size: 12px;
-  font-weight: 500;
+  @apply tw:text-[12px];
+  @apply tw:font-medium;
 }
 .ticket-item p {
-  font-size: 9px;
-  color: #99a68f;
-  margin-top: 9px;
+  @apply tw:text-[9px] tw:text-[#99a68f] tw:mt-[9px];
 }
 .ticket-item.selected {
-  background: #eff4e9;
-  border-right: 3px solid var(--teal);
+  @apply tw:bg-[#eff4e9] tw:[border-right:3px_solid_var(--teal)];
 }
 .conversation .card-head {
-  padding: 0 0 18px;
-  border-bottom: 1px solid var(--line);
+  @apply tw:[padding:0_0_18px] tw:[border-bottom:1px_solid_var(--line)];
 }
 .conversation form {
-  padding-top: 20px;
+  @apply tw:pt-5;
 }
 .message {
-  padding: 15px 18px;
-  background: #f1f4ea;
-  border-radius: 9px;
-  max-width: 90%;
-  font-size: 12px;
+  @apply tw:py-[15px] tw:px-4.5 tw:bg-[#f1f4ea] tw:rounded-[9px] tw:max-w-[90%] tw:text-[12px];
 }
 .message > div {
-  @apply tw:flex tw:gap-5.5 tw:justify-between;
-  font-size: 10px;
-  color: #8d9c81;
+  @apply tw:flex tw:gap-5.5 tw:justify-between tw:text-[10px] tw:text-[#8d9c81];
 }
 .message small {
-  font-size: 8px;
+  @apply tw:text-[8px];
 }
 .message p {
-  margin-top: 9px;
-  white-space: pre-wrap;
+  @apply tw:mt-[9px] tw:whitespace-pre-wrap;
 }
 .message.staff {
-  align-self: flex-end;
-  background: #e8f1ea;
+  @apply tw:self-end tw:bg-[#e8f1ea];
 }
 .notice {
-  display: flex;
-  gap: 17px;
-  align-items: center;
-  padding: 23px 25px;
-  border-bottom: 1px solid var(--line);
+  @apply tw:flex tw:gap-[17px] tw:items-center tw:py-[23px] tw:px-[25px]
+    tw:[border-bottom:1px_solid_var(--line)];
 }
 .notice.unread {
-  background: #f4f7ee;
+  @apply tw:bg-[#f4f7ee];
 }
 .notice b {
-  font-size: 12px;
-  font-weight: 500;
+  @apply tw:text-[12px];
+  @apply tw:font-medium;
 }
 .notice small {
-  display: block;
-  color: #a5af98;
-  font-size: 9px;
-  margin-top: 5px;
+  @apply tw:block tw:text-[#a5af98] tw:text-[9px] tw:mt-[5px];
 }
 .notice .text-link {
-  margin-right: auto;
-  font-size: 11px;
+  @apply tw:mr-auto tw:text-[11px];
 }
 .profile-summary b {
-  font-size: 14px;
+  @apply tw:text-[14px];
 }
 .profile-summary p {
-  font-size: 11px;
-  color: #96a18a;
+  @apply tw:text-[11px] tw:text-[#96a18a];
 }
 .settings-grid .form-card > p {
-  margin-bottom: 25px;
-  font-size: 12px;
+  @apply tw:mb-[25px] tw:text-[12px];
 }
 @media (max-width: 760px) {
   .financial-summary > div {
-    padding: 18px;
+    @apply tw:p-4.5;
   }
   .financial-summary span {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   .financial-summary strong {
-    font-size: 18px;
+    @apply tw:text-[18px];
   }
   .notice {
-    padding: 18px;
-    gap: 11px;
+    @apply tw:p-4.5 tw:gap-[11px];
   }
   .notice b {
-    font-size: 10px;
+    @apply tw:text-[10px];
   }
   .notice small {
-    font-size: 8px;
+    @apply tw:text-[8px];
   }
   .notice .text-link {
-    font-size: 9px;
-    gap: 5px;
+    @apply tw:text-[9px] tw:gap-[5px];
   }
 }
 .financial-summary span,
 .notice small,
 .ticket-item p,
 .profile-summary p {
-  color: #64745e;
+  @apply tw:text-[#64745e];
 }
 .notice small {
-  font-size: 12px;
+  @apply tw:text-[12px];
 }
 .credential > div:first-child {
   @apply tw:flex tw:justify-between tw:gap-3;
 }
 .credential h3 {
-  font-size: 17px;
+  @apply tw:text-[17px];
 }
 .credential label {
-  margin-top: 15px;
+  @apply tw:mt-[15px];
 }
 .credential a {
-  overflow-wrap: anywhere;
+  @apply tw:wrap-anywhere;
 }
 .credential > p {
-  margin: 12px 0;
+  @apply tw:my-3 tw:mx-0;
 }
 .credential .upload-btn {
-  margin-top: 15px;
+  @apply tw:mt-[15px];
 }
 .onboarding-steps button,
 .crm-stage-tabs button {
-  border: 1px solid var(--line);
-  background: #fffefa;
-  padding: 12px 17px;
-  border-radius: 9px;
-  white-space: nowrap;
-  color: #637561;
+  @apply tw:[border:1px_solid_var(--line)] tw:bg-[#fffefa] tw:py-3 tw:px-[17px];
+  @apply tw:rounded-[9px] tw:whitespace-nowrap tw:text-[#637561];
 }
 .onboarding-steps button {
   @apply tw:flex-1 tw:text-right;
 }
 .onboarding-steps b {
-  @apply tw:inline-grid tw:place-items-center tw:w-6.5 tw:h-6.5;
-  border-radius: 50%;
-  background: #eaf0e4;
-  margin-left: 10px;
+  @apply tw:inline-grid tw:place-items-center tw:w-6.5 tw:h-6.5 tw:rounded-[50%] tw:bg-[#eaf0e4]
+    tw:ml-2.5;
 }
 .onboarding-steps .active,
 .crm-stage-tabs .active {
-  background: #e5f1e8;
-  color: var(--teal);
-  border-color: #9bbcad;
+  @apply tw:bg-[#e5f1e8] tw:text-brand tw:border-[#9bbcad];
 }
 .onboarding-summary > .btn {
-  margin-top: 24px;
+  @apply tw:mt-6;
 }
 .incident {
-  align-items: start;
+  @apply tw:[align-items:start];
 }
 .incident > div {
-  min-width: 0;
+  @apply tw:min-w-0;
 }
 .incident p {
-  white-space: pre-wrap;
+  @apply tw:whitespace-pre-wrap;
 }
 @media (max-width: 760px) {
   .onboarding-steps button {
-    font-size: 12px;
-    padding: 10px 12px;
+    @apply tw:text-[12px] tw:py-2.5 tw:px-3;
   }
   .credential > div:first-child {
-    flex-wrap: wrap;
+    @apply tw:flex-wrap;
   }
 }
 .saved-address-picker legend {
   @apply tw:py-0 tw:px-2 tw:font-medium;
 }
 .saved-address-picker small {
-  @apply tw:block tw:mt-3;
-  color: var(--muted, #627571);
+  @apply tw:block tw:mt-3 tw:text-[var(--muted,#627571)];
 }
 textarea[name="body"] {
-  min-height: 140px;
+  @apply tw:min-h-35;
 }
 .wizard-steps button {
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 12px;
+  @apply tw:bg-transparent tw:[border:1px_solid_var(--line)];
+  @apply tw:rounded-[999px] tw:py-1.5 tw:px-3;
 }
 .wizard-steps .active button {
-  background: var(--teal);
-  color: white;
-  border-color: var(--teal);
+  @apply tw:bg-brand tw:text-white tw:border-brand;
 }
 .chat-form textarea {
-  flex: 1;
+  @apply tw:flex-1;
 }

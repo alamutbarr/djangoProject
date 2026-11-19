@@ -176,8 +176,8 @@ export default function LiveLocation({
         </p>
       )}
       {canShare && (
-        <div className="tracking-controls tw:pt-5">
-          <p>
+        <div className="tw:pt-5">
+          <p className="tw:mb-3.5">
             با شروع رصد، موقعیت شما در همین سفر برای صاحب بار، متصدی و اپراتور
             ارسال می‌شود.
           </p>

@@ -2,41 +2,32 @@
 .app-dashboard-action,
 .ticket-back,
 .app-record-action-label {
-  display: none;
+  @apply tw:hidden;
 }
 
 .form-section {
-  min-inline-size: 0;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 0 0 18px;
+  @apply tw:min-inline-0 tw:[border:1px_solid_var(--line)];
+  @apply tw:rounded-[12px] tw:p-4 tw:[margin:0_0_18px];
 }
 .form-section legend {
-  padding-inline: 6px;
-  font-size: 14px;
-  font-weight: 700;
+  @apply tw:px-1.5 tw:text-[14px];
+  @apply tw:font-bold;
 }
 .onboarding-progress {
-  @apply tw:flex tw:flex-wrap tw:items-center tw:gap-3 tw:p-4;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: #fff;
+  @apply tw:flex tw:flex-wrap tw:items-center tw:gap-3 tw:p-4 tw:[border:1px_solid_var(--line)];
+  @apply tw:rounded-[14px] tw:bg-white;
 }
 .onboarding-progress > div {
-  flex: 1 1 240px;
-  @apply tw:min-w-0 tw:grid tw:gap-1;
+  @apply tw:[flex:1_1_240px] tw:min-w-0 tw:grid tw:gap-1;
 }
 .onboarding-progress span {
-  color: var(--muted);
+  @apply tw:text-muted;
 }
 .onboarding-progress progress {
-  order: 1;
-  width: 100%;
-  accent-color: var(--app-accent, #265e45);
+  @apply tw:order-1 tw:w-full tw:accent-[var(--app-accent,#265e45)];
 }
 .onboarding-steps button:disabled {
-  opacity: 0.55;
+  @apply tw:opacity-55;
 }
 
 @media (max-width: 760px),
@@ -53,8 +44,7 @@
     --app-end: max(var(--app-gutter), env(safe-area-inset-left));
   }
   .workspace {
-    background: var(--app-surface);
-    min-height: 100dvh;
+    @apply tw:bg-app-surface tw:min-h-[100dvh];
   }
   .workspace .sidebar,
   .workspace-header > .desktop-crumb,
@@ -63,48 +53,35 @@
   .workspace .workspace-footer,
   .workspace .desktop-back,
   .workspace .attention-card {
-    display: none;
+    @apply tw:hidden;
   }
   .workspace-body {
-    display: block;
-    margin-inline-start: 0;
+    @apply tw:block tw:ms-0;
   }
   .workspace .workspace-header {
-    position: sticky;
-    inset-block-start: 0;
-    @apply tw:z-30 tw:h-auto;
-    min-height: calc(62px + env(safe-area-inset-top));
-    padding: calc(7px + env(safe-area-inset-top)) var(--app-start) 7px
-      var(--app-end);
-    background: #fff;
-    gap: 4px;
+    @apply tw:sticky tw:[inset-block-start:0] tw:z-30 tw:h-auto
+      tw:min-h-[calc(62px_+_env(safe-area-inset-top))]
+      tw:[padding:calc(7px_+_env(safe-area-inset-top))_var(--app-start)_7px_var(--app-end)]
+      tw:bg-white tw:gap-1;
   }
   .workspace-header > .app-heading {
-    @apply tw:flex tw:min-w-0;
-    gap: 7px;
+    @apply tw:flex tw:min-w-0 tw:gap-[7px];
   }
   .app-heading-copy {
-    @apply tw:grid tw:min-w-0;
-    line-height: 1.5;
+    @apply tw:grid tw:min-w-0 tw:leading-[1.5];
   }
   .app-heading-copy small {
-    color: var(--app-accent);
-    font-size: 11px;
-    font-weight: 700;
+    @apply tw:text-app-accent tw:text-[11px];
+    @apply tw:font-bold;
   }
   .app-heading-copy b {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 15px;
-    font-weight: 700;
+    @apply tw:overflow-hidden tw:[text-overflow:ellipsis] tw:whitespace-nowrap tw:text-[15px];
+    @apply tw:font-bold;
   }
   .app-mark,
   .workspace .app-back {
-    @apply tw:flex-none tw:grid tw:place-items-center tw:w-11 tw:h-11;
-    border-radius: 13px;
-    background: var(--app-tint);
-    color: var(--app-accent);
+    @apply tw:flex-none tw:grid tw:place-items-center tw:w-11 tw:h-11 tw:rounded-[13px]
+      tw:bg-app-tint tw:text-app-accent;
   }
   .workspace-header > div:last-child {
     @apply tw:flex-none tw:gap-0;
@@ -113,392 +90,315 @@
     @apply tw:justify-center tw:min-w-11 tw:min-h-11;
   }
   .workspace .header-user .avatar {
-    background: var(--app-tint);
-    color: var(--app-accent);
-    border: 0;
-    font-size: 15px;
+    @apply tw:bg-app-tint tw:text-app-accent tw:[border:0] tw:text-[15px];
   }
   .workspace .notification-btn[aria-current] {
-    background: var(--app-tint);
-    color: var(--app-accent);
+    @apply tw:bg-app-tint tw:text-app-accent;
   }
   .workspace .workspace-main {
-    padding: 16px var(--app-start)
-      calc(var(--app-tab-height) + 24px + env(safe-area-inset-bottom))
-      var(--app-end);
-    font-size: 14px;
+    @apply       tw:[padding:16px_var(--app-start)_calc(var(--app-tab-height)_+_24px_+_env(safe-area-inset-bottom))_var(--app-end)]
+      tw:text-[14px];
   }
   .workspace .workspace-main > * {
-    min-width: 0;
+    @apply tw:min-w-0;
   }
   .workspace .toast {
-    inset: auto var(--app-start)
-      calc(var(--app-tab-height) + 10px + env(safe-area-inset-bottom))
-      var(--app-end);
-    max-width: none;
-    @apply tw:justify-between tw:py-2 tw:px-3;
-    font-size: 13px;
+    @apply       tw:inset-[auto_var(--app-start)_calc(var(--app-tab-height)_+_10px_+_env(safe-area-inset-bottom))_var(--app-end)]
+      tw:max-w-none tw:justify-between tw:py-2 tw:px-3 tw:text-[13px];
   }
   .workspace .icon-btn,
   .workspace :is(.btn, .secondary-btn, .danger-btn, .upload-btn),
   .workspace .app-menu-links > * {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
   .workspace .icon-btn {
-    min-width: 44px;
+    @apply tw:min-w-11;
   }
   .workspace :is(.btn, .secondary-btn, .danger-btn, .upload-btn) {
-    font-size: 13px;
+    @apply tw:text-[13px];
   }
   .workspace .btn {
-    background: var(--app-accent);
+    @apply tw:bg-app-accent;
   }
   .workspace :is(.page-heading, .card-head) :is(h1, h2),
   .workspace .welcome h1 {
-    overflow-wrap: anywhere;
+    @apply tw:wrap-anywhere;
   }
   .workspace :is(.page-heading, .form-card .card-head) h1 {
-    font-size: clamp(22px, 6vw, 29px);
-    line-height: 1.55;
+    @apply tw:text-[clamp(22px,6vw,29px)];
+    @apply tw:leading-[1.55];
   }
   .workspace :is(.page-heading, .card-head, .welcome) p {
-    font-size: 13px;
-    line-height: 1.8;
+    @apply tw:text-[13px];
+    @apply tw:leading-[1.8];
   }
   .workspace .card-head h2 {
-    font-size: 16px;
+    @apply tw:text-[16px];
   }
   .workspace .page-heading {
     @apply tw:gap-3 tw:mb-4;
   }
   .workspace .page-heading > :is(.btn, .secondary-btn) {
-    align-self: stretch;
-    justify-content: center;
+    @apply tw:self-stretch tw:justify-center;
   }
   .workspace .page-heading > .badge {
-    align-self: start;
-    margin-top: 0;
+    @apply tw:[align-self:start] tw:mt-0;
   }
   .workspace .card {
-    border-radius: 16px;
+    @apply tw:rounded-[16px];
   }
   .workspace .badge {
-    max-width: 100%;
-    width: fit-content;
-    white-space: normal;
-    font-size: 11px;
+    @apply tw:max-w-full tw:w-fit tw:whitespace-normal tw:text-[11px];
   }
   .workspace .welcome {
-    align-items: start;
-    margin-block: 2px 14px;
+    @apply tw:[align-items:start] tw:my-[2px_14px];
   }
   .workspace .welcome h1 {
-    font-size: clamp(21px, 5.8vw, 28px);
+    @apply tw:text-[clamp(21px,5.8vw,28px)];
   }
   .workspace .welcome .eyebrow {
-    font-size: 11px;
+    @apply tw:text-[11px];
   }
   .workspace .today {
     @apply tw:flex-none tw:min-w-auto;
   }
   .workspace .today b {
-    font-size: 11px !important;
+    @apply tw:text-[11px]!;
   }
   .app-dashboard-action {
-    display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) auto;
-    @apply tw:gap-2.5 tw:items-center tw:mb-3.5 tw:p-3.5;
-    border-radius: 16px;
-    background: var(--app-accent);
-    color: #fff;
+    @apply tw:grid tw:grid-cols-[44px_minmax(0,1fr)_auto] tw:gap-2.5 tw:items-center tw:mb-3.5 tw:p-3.5
+      tw:rounded-[16px] tw:bg-app-accent tw:text-white;
   }
   .app-dashboard-action :is(strong, small) {
-    display: block;
+    @apply tw:block;
   }
   .app-dashboard-action strong {
-    font-size: 16px;
+    @apply tw:text-[16px];
   }
   .app-dashboard-action small {
-    font-size: 12px;
-    line-height: 1.6;
-    opacity: 0.9;
+    @apply tw:text-[12px];
+    @apply tw:leading-[1.6] tw:opacity-90;
   }
   .app-action-icon {
-    @apply tw:grid tw:place-items-center;
-    aspect-ratio: 1;
-    background: #ffffff28;
-    border-radius: 12px;
+    @apply tw:grid tw:place-items-center tw:[aspect-ratio:1] tw:bg-[#ffffff28] tw:rounded-[12px];
   }
   .workspace .stats-grid {
     @apply tw:grid-cols-2 tw:gap-2.5;
   }
   .workspace .stat-card {
-    @apply tw:min-w-0 tw:min-h-27.5 tw:p-3;
-    border-radius: 14px;
+    @apply tw:min-w-0 tw:min-h-27.5 tw:p-3 tw:rounded-[14px];
   }
   .workspace .stat-card > div {
-    gap: 5px;
+    @apply tw:gap-[5px];
   }
   .workspace .stat-card :is(span, small) {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
   .workspace .stat-card strong {
-    font-size: clamp(19px, 5.5vw, 26px);
-    overflow-wrap: anywhere;
+    @apply tw:text-[clamp(19px,5.5vw,26px)] tw:wrap-anywhere;
   }
   .workspace .card-head .text-link,
   .workspace .route-summary,
   .workspace .route-summary > a,
   .workspace .route-labels,
   .workspace .pagination {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
   .workspace .card-head .text-link,
   .workspace .route-summary > a {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
   .workspace .route-summary {
-    flex-wrap: wrap;
-    gap: 4px 10px;
+    @apply tw:flex-wrap tw:gap-[4px_10px];
   }
   .workspace .list-toolbar > * {
-    min-width: 0;
+    @apply tw:min-w-0;
   }
   .workspace .search-field {
-    flex-basis: 100%;
-    min-height: 48px;
+    @apply tw:basis-full tw:min-h-12;
   }
   .workspace .search-field input {
-    min-width: 0;
+    @apply tw:min-w-0;
   }
   .workspace .search-field .text-link {
-    @apply tw:min-h-11 tw:px-1 tw:shrink-0;
-    font-size: 13px;
+    @apply tw:min-h-11 tw:px-1 tw:shrink-0 tw:text-[13px];
   }
 
   .workspace .app-records {
-    padding: 10px;
+    @apply tw:p-2.5;
   }
   .app-records table,
   .app-records tbody {
     @apply tw:block tw:min-w-0 tw:w-full;
   }
   .app-records thead {
-    @apply tw:absolute tw:w-px tw:h-px tw:overflow-hidden;
-    clip-path: inset(50%);
+    @apply tw:absolute tw:w-px tw:h-px tw:overflow-hidden tw:[clip-path:inset(50%)];
   }
   .app-records tbody tr {
-    @apply tw:grid tw:grid-cols-2;
-    gap: 9px 12px;
-    padding: 12px;
-    border: 1px solid #e0e9e4;
-    border-radius: 13px;
-    background: #fff;
+    @apply tw:grid tw:grid-cols-2 tw:gap-[9px_12px] tw:p-3 tw:[border:1px_solid_#e0e9e4];
+    @apply tw:rounded-[13px] tw:bg-white;
   }
   .app-records tbody tr + tr {
-    margin-top: 9px;
+    @apply tw:mt-[9px];
   }
   .app-records tbody td {
-    @apply tw:block tw:min-w-0 tw:p-0;
-    border: 0;
-    text-align: start;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    font-size: 14px;
-    line-height: 1.65;
+    @apply tw:block tw:min-w-0 tw:p-0 tw:[border:0] tw:text-start tw:whitespace-normal tw:wrap-anywhere
+      tw:text-[14px];
+    @apply tw:leading-[1.65];
   }
   .app-records tbody td:first-child,
   .app-records [data-wide],
   .app-records [data-actions] {
-    grid-column: 1 / -1;
+    @apply tw:col-span-full;
   }
   .app-records tbody td:first-child {
-    border-bottom: 1px solid #e7ede9;
-    @apply tw:pb-2 tw:font-bold;
+    @apply tw:[border-bottom:1px_solid_#e7ede9] tw:pb-2 tw:font-bold;
   }
   .app-records [data-label]::before {
-    display: block;
-    content: attr(data-label);
-    margin-bottom: 2px;
-    color: #49625c;
-    font-size: 11px;
-    font-weight: 500;
+    @apply tw:block tw:[content:attr(data-label)] tw:mb-0.5 tw:text-[#49625c] tw:text-[11px];
+    @apply tw:font-medium;
   }
   .app-records [data-actions] :is(.secondary-btn, .text-link) {
-    min-height: 44px;
-    margin-inline-end: 6px;
+    @apply tw:min-h-11 tw:me-1.5;
   }
   .shipment-table .shipment-name {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
   .shipment-table :is(.shipment-name b, .table-route) {
-    font-size: 14px;
+    @apply tw:text-[14px];
   }
   .shipment-table :is(.shipment-name small, .table-route + small) {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
   .shipment-table .table-route {
-    flex-wrap: wrap;
+    @apply tw:flex-wrap;
   }
   .shipment-table .table-route svg {
-    flex: none;
+    @apply tw:flex-none;
   }
   .shipment-table tbody [data-actions] {
-    grid-column: auto;
-    align-self: end;
-    justify-self: end;
+    @apply tw:col-auto tw:[align-self:end] tw:[justify-self:end];
   }
   .shipment-table [data-actions] .icon-btn {
-    gap: 5px;
-    @apply tw:w-auto tw:px-2;
-    color: var(--app-accent);
-    background: var(--app-tint);
+    @apply tw:gap-[5px] tw:w-auto tw:px-2 tw:text-app-accent tw:bg-app-tint;
   }
   .app-record-action-label {
-    display: inline;
-    font-size: 12px;
-    font-weight: 700;
+    @apply tw:inline tw:text-[12px];
+    @apply tw:font-bold;
   }
 
   .workspace :is(input, select, textarea) {
-    font-size: 16px;
-    min-height: 44px;
+    @apply tw:text-[16px] tw:min-h-11;
   }
   .workspace
     :is(input, select, textarea):not([type="checkbox"], [type="radio"]) {
-    max-width: 100%;
+    @apply tw:max-w-full;
   }
   .workspace :is(input[type="checkbox"], input[type="radio"]) {
-    min-height: 0;
+    @apply tw:min-h-0;
   }
   .workspace .form-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+    @apply tw:grid-cols-[minmax(0,1fr)] tw:gap-3.5;
   }
   .workspace .form-grid > label {
-    font-size: 14px;
+    @apply tw:text-[14px];
   }
   .workspace .form-actions > .btn {
     @apply tw:w-full tw:min-h-12;
   }
   .workspace .form-section {
-    padding: 11px;
+    @apply tw:p-[11px];
   }
   .workspace .shipment-actions > * {
-    flex: 1 1 155px;
-    justify-content: center;
+    @apply tw:[flex:1_1_155px] tw:justify-center;
   }
   .workspace .detail-grid > div {
-    min-width: 0;
+    @apply tw:min-w-0;
   }
   .workspace
     :is(.detail-grid dd, .list-row, .notification, .message, .ticket-item) {
-    overflow-wrap: anywhere;
+    @apply tw:wrap-anywhere;
   }
   .workspace .request-form-card {
-    padding-inline: 12px;
+    @apply tw:px-3;
   }
   .workspace .demo-banner {
-    font-size: 11px;
-    padding: 7px 10px;
-    margin-bottom: 12px;
+    @apply tw:text-[11px] tw:py-[7px] tw:px-2.5 tw:mb-3;
   }
   .workspace .pwa-toolbar {
-    gap: 0 10px;
-    padding: 2px 9px;
+    @apply tw:gap-[0_10px] tw:py-0.5 tw:px-[9px];
   }
   .workspace .pwa-toolbar button {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
   .workspace .pwa-toolbar > span {
-    flex: 0 0 auto;
+    @apply tw:[flex:0_0_auto];
   }
   .workspace .pwa-tools {
-    margin-bottom: 12px;
+    @apply tw:mb-3;
   }
   .workspace:not([data-section="dashboard"], [data-section="settings"])
     .pwa-toolbar {
-    display: none;
+    @apply tw:hidden;
   }
   .workspace .onboarding-steps {
-    @apply tw:grid tw:grid-cols-2;
-    margin-block: 14px;
-    padding: 0;
+    @apply tw:grid tw:grid-cols-2 tw:my-3.5 tw:p-0;
   }
   .workspace .onboarding-steps button {
-    @apply tw:flex tw:items-center;
-    gap: 5px;
-    padding: 7px;
-    min-height: 48px;
-    white-space: normal;
-    font-size: 12px;
+    @apply tw:flex tw:items-center tw:gap-[5px] tw:p-[7px] tw:min-h-12 tw:whitespace-normal
+      tw:text-[12px];
   }
   .workspace .onboarding-steps b {
     @apply tw:flex-none tw:m-0;
   }
   .workspace .crm-stage-tabs {
-    flex-wrap: wrap;
-    margin-block: 14px;
-    gap: 6px;
+    @apply tw:flex-wrap tw:my-3.5 tw:gap-1.5;
   }
   .workspace .crm-stage-tabs button {
-    min-height: 44px;
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-  .workspace .map-shell .leaflet-container {
-    max-height: min(48svh, 340px);
+    @apply tw:min-h-11 tw:py-[5px] tw:px-2.5 tw:text-[12px];
   }
   .tickets-layout:not(.conversation-open) .conversation,
   .tickets-layout.conversation-open .ticket-list {
-    display: none;
+    @apply tw:hidden;
   }
   .ticket-back {
     @apply tw:inline-flex tw:min-h-11;
   }
   .workspace .messages {
-    max-height: none;
+    @apply tw:max-h-none;
   }
   .workspace .ticket-list {
-    max-height: none;
-    overflow: visible;
+    @apply tw:max-h-none tw:overflow-visible;
   }
   .workspace .ticket-item {
-    min-height: 64px;
+    @apply tw:min-h-16;
   }
   .workspace .modal-head h2 {
-    font-size: 17px;
+    @apply tw:text-[17px];
   }
   .workspace .app-menu {
-    max-height: min(77dvh, calc(100dvh - max(20px, env(safe-area-inset-top))));
+    @apply tw:max-h-[min(77dvh,calc(100dvh_-_max(20px,env(safe-area-inset-top))))];
   }
   .app-menu-links {
     @apply tw:grid tw:gap-1;
   }
   .app-menu-links > * {
-    display: grid;
-    grid-template-columns: 34px minmax(0, 1fr) auto;
-    @apply tw:items-center tw:gap-2;
-    padding: 5px 7px;
-    border-radius: 10px;
-    text-align: start;
-    font-size: 14px;
+    @apply tw:grid tw:grid-cols-[34px_minmax(0,1fr)_auto] tw:items-center tw:gap-2 tw:py-[5px]
+      tw:px-[7px] tw:rounded-[10px] tw:text-start tw:text-[14px];
   }
   .app-menu-links [aria-current],
   .app-menu-icon {
-    background: var(--app-tint);
-    color: var(--app-accent);
+    @apply tw:bg-app-tint tw:text-app-accent;
   }
   .app-menu-icon {
-    @apply tw:grid tw:place-items-center tw:w-8.5 tw:h-8.5;
-    border-radius: 9px;
+    @apply tw:grid tw:place-items-center tw:w-8.5 tw:h-8.5 tw:rounded-[9px];
   }
   .app-menu-links .app-menu-logout,
   .app-menu-logout .app-menu-icon {
-    color: #9a3834;
+    @apply tw:text-[#9a3834];
   }
   .app-menu-logout .app-menu-icon {
-    background: #fcebea;
+    @apply tw:bg-[#fcebea];
   }
 }
 
@@ -507,13 +407,13 @@
     --app-tab-height: 56px;
   }
   .workspace .stats-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    @apply tw:grid-cols-4;
   }
 }
 
 @media (max-width: 760px) and (display-mode: standalone),
   (max-width: 950px) and (max-height: 500px) and (pointer: coarse) and (display-mode: standalone) {
   .workspace:not([data-section="settings"]) .pwa-toolbar {
-    display: none;
+    @apply tw:hidden;
   }
 }

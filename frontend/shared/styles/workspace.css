@@ -1,155 +1,120 @@
 .sidebar-brand .brand {
-  gap: 10px;
+  @apply tw:gap-2.5;
 }
 .sidebar-brand .brand b {
-  font-size: 15px;
+  @apply tw:text-[15px];
 }
 .sidebar-brand .brand svg {
-  width: 30px;
+  @apply tw:w-7.5;
 }
 .workspace-label small {
-  margin-right: auto;
-  color: #919b89;
-  font-size: 9px;
+  @apply tw:mr-auto tw:text-[#919b89] tw:text-[9px];
 }
 .sidebar nav {
   @apply tw:flex tw:flex-col tw:gap-1.5 tw:overflow-auto tw:pb-3;
 }
 .sidebar nav a {
-  @apply tw:flex tw:items-center;
-  gap: 13px;
-  padding: 11px 16px;
-  position: relative;
-  font-size: 12px;
-  color: #7b887c;
-  border-radius: 7px;
-  min-height: 43px;
+  @apply tw:flex tw:items-center tw:gap-[13px] tw:py-[11px] tw:px-4 tw:relative tw:text-[12px]
+    tw:text-[#7b887c] tw:rounded-[7px] tw:min-h-[43px];
 }
 .sidebar nav a:hover {
-  background: #f5f8f1;
+  @apply tw:bg-[#f5f8f1];
 }
 .sidebar nav a.active {
-  background: #eaf3ed;
-  color: #19685d;
-  font-weight: 600;
+  @apply tw:bg-[#eaf3ed] tw:text-[#19685d] tw:font-semibold;
 }
 .sidebar nav a.active i {
-  position: absolute;
-  right: -17px;
-  width: 3px;
-  height: 23px;
-  @apply tw:top-2.5 tw:bg-brand;
-  border-radius: 2px;
+  @apply tw:absolute tw:right-[-17px] tw:w-[3px] tw:h-[23px];
+  @apply tw:top-2.5 tw:bg-brand tw:rounded-[2px];
 }
 .sidebar nav a small {
-  @apply tw:mr-auto tw:grid tw:place-items-center;
-  background: #dcecdf;
-  border-radius: 5px;
-  @apply tw:min-w-5 tw:min-h-5;
-  font-size: 10px;
+  @apply tw:mr-auto tw:grid tw:place-items-center tw:bg-[#dcecdf] tw:rounded-[5px] tw:min-w-5
+    tw:min-h-5 tw:text-[10px];
 }
 .sidebar-help > svg {
-  margin: auto auto 8px;
+  @apply tw:[margin:auto_auto_8px];
 }
 .sidebar-help b {
-  display: block;
-  font-size: 11px;
+  @apply tw:block tw:text-[11px];
 }
 .sidebar-help p {
-  color: #91a086;
-  font-size: 10px;
-  margin-top: 4px;
+  @apply tw:text-[#91a086] tw:text-[10px] tw:mt-1;
 }
 .sidebar-help a {
-  font-size: 10px;
-  @apply tw:flex tw:items-center tw:justify-center tw:gap-3 tw:mt-3.5;
+  @apply tw:text-[10px] tw:flex tw:items-center tw:justify-center tw:gap-3 tw:mt-3.5;
 }
 .workspace-header > div {
-  @apply tw:flex tw:items-center;
-  gap: 15px;
-  font-size: 11px;
+  @apply tw:flex tw:items-center tw:gap-[15px] tw:text-[11px];
 }
 .workspace-header > div:first-child > svg {
-  color: #a2ada0;
+  @apply tw:text-[#a2ada0];
 }
 .workspace-header b {
-  font-weight: 500;
+  @apply tw:font-medium;
 }
 .header-user b {
-  display: block;
-  font-size: 11px;
+  @apply tw:block tw:text-[11px];
 }
 .header-user small {
-  display: block;
-  font-size: 9px;
-  color: #93a08f;
+  @apply tw:block tw:text-[9px] tw:text-[#93a08f];
 }
 .avatar.large {
-  @apply tw:w-13.5 tw:h-13.5;
-  font-size: 23px;
+  @apply tw:w-13.5 tw:h-13.5 tw:text-[23px];
 }
 .notification-btn i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: 2px solid #fffefa;
-  @apply tw:box-content tw:absolute;
-  right: 5px;
-  top: 5px;
+  @apply tw:w-[5px] tw:h-[5px] tw:rounded-[50%] tw:[background:var(--gold)];
+  @apply tw:[border:2px_solid_#fffefa] tw:box-content tw:absolute tw:right-[5px];
+  @apply tw:top-[5px];
 }
 @media (max-width: 1200px) {
   .sidebar nav a {
-    padding: 10px 13px;
+    @apply tw:py-2.5 tw:px-[13px];
   }
 }
 @media (max-width: 950px) {
   .header-user > span:last-child {
-    display: none;
+    @apply tw:hidden;
   }
 }
 @media (max-width: 760px) {
   .workspace-header > div {
-    gap: 8px;
-    font-size: 10px;
+    @apply tw:gap-2 tw:text-[10px];
   }
   .workspace-header > div:first-child > .muted {
-    display: none;
+    @apply tw:hidden;
   }
   .workspace-header > div:first-child > svg {
-    display: none;
+    @apply tw:hidden;
   }
   .workspace-header > div:last-child {
-    gap: 2px;
+    @apply tw:gap-0.5;
   }
   .header-user > .avatar {
-    width: 31px;
-    height: 31px;
+    @apply tw:w-[31px] tw:h-[31px];
   }
   .workspace-footer > span:last-child {
-    display: none;
+    @apply tw:hidden;
   }
 }
 .sidebar nav a {
-  font-size: 13px;
+  @apply tw:text-[13px];
 }
 @media (max-height: 800px) and (min-width: 761px) {
   .sidebar-help {
-    display: none;
+    @apply tw:hidden;
   }
   .sidebar-bottom {
-    padding-top: 7px;
+    @apply tw:pt-[7px];
   }
   .sidebar-brand {
-    padding-top: 24px;
-    padding-bottom: 19px;
+    @apply tw:pt-6;
+    @apply tw:pb-[19px];
   }
   .workspace-label {
-    margin-bottom: 18px;
+    @apply tw:mb-4.5;
   }
   .sidebar nav {
-    gap: 4px;
-    scrollbar-width: thin;
+    @apply tw:gap-1 tw:scrollbar-thin;
   }
   .sidebar nav a {
     @apply tw:pt-2.5 tw:pb-2.5 tw:min-h-10;
@@ -157,46 +122,44 @@
 }
 @media (max-width: 760px) {
   .sidebar nav a {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
 }
 .sidebar nav a {
-  color: #64745e;
+  @apply tw:text-[#64745e];
 }
 .sidebar nav a {
-  font-size: 14px;
-  min-height: 44px;
+  @apply tw:text-[14px] tw:min-h-11;
 }
 .workspace-header > div,
 .header-user b {
-  font-size: 13px;
+  @apply tw:text-[13px];
 }
 .header-user small {
-  font-size: 11px;
+  @apply tw:text-[11px];
 }
 @media (max-height: 950px) {
   .sidebar-help {
-    display: none;
+    @apply tw:hidden;
   }
   .sidebar nav {
-    scrollbar-width: thin;
+    @apply tw:scrollbar-thin;
   }
 }
 @media (max-width: 760px) {
   .workspace-header > div {
-    font-size: 12px;
+    @apply tw:text-[12px];
   }
   .sidebar nav a {
-    font-size: 14px;
+    @apply tw:text-[14px];
   }
 }
 .workspace.menu-collapsed .sidebar {
-  display: none;
+  @apply tw:hidden;
 }
 .workspace.menu-collapsed .workspace-body {
-  margin-right: 0;
+  @apply tw:mr-0;
 }
 img.avatar {
-  object-fit: cover;
-  border-radius: 50%;
+  @apply tw:object-cover tw:rounded-[50%];
 }

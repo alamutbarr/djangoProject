@@ -1,12 +1,11 @@
 .app-tabs {
-  display: none;
+  @apply tw:hidden;
 }
 
 @media (max-width: 760px),
   (max-width: 950px) and (max-height: 500px) and (pointer: coarse) {
   html:has(.workspace, .mobile-public) {
-    scroll-padding-block: calc(72px + env(safe-area-inset-top))
-      calc(78px + env(safe-area-inset-bottom));
+    @apply tw:scroll-py-[calc(72px_+_env(safe-area-inset-top))_calc(78px_+_env(safe-area-inset-bottom))];
   }
   .auth-layout,
   .mobile-public {
@@ -33,121 +32,95 @@
     --app-end: max(var(--app-gutter), env(safe-area-inset-left));
   }
   .app-tabs {
-    position: fixed;
-    inset: auto 0 0;
-    @apply tw:z-35 tw:flex;
-    padding: 5px var(--app-start) calc(5px + env(safe-area-inset-bottom))
-      var(--app-end);
-    min-height: calc(var(--app-tab-height) + env(safe-area-inset-bottom));
-    background: #fff;
-    border-top: 1px solid #dfe8e3;
-    box-shadow: 0 -4px 24px #183e4610;
+    @apply tw:fixed tw:inset-[auto_0_0] tw:z-35 tw:flex
+      tw:[padding:5px_var(--app-start)_calc(5px_+_env(safe-area-inset-bottom))_var(--app-end)]
+      tw:min-h-[calc(var(--app-tab-height)_+_env(safe-area-inset-bottom))] tw:bg-white
+      tw:[border-top:1px_solid_#dfe8e3] tw:[box-shadow:0_-4px_24px_#183e4610];
   }
   .app-tabs > :is(a, button) {
-    flex: 1 1 0;
-    @apply tw:min-w-0 tw:min-h-13 tw:flex tw:flex-col tw:items-center tw:justify-center;
-    gap: 3px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: center;
-    color: #46605b;
-    background: transparent;
+    @apply tw:[flex:1_1_0];
+    @apply tw:min-w-0 tw:min-h-13 tw:flex tw:flex-col tw:items-center tw:justify-center tw:gap-[3px]
+      tw:rounded-[12px] tw:text-[11px];
+    @apply tw:font-bold;
+    @apply tw:leading-[1.2] tw:text-center tw:text-[#46605b] tw:bg-transparent;
   }
   .app-tab-icon {
-    @apply tw:grid tw:place-items-center tw:min-w-10 tw:min-h-7.5;
-    border-radius: 10px;
+    @apply tw:grid tw:place-items-center tw:min-w-10 tw:min-h-7.5 tw:rounded-[10px];
   }
   .app-tabs :is([aria-current], .app-tab-selected) {
-    color: var(--app-accent);
+    @apply tw:text-app-accent;
   }
   .app-tabs :is([aria-current], .app-tab-selected) .app-tab-icon {
-    background: var(--app-tint);
+    @apply tw:bg-app-tint;
   }
   .app-tabs .app-tab-primary .app-tab-icon {
-    background: var(--app-accent);
-    color: #fff;
+    @apply tw:bg-app-accent tw:text-white;
   }
   .app-tabs .app-tab-primary[aria-current] .app-tab-icon {
-    outline: 2px solid var(--app-accent);
-    outline-offset: 2px;
+    @apply tw:[outline:2px_solid_var(--app-accent)];
+    @apply tw:outline-offset-2;
   }
   .mobile-public {
-    padding-bottom: calc(var(--app-tab-height) + env(safe-area-inset-bottom));
+    @apply tw:pb-[calc(var(--app-tab-height)_+_env(safe-area-inset-bottom))];
   }
   .mobile-public .site-header {
-    padding-inline: var(--app-start) var(--app-end);
+    @apply tw:px-[var(--app-start)_var(--app-end)];
   }
   .mobile-public .site-mobile-menu a {
     @apply tw:flex tw:min-h-11 tw:items-center;
   }
   .mobile-public .site-mobile-menu nav {
-    gap: 2px;
-    max-height: 67dvh;
-    overflow: auto;
+    @apply tw:gap-0.5 tw:max-h-[67dvh] tw:overflow-auto;
   }
   .auth-layout .icon-btn,
   .auth-layout .btn {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
   .auth-layout .icon-btn {
-    min-width: 44px;
+    @apply tw:min-w-11;
   }
   .role-auth .btn {
-    background: var(--app-accent);
+    @apply tw:bg-app-accent;
   }
 
   .auth-layout :is(input, select, textarea) {
-    font-size: 16px;
-    min-height: 44px;
+    @apply tw:text-[16px] tw:min-h-11;
   }
   .app-entry-tools .pwa-toolbar button {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
 
   :is(.workspace, .mobile-public) .modal {
-    position: fixed;
-    inset: auto 0 0;
-    width: 100%;
-    max-width: none;
-    max-height: calc(100dvh - max(18px, env(safe-area-inset-top)));
-    padding: 0 var(--app-start) calc(16px + env(safe-area-inset-bottom))
-      var(--app-end);
-    border-radius: 21px 21px 0 0;
-    border: 0;
-    background: #fff;
-    overscroll-behavior: contain;
-    scroll-padding-top: 66px;
+    @apply tw:fixed tw:inset-[auto_0_0] tw:w-full tw:max-w-none
+      tw:max-h-[calc(100dvh_-_max(18px,env(safe-area-inset-top)))]
+      tw:[padding:0_var(--app-start)_calc(16px_+_env(safe-area-inset-bottom))_var(--app-end)]
+      tw:rounded-[21px_21px_0_0];
+    @apply tw:[border:0] tw:bg-white tw:overscroll-contain tw:scroll-pt-16.5;
   }
   :is(.workspace, .mobile-public) .modal-head {
-    @apply tw:sticky tw:top-0 tw:z-1 tw:gap-2.5 tw:min-h-15.5 tw:py-2 tw:px-0;
-    background: #fff;
-    margin-bottom: 14px;
+    @apply tw:sticky tw:top-0 tw:z-1 tw:gap-2.5 tw:min-h-15.5 tw:py-2 tw:px-0 tw:bg-white
+      tw:mb-3.5;
   }
 
   .auth-layout .auth-form-side {
-    padding-inline: max(17px, env(safe-area-inset-right))
-      max(17px, env(safe-area-inset-left));
+    @apply tw:px-[max(17px,env(safe-area-inset-right))_max(17px,env(safe-area-inset-left))];
   }
   .role-auth {
-    background: var(--app-surface);
+    @apply tw:bg-app-surface;
   }
   .role-auth .auth-box {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 18px;
+    @apply tw:bg-white tw:[border:1px_solid_var(--line)];
+    @apply tw:rounded-[18px] tw:p-4.5;
   }
   .auth-layout .auth-box > p,
   .auth-layout .auth-box label {
-    font-size: 14px;
+    @apply tw:text-[14px];
   }
   .auth-layout .auth-box .eyebrow {
-    color: var(--app-accent);
+    @apply tw:text-app-accent;
   }
   .app-entry-tools {
-    padding-top: max(10px, env(safe-area-inset-top));
+    @apply tw:pt-[max(10px,env(safe-area-inset-top))];
   }
 }
 
@@ -156,16 +129,16 @@
     --app-tab-height: 56px;
   }
   .app-tabs > :is(a, button) {
-    min-height: 44px;
+    @apply tw:min-h-11;
   }
   .app-tab-icon {
-    min-height: 26px;
+    @apply tw:min-h-6.5;
   }
 }
 
 @media (max-width: 760px) and (display-mode: standalone),
   (max-width: 950px) and (max-height: 500px) and (pointer: coarse) and (display-mode: standalone) {
   .app-entry-tools .pwa-toolbar {
-    display: none;
+    @apply tw:hidden;
   }
 }

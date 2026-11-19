@@ -1,37 +1,36 @@
 .pwa-toolbar > span {
-  margin-inline-end: auto;
+  @apply tw:me-auto;
 }
 .update-banner p {
   @apply tw:m-0 tw:flex-1;
 }
 @media (max-width: 600px) {
   .pwa-toolbar > span {
-    display: none;
+    @apply tw:hidden;
   }
   .pwa-toolbar button {
-    min-height: 36px;
-    font-size: 12px;
+    @apply tw:min-h-9 tw:text-[12px];
   }
   .pwa-tools > .info-note {
-    font-size: 13px;
+    @apply tw:text-[13px];
   }
   .pwa-tools .btn,
   .update-banner .secondary-btn {
-    font-size: 13px;
+    @apply tw:text-[13px];
   }
 }
 
 .app-entry-tools {
-  padding: 12px max(22px, calc((100vw - 1180px) / 2));
+  @apply tw:[padding:12px_max(22px,calc((100vw_-_1180px)_/_2))];
 }
 .app-entry-tools .pwa-tools {
-  margin: 0;
+  @apply tw:m-0;
 }
 .pwa-tools .pwa-ready {
-  font-size: 11px;
+  @apply tw:text-[11px];
 }
 @media (max-width: 600px) {
   .pwa-tools .pwa-ready {
-    display: none;
+    @apply tw:hidden;
   }
 }
