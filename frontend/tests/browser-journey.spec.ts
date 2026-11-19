@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { expect, test, type Page } from "@playwright/test";
 import { persianParts } from "../shared/components/persian-date";
+import { samplePng, testNationalId } from "./qa-fixtures";
 import { roleOrigin, siteOrigin } from "./targets";
 
 const adminPasswordFile = process.env.QA_ADMIN_PASSWORD_FILE;
@@ -12,10 +13,20 @@ test.use({ channel: process.env.PLAYWRIGHT_CHROMIUM_CHANNEL || undefined });
 
 const operations = roleOrigin("admin") + "/django-admin/operations/";
 const points = { latitude: 36.268, longitude: 50.004, accuracy: 15 };
-const fixture = Buffer.from(
-  "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAE0lEQVR4nGP8//8/AwMDEwMYAAAkBgMBXaJOiAAAAABJRU5ErkJggg==",
-  "base64",
-);
+const freightStops = {
+  مبدأ: {
+    city: "قزوین",
+    address: "مبدأ خصوصی آزمایشی",
+    lat: "36.268",
+    lon: "50.004",
+  },
+  مقصد: {
+    city: "رشت",
+    address: "مقصد خصوصی آزمایشی",
+    lat: "37.281",
+    lon: "49.583",
+  },
+};
 
 async function fill(page: Page, values: Record<string, string>) {
   for (const [name, value] of Object.entries(values)) {
@@ -34,6 +45,38 @@ async function dateField(page: Page, label: string, value: Date) {
       .getByLabel(`${label} ${part}`, { exact: true })
       .selectOption(String(number));
   }
+}
+
+async function fillFreightRequest(page: Page, title: string) {
+  const next = page.getByRole("button", { name: "مرحله بعد" });
+  await page.getByLabel(/عنوان محموله/).fill(title);
+  await page.getByLabel(/نوع کالا/).fill("ورق فولادی");
+  await page.getByLabel(/وزن \(تن\)/).fill("5");
+  await next.click();
+
+  for (const [stop, place] of Object.entries(freightStops)) {
+    await page.getByLabel(`شهر ${stop} *`, { exact: true }).fill(place.city);
+    await page.getByPlaceholder(`جستجوی نشانی ${stop}`).fill(place.address);
+    await page.getByRole("button", { name: place.address, exact: true }).click();
+    await expect(page.getByLabel(new RegExp(`نشانی دقیق ${stop}`))).toHaveValue(
+      place.address,
+    );
+    await next.click();
+  }
+
+  await page.getByLabel(/نام گیرنده/).fill("گیرنده آزمایشی");
+  await page.getByLabel(/موبایل گیرنده/).fill("09120000008");
+  await next.click();
+  await dateField(page, "تاریخ بارگیری", new Date(Date.now() + 7 * 86400000));
+  await next.click();
+  await page.getByLabel(/نوع خودرو/).selectOption("truck");
+  await next.click();
+  await page.getByLabel(/کرایه پیشنهادی/).fill("7000000");
+  await page.getByLabel(/ارزش کالا \(ریال\)/).fill("500000000");
+  await next.click();
+  await page.getByLabel("توضیحات حمل").fill("رکورد ساختگی برای QA محلی");
+  await next.click();
+  await expect(page.locator(".wizard")).toContainText(title);
 }
 
 async function portalLogin(page: Page, role: "owner" | "inspector") {
@@ -78,6 +121,27 @@ test("browser walkthrough from new driver dossier to completed freight and publi
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     geolocation: points,
+  });
+  context.setDefaultTimeout(10_000);
+  await context.route(/^https:\/\/[a-z]\.tile\.openstreetmap\.org\//, (route) =>
+    route.fulfill({ contentType: "image/png", body: samplePng }),
+  );
+  await context.route("https://nominatim.openstreetmap.org/**", (route) => {
+    const url = new URL(route.request().url());
+    const isSearch = url.pathname === "/search";
+    const place = Object.values(freightStops).find((stop) =>
+      isSearch
+        ? stop.address === url.searchParams.get("q")
+        : Number(stop.lat) === Number(url.searchParams.get("lat")) &&
+          Number(stop.lon) === Number(url.searchParams.get("lon")),
+    );
+    const result = place
+      ? { display_name: place.address, lat: place.lat, lon: place.lon }
+      : null;
+    return route.fulfill({
+      headers: { "Access-Control-Allow-Origin": "*" },
+      json: isSearch ? (result ? [result] : []) : (result ?? {}),
+    });
   });
   await context.grantPermissions(["geolocation"], {
     origin: roleOrigin("driver"),
@@ -157,15 +221,9 @@ test("browser walkthrough from new driver dossier to completed freight and publi
         .getByRole("button", { name: "ساخت حساب و تکمیل پرونده" })
         .click();
       await expect(driver).toHaveURL(/\/driver\/onboarding$/);
-      const identity = runId.slice(-9);
-      const rem =
-        [...identity].reduce(
-          (sum, digit, i) => sum + Number(digit) * (10 - i),
-          0,
-        ) % 11;
       const future = new Date(Date.now() + 365 * 86400000);
       await fill(driver, {
-        national_id: identity + (rem < 2 ? rem : 11 - rem),
+        national_id: testNationalId(runId + "3"),
         emergency_name: "تماس آزمایشی",
         emergency_phone: "09120000008",
         address: "نشانی ساختگی برای آزمون محلی",
@@ -204,7 +262,7 @@ test("browser walkthrough from new driver dossier to completed freight and publi
         const name = `qa-document-${index + 1}.png`;
         await card
           .locator('input[type="file"]')
-          .setInputFiles({ name, mimeType: "image/png", buffer: fixture });
+          .setInputFiles({ name, mimeType: "image/png", buffer: samplePng });
         await expect(
           card.getByRole("link", { name: `دریافت ${name}` }),
         ).toBeVisible();
@@ -232,10 +290,12 @@ test("browser walkthrough from new driver dossier to completed freight and publi
       await fits(admin);
       await capture(admin, "admin-mobile");
       await admin.setViewportSize({ width: 1440, height: 900 });
-      const driverLink = admin.getByRole("link", { name: new RegExp(familyName) });
-      const legacyReview = await driverLink.getAttribute("href");
+      const legacyReview = new URL(`?driver=${driverId}`, operations);
+      const driverLink = admin.locator(`a[href="?driver=${driverId}"]`);
+      await expect(driverLink).toHaveText(new RegExp(familyName));
       const dossierRow = admin.locator("p").filter({ has: driverLink });
       await dossierRow.getByRole("link", { name: "باز کردن پرونده" }).click();
+      await expect(admin).toHaveURL(/\/logistics\/driverprofile\/\d+\/change\/$/);
       await admin.getByRole("link", { name: "بررسی جداگانه" }).first().click();
       await admin.getByRole("button", { name: "رد مدرک" }).click();
       await expect(admin.locator(".error")).toContainText("دلیل رد هر مدرک الزامی است");
@@ -245,7 +305,7 @@ test("browser walkthrough from new driver dossier to completed freight and publi
       await admin.getByLabel("یادداشت بررسی").clear();
       await admin.getByRole("button", { name: "تأیید مدرک" }).click();
       await expect(admin.locator(".alamut-status")).toHaveText("تأیید شده");
-      await admin.goto(new URL(legacyReview!, operations).toString());
+      await admin.goto(legacyReview.href);
       const docs = admin.locator('select[name^="document_"]');
       await expect(docs).toHaveCount(6);
       expect(admin.url()).toContain(`driver=${driverId}`);
@@ -275,26 +335,7 @@ test("browser walkthrough from new driver dossier to completed freight and publi
 
       await portalLogin(owner, "owner");
       await owner.goto(`${roleOrigin("owner")}/owner/shipments/new`);
-      await fill(owner, {
-        title,
-        cargo_type: "کالای آزمایشی",
-        origin: "قزوین",
-        destination: "رشت",
-        origin_address: "مبدأ خصوصی آزمایشی",
-        destination_address: "مقصد خصوصی آزمایشی",
-        weight: "5",
-        price: "7000000",
-        cargo_value: "50000000",
-        recipient_name: "گیرنده آزمایشی",
-        recipient_phone: "09120000008",
-        notes: "رکورد ساختگی برای QA محلی",
-      });
-      await owner.locator('[name="vehicle_type"]').selectOption("truck");
-      await dateField(
-        owner,
-        "تاریخ بارگیری",
-        new Date(Date.now() + 7 * 86400000),
-      );
+      await fillFreightRequest(owner, title);
       await capture(owner, "owner-request");
       const created = owner.waitForResponse(
         (r) =>
@@ -309,6 +350,8 @@ test("browser walkthrough from new driver dossier to completed freight and publi
       const shipment = await response.json();
       shipmentId = shipment.id;
       code = shipment.code;
+      expect(shipment).toMatchObject({ cargo_value: 50000000 });
+      await owner.getByRole("button", { name: "مشاهده بار" }).click();
       await expect(owner).toHaveURL(detail("owner"));
       await admin.reload();
       await row().locator('select[name="status"]').selectOption("approved");
@@ -398,7 +441,8 @@ test("browser walkthrough from new driver dossier to completed freight and publi
     await test.step("inspect delivery, complete freight, and check public tracking privacy", async () => {
       await owner.reload();
       const finish = owner.getByRole("button", {
-        name: "تأیید نهایی و صدور صورتحساب",
+        name: "بله، بار را تحویل گرفتم",
+        exact: true,
       });
       await expect(finish).toBeDisabled();
       await inspect("تحویل");

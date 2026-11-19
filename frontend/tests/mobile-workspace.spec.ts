@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { persianParts } from "../shared/components/persian-date";
 
 const roles = {
-  owner: { role: "owner", main: "ثبت بار", count: 10 },
+  owner: { role: "owner", main: "ثبت بار", count: 11 },
   driver: { role: "driver", main: "بازار بار", count: 10 },
   admin: { role: "operator", main: "اتاق کنترل", count: 14 },
   inspector: { role: "inspector", main: "بازرسی", count: 8 },
@@ -114,18 +114,19 @@ async function checkOwnerFlow(page: Page, project: string) {
   await expect(
     tabs(page).getByRole("link", { name: "ثبت بار" }),
   ).toHaveAttribute("aria-current", "page");
-  await expect(page.getByRole("group", { name: "۲. مسیر حمل" })).toBeVisible();
-  const title = page.locator('[name="title"]');
+  const title = page.getByRole("textbox", { name: /عنوان محموله/ });
   await expect(title).toHaveCSS("font-size", "16px");
+  await page.getByRole("button", { name: "مرحله بعد" }).tap();
+  await expect(page.getByRole("alert")).toContainText("عنوان و نوع کالا");
   await title.fill("پیش‌نمایش فرم موبایل");
-  await expect(
-    page.getByRole("group", { name: "۴. گیرنده و توضیحات" }),
-  ).toBeVisible();
-  await page
-    .getByRole("button", { name: "ثبت درخواست حمل" })
-    .scrollIntoViewIfNeeded();
+  await page.getByLabel(/نوع کالا/).fill("ورق فولادی");
+  await page.getByLabel(/وزن \(تن\)/).fill("5");
+  await page.getByRole("button", { name: "مرحله بعد" }).tap();
+  await expect(page.getByLabel(/شهر مبدأ/)).toBeVisible();
   await fits(page);
-  await page.getByRole("link", { name: "بازگشت به فهرست" }).tap();
+  await page.getByRole("button", { name: "مرحله قبل" }).tap();
+  await expect(title).toHaveValue("پیش‌نمایش فرم موبایل");
+  await tabs(page).getByRole("link", { name: "محموله‌ها" }).tap();
 
   const table = page.getByRole("table", { name: "محموله‌ها" });
   await expect(table.locator("tbody tr").first()).toHaveCSS("display", "grid");
@@ -326,10 +327,7 @@ test("each portal registers its own worker and shows an offline screen", async (
     await page.goto(roleOrigin(panel) + `/${panel}/app`);
     await expect
       .poll(() =>
-        page.evaluate(
-          async () =>
-            (await navigator.serviceWorker.getRegistration())?.active?.state,
-        ),
+        page.evaluate(() => navigator.serviceWorker.controller?.state),
       )
       .toBe("activated");
     expect(
@@ -337,10 +335,18 @@ test("each portal registers its own worker and shows an offline screen", async (
         async () => (await navigator.serviceWorker.getRegistration())?.scope,
       ),
     ).toBe(roleOrigin(panel) + `/${panel}/`);
+
+    await context.setOffline(true);
+    try {
+      const response = await page.reload();
+      expect(response?.fromServiceWorker(), panel).toBe(true);
+      await expect(page.getByRole("heading", { level: 1 })).toContainText(
+        /اینترنت|اتصال/,
+      );
+    } finally {
+      await context.setOffline(false);
+    }
   }
-  await context.setOffline(true);
-  await page.reload();
-  await expect(page.locator("h1")).toContainText(/اینترنت|اتصال/);
 });
 
 test("new driver saves identity, resumes the dossier and cannot open market", async ({

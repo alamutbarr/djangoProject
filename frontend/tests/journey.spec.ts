@@ -4,7 +4,8 @@ import {
   request,
   type APIRequestContext,
 } from "@playwright/test";
-import { apiTarget, roleOrigin, siteOrigin as baseURL } from "./targets";
+import { samplePng, testNationalId } from "./qa-fixtures";
+import { apiTarget, roleOrigin } from "./targets";
 const originByContext = new WeakMap<APIRequestContext, string>();
 const contexts: APIRequestContext[] = [];
 let owner: APIRequestContext,
@@ -31,15 +32,50 @@ async function mutate(
   data: unknown,
   method = "POST",
 ) {
-  const token = await (await c.get("/api/auth/csrf/")).json();
   return c.fetch("/api/" + path, {
     method,
     data,
-    headers: {
-      "X-CSRFToken": token.csrfToken,
-      Origin: originByContext.get(c)!,
-    },
+    headers: await csrfHeaders(c),
   });
+}
+
+async function csrfHeaders(c: APIRequestContext) {
+  const result = await c.get("/api/auth/csrf/");
+  expect(result.ok(), await result.text()).toBeTruthy();
+  const { csrfToken } = await result.json();
+  return {
+    "X-CSRFToken": csrfToken,
+    Origin: originByContext.get(c)!,
+  };
+}
+
+async function verifyOwner() {
+  const profile = await mutate(
+    owner,
+    "auth/me/",
+    { national_id: testNationalId(unique + "1"), postal_code: "1419733111" },
+    "PATCH",
+  );
+  expect(profile.status(), await profile.text()).toBe(200);
+
+  const created = await mutate(owner, "owner-identity/", {
+    id_type: "national_card",
+  });
+  expect(created.status(), await created.text()).toBe(201);
+  const path = "owner-identity/" + (await created.json()).id + "/";
+  for (const slot of ["document", "selfie"]) {
+    const upload = await owner.post("/api/" + path + "files/", {
+      headers: await csrfHeaders(owner),
+      multipart: {
+        slot,
+        file: { name: slot + ".png", mimeType: "image/png", buffer: samplePng },
+      },
+    });
+    expect(upload.status(), await upload.text()).toBe(200);
+  }
+  const approved = await mutate(operator, path + "review/", { status: "approved" });
+  expect(approved.status(), await approved.text()).toBe(200);
+  expect(await approved.json()).toMatchObject({ status: "approved" });
 }
 async function register(role: "owner" | "driver", suffix: number) {
   const c = await context(role);
@@ -98,7 +134,7 @@ test.describe
     const pickup = new Date(Date.now() + 7 * 86400000)
       .toISOString()
       .slice(0, 10);
-    const r = await mutate(owner, "shipments/", {
+    const payload = {
       title: "آزمایش یکپارچه " + unique,
       origin: "قزوین",
       destination: "رشت",
@@ -112,7 +148,13 @@ test.describe
       price: 7000000,
       pickup_date: pickup,
       notes: "E2E record; fictional data",
-    });
+    };
+    const blocked = await mutate(owner, "shipments/", payload);
+    expect(blocked.status()).toBe(400);
+    expect(await blocked.text()).toContain("کد ملی معتبر");
+    await verifyOwner();
+
+    const r = await mutate(owner, "shipments/", payload);
     expect(r.status(), await r.text()).toBe(201);
     const s = await r.json();
     shipmentId = s.id;
@@ -171,18 +213,13 @@ test.describe
         })
       ).status(),
     ).toBe(403);
-    const nationalBase = unique.slice(-9).padStart(9, "0");
-    const remainder =
-      [...nationalBase].reduce((n, c, i) => n + Number(c) * (10 - i), 0) % 11;
-    const nationalId =
-      nationalBase + String(remainder < 2 ? remainder : 11 - remainder);
     expect(
       (
         await mutate(
           driver,
           "onboarding/",
           {
-            national_id: nationalId,
+            national_id: testNationalId(unique + "2"),
             birth_date: "1990-01-01",
             license_expiry: new Date(Date.now() + 365 * 86400000)
               .toISOString()
@@ -207,20 +244,13 @@ test.describe
       const atSizeLimit = kind === "license";
       const file = atSizeLimit
         ? Buffer.alloc(10 * 1024 * 1024, " ")
-        : Buffer.from(
-            "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAE0lEQVR4nGP8//8/AwMDEwMYAAAkBgMBXaJOiAAAAABJRU5ErkJggg==",
-            "base64",
-          );
+        : samplePng;
       if (atSizeLimit) {
         file.write("%PDF-1.4\n%");
         file.write("\n%%EOF\n", file.length - 7);
       }
-      const csrf = await (await driver.get("/api/auth/csrf/")).json();
       const upload = await driver.post("/api/onboarding/documents/", {
-        headers: {
-          "X-CSRFToken": csrf.csrfToken,
-          Origin: originByContext.get(driver)!,
-        },
+        headers: await csrfHeaders(driver),
         multipart: {
           kind,
           file: {
