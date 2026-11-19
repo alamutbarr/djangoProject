@@ -62,16 +62,16 @@ export default function Overview({
               : "settings";
   return (
     <>
-      <div className="welcome">
+      <div className="welcome tw:flex tw:justify-between tw:items-center tw:mb-[29px] tw:below-760:[align-items:start] tw:below-760:gap-2.5 tw:below-760:mb-[23px]">
         <div>
           <span className="eyebrow">هر مسیر، یک تعهد است</span>
           <h1>
             {user?.first_name} عزیز، روزتان بخیر
-            <span className="welcome-dot">.</span>
+            <span className="tw:text-brand">.</span>
           </h1>
           <p>اینجا، تصویر روشنی از مسیرهای پیش روی شماست.</p>
         </div>
-        <div className="today">
+        <div className="today tw:border tw:border-line tw:py-[9px] tw:px-4 tw:rounded-[8px] tw:text-left tw:min-w-45 tw:bg-[#fcfcf6] tw:below-950:min-w-37.5 tw:below-950:py-2 tw:below-950:px-3 tw:below-760:min-w-[95px] tw:below-760:py-[7px] tw:below-760:px-[9px] tw:below-760:text-center tw:below-400:min-w-[85px] tw:below-760:hidden">
           <span>امروز</span>
           <b>
             {new Date().toLocaleDateString("fa-IR", {
@@ -116,7 +116,7 @@ export default function Overview({
           <ArrowLeft size={20} />
         </Link>
       )}
-      <div className="stats-grid">
+      <div className="stats-grid tw:grid-cols-4 tw:gap-[17px] tw:mb-[25px] tw:wide:gap-6 tw:below-950:grid-cols-[1fr_1fr] tw:below-760:gap-3 tw:below-760:mb-4.5 tw:grid">
         {[
           {
             t: "کل محموله‌ها",
@@ -145,7 +145,7 @@ export default function Overview({
           },
         ].map((x) => (
           <article
-            className={"stat-card " + (x.active ? "featured" : "")}
+            className={"stat-card tw:border tw:border-[#e3e8dc] tw:rounded-[11px] tw:pt-[21px] tw:px-[23px] tw:pb-4.5 tw:bg-[#fffefa] tw:relative tw:overflow-hidden tw:min-h-36.5 tw:wide:py-6 tw:wide:px-7 tw:wide:min-h-40 tw:below-1200:py-4.5 tw:below-1200:px-[17px] tw:below-760:py-4 tw:below-760:px-4.5 tw:below-760:min-h-[133px] tw:below-760:rounded-[9px] tw:below-400:p-3.5 " + (x.active ? "featured" : "")}
             key={x.t}
           >
             <div>
@@ -157,18 +157,18 @@ export default function Overview({
           </article>
         ))}
       </div>
-      <div className="dashboard-middle">
+      <div className="tw:grid-cols-[1.8fr_1fr] tw:gap-5.5 tw:mb-[25px] tw:wide:gap-6.5 tw:wide:grid-cols-[1.9fr_1fr] tw:below-1200:grid-cols-[1.5fr_1fr] tw:below-1200:gap-[17px] tw:below-950:grid-cols-[1fr] tw:below-760:mb-4.5 tw:grid">
         <section className="card route-card">
           <div className="card-head">
             <div>
               <h2>مسیرها در جریان‌اند</h2>
               <p>وضعیت عملیاتی محموله‌های شما</p>
             </div>
-            <span className="live-label">
+            <span className="live-label tw:text-[9px] tw:flex tw:items-center tw:gap-1.5 tw:text-[#8b9c82] tw:bg-[#f5f7ee] tw:py-[3px] tw:px-[7px] tw:rounded-[4px] tw:whitespace-nowrap tw:below-760:text-[8px]">
               <i /> ثبت مرحله‌ای
             </span>
           </div>
-          <div className="route-visual">
+          <div className="route-visual tw:mt-[15px] tw:mx-5.5 tw:mb-0 tw:below-760:mt-2.5 tw:below-760:mx-2.5 tw:below-760:mb-0 tw:relative">
             <svg
               viewBox="0 0 700 220"
               role="img"
@@ -222,20 +222,20 @@ export default function Overview({
                 </g>
               ))}
             </svg>
-            <div className="route-labels">
+            <div className="route-labels tw:mt-[-11px] tw:pt-0 tw:px-2.5 tw:pb-[15px] tw:[direction:rtl] tw:below-760:pt-0 tw:below-760:px-2.5 tw:below-760:pb-[15px] tw:below-760:mt-[-5px] tw:text-[#64745e] tw:text-[12px] tw:below-760:text-[10px] tw:flex tw:justify-between">
               <span>ثبت درخواست</span>
               <span>تخصیص و بارگیری</span>
               <span>در مسیر</span>
               <span>تحویل نهایی</span>
             </div>
           </div>
-          <div className="route-summary">
+          <div className="route-summary tw:flex tw:items-center tw:gap-5 tw:my-0 tw:mx-[25px] tw:py-4 tw:px-0 tw:border-t tw:border-t-line tw:below-1200:gap-3 tw:below-760:py-3.5 tw:below-760:px-0 tw:below-760:my-0 tw:below-760:mx-[17px] tw:below-760:gap-3.5 tw:text-[#64745e] tw:text-[12px] tw:below-760:text-[10px]">
             <span>
-              <i className="teal-dot" />
+              <i className="tw:inline-block tw:w-1.5 tw:h-1.5 tw:rounded-full tw:bg-brand tw:shrink-0" />
               {number(dash.active)} محموله فعال
             </span>
             <span>
-              <i className="gold-dot" />
+              <i className="tw:inline-block tw:w-1.5 tw:h-1.5 tw:rounded-full tw:shrink-0 tw:bg-gold" />
               {number(dash.pending)} منتظر بررسی
             </span>
             <Link href={base + "/" + nextSection}>
@@ -244,7 +244,7 @@ export default function Overview({
             </Link>
           </div>
         </section>
-        <section className="card attention-card">
+        <section className="card attention-card tw:bg-[#ecefe3] tw:py-[27px] tw:px-7 tw:relative tw:border-[#e0e6d7] tw:wide:p-8 tw:below-1200:p-[23px] tw:below-950:hidden">
           <span className="eyebrow">قدم بعدی شما</span>
           <h2>
             جزئیات کوچک،
@@ -304,7 +304,7 @@ export default function Overview({
 
 function MountainMark() {
   return (
-    <svg className="mountain-mark" viewBox="0 0 160 90" aria-hidden="true">
+    <svg className="tw:absolute tw:-bottom-1.5 tw:-left-5 tw:text-[#c3cdb2] tw:w-37.5 tw:h-25 tw:opacity-80" viewBox="0 0 160 90" aria-hidden="true">
       <path
         d="M5 85 55 10l48 75H5Zm58 0 42-60 47 60H63Z"
         fill="none"

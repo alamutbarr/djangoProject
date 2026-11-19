@@ -170,7 +170,7 @@ export function OwnerKycReview() {
       {error && <p className="error">{error}</p>}
       {rows.length === 0 && <p className="muted">درخواستی ثبت نشده است.</p>}
       {rows.map((row) => (
-        <article className="list-row" key={row.id}>
+        <article className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={row.id}>
           <div>
             <b>{row.user_name}</b>
             <p>
@@ -186,7 +186,7 @@ export function OwnerKycReview() {
             </p>
           </div>
           {row.status === "pending" && (
-            <div className="shipment-actions">
+            <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
               <input
                 value={note[row.id] || ""}
                 maxLength={500}

@@ -68,7 +68,7 @@ export default async function Article({ params }: Props) {
   return (
     <PublicShell>
       <main id="main" className="content-page article-detail">
-        <nav className="breadcrumbs">
+        <nav className="breadcrumbs tw:mt-[35px] tw:text-[#6e7e63] tw:text-[13px]">
           <Link href="/">خانه</Link>
           <Link href="/articles"> / مقالات</Link>
           <span> / {a.category}</span>
@@ -77,7 +77,7 @@ export default async function Article({ params }: Props) {
           <span className="eyebrow">{a.category}</span>
           <h1>{a.title}</h1>
           <p>{a.summary}</p>
-          <div className="article-meta">
+          <div className="article-meta tw:flex tw:gap-6 tw:flex-wrap tw:text-[#71827a] tw:text-[13px] tw:my-4.5 tw:mx-0">
             <span>تحریریه الموت</span>
             <time dateTime={a.published_at}>
               {new Date(a.published_at).toLocaleDateString("fa-IR")}
@@ -91,7 +91,7 @@ export default async function Article({ params }: Props) {
             </span>
           </div>
         </header>
-        <article className="article-body">
+        <article className="article-body tw:max-w-[760px] tw:text-[17px] tw:leading-[2.3] tw:below-600:text-[16px]">
           {blocks.map((block, i) => {
             const lines = block.split("\n");
             return (
@@ -108,7 +108,7 @@ export default async function Article({ params }: Props) {
             );
           })}
         </article>
-        <aside className="content-cta">
+        <aside className="content-cta tw:border-t tw:border-t-line tw:below-600:items-stretch tw:mt-12 tw:pt-8 tw:flex tw:items-center tw:gap-4.5 tw:flex-wrap">
           <h2>قدم بعدی شما</h2>
           <Link className="btn" href="/apps">
             ورود به پنل مناسب

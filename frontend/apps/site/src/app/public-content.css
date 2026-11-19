@@ -1,0 +1,198 @@
+.service-page {
+  @apply tw:max-w-[1000px];
+}
+.service-page h1 {
+  @apply tw:text-[40px] tw:my-[25px] tw:mx-0;
+}
+.service-page > p {
+  @apply tw:text-[18px] tw:[margin:22px_0_35px];
+}
+.service-page .card {
+  @apply tw:my-7.5 tw:mx-0;
+}
+.service-page li {
+  @apply tw:p-2 tw:text-[16px];
+}
+.service-page > .text-link {
+  @apply tw:mr-6;
+}
+.service-faq details {
+  @apply tw:py-5 tw:px-0 tw:[border-bottom:1px_solid_var(--line)];
+}
+.service-faq summary {
+  @apply tw:cursor-pointer tw:text-[18px];
+  @apply tw:font-medium;
+}
+.service-faq p {
+  @apply tw:mt-4.5;
+}
+@media (max-width: 760px) {
+  .service-page h1 {
+    @apply tw:text-[29px];
+  }
+  .service-page > p {
+    @apply tw:text-[16px];
+  }
+  .service-page > .text-link {
+    @apply tw:flex tw:my-5 tw:mx-0;
+  }
+}
+.site-header > nav {
+  @apply tw:flex tw:items-center tw:justify-center tw:gap-5.5 tw:flex-1;
+}
+.site-header a {
+  @apply tw:text-[14px];
+}
+.site-header > nav a:hover {
+  @apply tw:text-brand;
+}
+.content-page {
+  @apply tw:max-w-[1180px] tw:m-auto tw:[padding:32px_36px_80px];
+}
+.content-hero {
+  @apply tw:[padding:45px_0_44px] tw:max-w-[850px];
+}
+.content-hero h1 {
+  @apply tw:text-[clamp(30px,4vw,52px)];
+  @apply tw:leading-[1.6] tw:[margin:14px_0_22px] tw:tracking-[-1px];
+}
+.content-hero h2 {
+  @apply tw:text-[23px];
+  @apply tw:font-medium;
+}
+.content-hero p {
+  @apply tw:text-[17px];
+  @apply tw:leading-[2.15] tw:text-[#58706a] tw:mt-5 tw:max-w-[760px];
+}
+.info-card {
+  @apply tw:p-7.5;
+}
+.info-card p,
+.info-card li {
+  @apply tw:leading-[2.15];
+  @apply tw:text-[16px];
+}
+.info-card li + li {
+  @apply tw:mt-3.5;
+}
+.info-card h2 {
+  @apply tw:text-[22px];
+  @apply tw:leading-[1.8] tw:my-3 tw:mx-0;
+}
+.section-number {
+  @apply tw:[font:15px_Arial] tw:text-gold;
+}
+.content-cta h2 {
+  @apply tw:flex-1 tw:text-[24px];
+}
+.article-card h2 {
+  @apply tw:text-[23px];
+  @apply tw:leading-[1.8] tw:my-4 tw:mx-0;
+}
+.article-card p {
+  @apply tw:text-[#58706a] tw:leading-[2] tw:flex-1;
+}
+.article-card > div {
+  @apply tw:flex tw:gap-6 tw:flex-wrap tw:text-[#71827a] tw:text-[13px] tw:my-4.5 tw:mx-0;
+}
+.article-search label,
+.faq-filter label {
+  @apply tw:flex-1;
+}
+.article-detail {
+  @apply tw:max-w-[960px];
+}
+.article-body section {
+  @apply tw:mb-8.5;
+}
+.article-body h2 {
+  @apply tw:text-[25px] tw:mb-4;
+}
+.article-body p {
+  @apply tw:whitespace-pre-wrap;
+}
+.article-body,
+.article-card,
+.info-card,
+.content-hero {
+  @apply tw:wrap-anywhere;
+}
+.public-contact label {
+  @apply tw:block tw:mb-5;
+}
+.public-contact .btn {
+  @apply tw:mt-3;
+}
+.app-card img {
+  @apply tw:rounded-[18px];
+}
+.app-card h2,
+.app-card p {
+  @apply tw:m-0;
+}
+.app-card p {
+  @apply tw:flex-1 tw:text-[#58706a];
+}
+.public-site .breadcrumbs {
+  @apply tw:text-[13px];
+}
+.public-site input,
+.public-site select,
+.public-site textarea {
+  @apply tw:text-[16px];
+}
+@media (max-width: 1100px) {
+  .site-header > nav {
+    @apply tw:gap-3;
+  }
+  .site-header > nav a {
+    @apply tw:text-[12px];
+  }
+}
+@media (max-width: 850px) {
+  .site-header > nav,
+  .site-header > .secondary-btn {
+    @apply tw:hidden;
+  }
+  .site-mobile-menu summary {
+    @apply tw:cursor-pointer tw:[border:1px_solid_var(--line)] tw:py-2.5 tw:px-3.5;
+    @apply tw:rounded-[8px];
+  }
+  .site-mobile-menu nav {
+    @apply tw:absolute tw:inset-x-5;
+    @apply tw:top-22.5 tw:bg-white tw:[border:1px_solid_var(--line)];
+    @apply tw:rounded-[12px] tw:p-5 tw:[box-shadow:0_16px_40px_#183e461a] tw:z-50 tw:grid tw:gap-3.5;
+  }
+  .content-page {
+    @apply tw:px-6;
+  }
+  .content-hero {
+    @apply tw:py-8 tw:px-0;
+  }
+  .content-hero p {
+    @apply tw:text-[16px];
+  }
+}
+@media (max-width: 600px) {
+  .content-page {
+    @apply tw:[padding:20px_18px_48px];
+  }
+  .info-card {
+    @apply tw:p-5.5;
+  }
+  .content-hero h1 {
+    @apply tw:text-[31px] tw:tracking-[-0.5px];
+  }
+  .content-hero h2 {
+    @apply tw:text-[20px];
+  }
+  .content-cta h2 {
+    @apply tw:basis-full tw:text-[22px];
+  }
+  .article-body h2 {
+    @apply tw:text-[22px];
+  }
+  .public-site .brand {
+    @apply tw:[transform:scale(0.92)] tw:origin-[right_center];
+  }
+}

@@ -10,11 +10,11 @@ export default function Operations({ ops }: { ops: Ops }) {
         title="مرکز رویدادها"
         text="درخواست‌های وب‌سایت و سابقه قابل پیگیری عملیات"
       />
-      <section className="card detail-section">
+      <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
         <h2>درخواست‌های تماس</h2>
         {ops.contacts.length ? (
           ops.contacts.map((c) => (
-            <div className="list-row" key={c.id}>
+            <div className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={c.id}>
               <div>
                 <b>{c.name}</b>
                 <p>{c.message}</p>
@@ -34,7 +34,7 @@ export default function Operations({ ops }: { ops: Ops }) {
           <h2>ردپای عملیات</h2>
           <span className="muted small">۱۰۰ رویداد آخر</span>
         </div>
-        <div className="table-wrap app-records">
+        <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records">
           <table role="table" aria-label="رویدادهای عملیات">
             <thead role="rowgroup">
               <tr role="row">

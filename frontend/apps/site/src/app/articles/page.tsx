@@ -33,7 +33,7 @@ export default async function Articles({
             نکته‌های کاربردی برای ثبت بار، همکاری راننده، بازرسی و پیگیری شفاف.
           </p>
         </section>
-        <form className="article-search" action="/articles">
+        <form className="article-search tw:flex tw:items-end tw:gap-4.5 tw:mt-0 tw:mx-0 tw:mb-7.5 tw:below-600:flex-col tw:below-600:items-stretch tw:below-600:gap-2.5" action="/articles">
           <label>
             جست‌وجوی مقاله
             <input
@@ -56,9 +56,9 @@ export default async function Articles({
           </section>
         ) : (
           <>
-            <div className="article-grid">
+            <div className="tw:grid tw:grid-cols-2 tw:gap-6 tw:below-600:grid-cols-[1fr]">
               {data?.results.map((a) => (
-                <article className="card article-card" key={a.id}>
+                <article className="card article-card tw:p-7.5 tw:below-600:p-5.5 tw:flex tw:flex-col tw:items-start" key={a.id}>
                   <span className="eyebrow">{a.category}</span>
                   <h2>
                     <Link href={"/articles/" + a.slug}>{a.title}</Link>

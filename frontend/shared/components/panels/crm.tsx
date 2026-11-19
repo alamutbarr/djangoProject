@@ -95,7 +95,7 @@ export default function CRM() {
           <h1>از اولین تماس تا همکاری.</h1>
           <p>درخواست‌های سایت، سرنخ‌ها، تاریخچه تماس و پیگیری‌های تیم</p>
         </div>
-        <div className="shipment-actions">
+        <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
           <button className="btn" onClick={() => setModal("lead")}>
             سرنخ جدید
           </button>
@@ -105,7 +105,7 @@ export default function CRM() {
         </div>
       </div>
       {error && <p className="error">{error}</p>}
-      <div className="crm-stage-tabs">
+      <div className="crm-stage-tabs tw:flex tw:gap-2.5 tw:my-6 tw:mx-0 tw:overflow-auto tw:pb-2">
         <button
           className={!stage ? "active" : ""}
           onClick={() => {
@@ -130,7 +130,7 @@ export default function CRM() {
       </div>
       <section className="card">
         <form
-          className="list-toolbar"
+          className="list-toolbar tw:py-5 tw:px-[23px] tw:flex tw:gap-3.5 tw:items-center tw:below-1200:flex-wrap tw:below-760:p-[15px] tw:below-760:gap-2.5"
           onSubmit={(e) => {
             e.preventDefault();
             setPage(1);
@@ -145,7 +145,7 @@ export default function CRM() {
           />
           <button className="secondary-btn">جستجو</button>
         </form>
-        <div className="table-wrap app-records">
+        <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records">
           <table role="table" aria-label="مشتریان و سرنخ‌ها">
             <thead role="rowgroup">
               <tr role="row">
@@ -225,7 +225,7 @@ export default function CRM() {
           </div>
         </div>
       </section>
-      <section className="card form-card detail-section">
+      <section className="card form-card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
         <h2>کارها و پیگیری‌ها</h2>
         {tasks?.results.map((t) => (
           <div className="notice" key={t.id}>
@@ -428,7 +428,7 @@ export default function CRM() {
               await load();
             }}
           />
-          <div className="messages">
+          <div className="messages tw:py-6 tw:px-0 tw:flex tw:flex-col tw:gap-[15px] tw:max-h-[500px] tw:overflow-auto">
             {selected.activities.map((a) => (
               <article className="message" key={a.id}>
                 <b>

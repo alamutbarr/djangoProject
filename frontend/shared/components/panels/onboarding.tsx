@@ -248,7 +248,7 @@ export default function Onboarding({
               </button>
             )}
           </div>
-          <div className="onboarding-steps">
+          <div className="onboarding-steps tw:flex tw:gap-2.5 tw:my-6 tw:mx-0 tw:overflow-auto tw:pb-2">
             {steps.map((title, i) => (
               <button
                 key={title}
@@ -331,11 +331,11 @@ export default function Onboarding({
             چهار مدرک نخست الزامی‌اند. PDF، JPG یا PNG معتبر، حداکثر ۱۰ مگابایت.
             فایل‌ها فقط برای راننده و اپراتور قابل دریافت‌اند.
           </p>
-          <div className="credential-grid">
+          <div className="credential-grid tw:grid tw:grid-cols-2 tw:gap-4.5 tw:my-6 tw:mx-0 tw:below-760:grid-cols-[1fr]">
             {Object.entries(kinds).map(([kind, label]) => {
               const doc = data.documents.find((d) => d.kind === kind);
               return (
-                <article className="credential" key={kind}>
+                <article className="credential tw:p-5.5 tw:border tw:border-line tw:rounded-[12px] tw:bg-[#fafcf7] tw:min-w-0" key={kind}>
                   <div>
                     <h3>{label}</h3>
                     <small>
@@ -399,7 +399,7 @@ export default function Onboarding({
                       <label className="secondary-btn upload-btn">
                         {doc ? "جایگزینی مدرک" : "انتخاب و بارگذاری"}
                         <input
-                          className="sr-only"
+                          className="tw:sr-only!"
                           type="file"
                           accept=".pdf,.png,.jpg,.jpeg"
                           disabled={busy}
@@ -437,9 +437,9 @@ export default function Onboarding({
         </section>
       )}
       {(review || step === 3) && (
-        <section className="card form-card onboarding-summary">
+        <section className="card form-card onboarding-summary tw:mt-6">
           <h2>بازبینی پرونده</h2>
-          <dl className="detail-grid">
+          <dl className="detail-grid tw:grid tw:grid-cols-[1fr_1fr] tw:m-0">
             {fields.map((f) => (
               <div key={f.name}>
                 <dt>{f.label}</dt>

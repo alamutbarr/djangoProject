@@ -74,7 +74,7 @@ class OperationsTests(TestCase):
         response = client.get(download)
         self.assertEqual(response.status_code, 200)
         self.assertIn("attachment", response["Content-Disposition"])
-        response.close()
+        self.assertTrue(b"".join(response.streaming_content))
         document.file.delete(save=False)
         self.assertEqual(client.get(download).status_code, 404)
 
@@ -105,7 +105,6 @@ class OperationsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("attachment", response["Content-Disposition"])
         self.assertTrue(b"".join(response.streaming_content))
-        response.close()
         index = client.get(reverse("admin:index"))
         self.assertContains(index, "پرونده‌های در انتظار بررسی")
         self.assertContains(index, "عملیات الموت")

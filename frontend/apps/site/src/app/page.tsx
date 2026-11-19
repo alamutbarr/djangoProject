@@ -1,3 +1,4 @@
+import "./landing.css";
 import Home from "@/components/home";
 import { siteUrl } from "@/lib/seo";
 export const metadata = { alternates: { canonical: "/" } };

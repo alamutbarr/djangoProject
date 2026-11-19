@@ -125,10 +125,10 @@ export default function Complaints({ role }: { role: Role }) {
           {error}
         </p>
       )}
-      <div className="tickets-layout">
-        <section className="card ticket-list">
+      <div className="tickets-layout tw:grid tw:grid-cols-[340px_minmax(0,1fr)] tw:gap-[23px] tw:below-1200:grid-cols-[280px_1fr] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5">
+        <section className="card ticket-list tw:below-950:max-h-75 tw:below-950:overflow-auto">
           {role === "owner" && (
-            <form className="form-grid complaint-form" onSubmit={create}>
+            <form className="form-grid tw:mb-4 tw:pb-4 tw:border-b tw:border-b-[var(--line,#e6ece8)]" onSubmit={create}>
               <label>
                 موضوع
                 <select name="type" required defaultValue="">
@@ -175,7 +175,7 @@ export default function Complaints({ role }: { role: Role }) {
                 key={item.id}
                 type="button"
                 className={
-                  "ticket-item " + (selected?.id === item.id ? "selected" : "")
+                  "ticket-item tw:text-right tw:bg-transparent tw:w-full tw:p-[21px] tw:border-b tw:border-b-line tw:block " + (selected?.id === item.id ? "selected" : "")
                 }
                 onClick={() => setSelected(item)}
               >
@@ -193,7 +193,7 @@ export default function Complaints({ role }: { role: Role }) {
             <Empty title="شکایتی ثبت نشده است" />
           )}
         </section>
-        <section className="card conversation">
+        <section className="card conversation tw:p-6 tw:below-760:p-5">
           {selected ? (
             <>
               <div className="card-head">
@@ -218,7 +218,7 @@ export default function Complaints({ role }: { role: Role }) {
                 </p>
               )}
               {selected.messages.map((message) => (
-                <div className="list-row" key={message.id}>
+                <div className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={message.id}>
                   <div>
                     <b>{message.author_name || "پیام"}</b>
                     <p>{message.body}</p>
@@ -242,7 +242,7 @@ export default function Complaints({ role }: { role: Role }) {
                   </form>
                 )}
               {role === "operator" && (
-                <div className="shipment-actions">
+                <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
                   {Object.entries(complaintStatuses).map(([value, label]) => (
                     <button
                       key={value}

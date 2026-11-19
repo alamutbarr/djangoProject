@@ -1,0 +1,165 @@
+.sidebar-brand .brand {
+  @apply tw:gap-2.5;
+}
+.sidebar-brand .brand b {
+  @apply tw:text-[15px];
+}
+.sidebar-brand .brand svg {
+  @apply tw:w-7.5;
+}
+.workspace-label small {
+  @apply tw:mr-auto tw:text-[#919b89] tw:text-[9px];
+}
+.sidebar nav {
+  @apply tw:flex tw:flex-col tw:gap-1.5 tw:overflow-auto tw:pb-3;
+}
+.sidebar nav a {
+  @apply tw:flex tw:items-center tw:gap-[13px] tw:py-[11px] tw:px-4 tw:relative tw:text-[12px]
+    tw:text-[#7b887c] tw:rounded-[7px] tw:min-h-[43px];
+}
+.sidebar nav a:hover {
+  @apply tw:bg-[#f5f8f1];
+}
+.sidebar nav a.active {
+  @apply tw:bg-[#eaf3ed] tw:text-[#19685d] tw:font-semibold;
+}
+.sidebar nav a.active i {
+  @apply tw:absolute tw:right-[-17px] tw:w-[3px] tw:h-[23px];
+  @apply tw:top-2.5 tw:bg-brand tw:rounded-[2px];
+}
+.sidebar nav a small {
+  @apply tw:mr-auto tw:grid tw:place-items-center tw:bg-[#dcecdf] tw:rounded-[5px] tw:min-w-5
+    tw:min-h-5 tw:text-[10px];
+}
+.sidebar-help > svg {
+  @apply tw:[margin:auto_auto_8px];
+}
+.sidebar-help b {
+  @apply tw:block tw:text-[11px];
+}
+.sidebar-help p {
+  @apply tw:text-[#91a086] tw:text-[10px] tw:mt-1;
+}
+.sidebar-help a {
+  @apply tw:text-[10px] tw:flex tw:items-center tw:justify-center tw:gap-3 tw:mt-3.5;
+}
+.workspace-header > div {
+  @apply tw:flex tw:items-center tw:gap-[15px] tw:text-[11px];
+}
+.workspace-header > div:first-child > svg {
+  @apply tw:text-[#a2ada0];
+}
+.workspace-header b {
+  @apply tw:font-medium;
+}
+.header-user b {
+  @apply tw:block tw:text-[11px];
+}
+.header-user small {
+  @apply tw:block tw:text-[9px] tw:text-[#93a08f];
+}
+.avatar.large {
+  @apply tw:w-13.5 tw:h-13.5 tw:text-[23px];
+}
+.notification-btn i {
+  @apply tw:w-[5px] tw:h-[5px] tw:rounded-[50%] tw:[background:var(--gold)];
+  @apply tw:[border:2px_solid_#fffefa] tw:box-content tw:absolute tw:right-[5px];
+  @apply tw:top-[5px];
+}
+@media (max-width: 1200px) {
+  .sidebar nav a {
+    @apply tw:py-2.5 tw:px-[13px];
+  }
+}
+@media (max-width: 950px) {
+  .header-user > span:last-child {
+    @apply tw:hidden;
+  }
+}
+@media (max-width: 760px) {
+  .workspace-header > div {
+    @apply tw:gap-2 tw:text-[10px];
+  }
+  .workspace-header > div:first-child > .muted {
+    @apply tw:hidden;
+  }
+  .workspace-header > div:first-child > svg {
+    @apply tw:hidden;
+  }
+  .workspace-header > div:last-child {
+    @apply tw:gap-0.5;
+  }
+  .header-user > .avatar {
+    @apply tw:w-[31px] tw:h-[31px];
+  }
+  .workspace-footer > span:last-child {
+    @apply tw:hidden;
+  }
+}
+.sidebar nav a {
+  @apply tw:text-[13px];
+}
+@media (max-height: 800px) and (min-width: 761px) {
+  .sidebar-help {
+    @apply tw:hidden;
+  }
+  .sidebar-bottom {
+    @apply tw:pt-[7px];
+  }
+  .sidebar-brand {
+    @apply tw:pt-6;
+    @apply tw:pb-[19px];
+  }
+  .workspace-label {
+    @apply tw:mb-4.5;
+  }
+  .sidebar nav {
+    @apply tw:gap-1 tw:scrollbar-thin;
+  }
+  .sidebar nav a {
+    @apply tw:pt-2.5 tw:pb-2.5 tw:min-h-10;
+  }
+}
+@media (max-width: 760px) {
+  .sidebar nav a {
+    @apply tw:text-[12px];
+  }
+}
+.sidebar nav a {
+  @apply tw:text-[#64745e];
+}
+.sidebar nav a {
+  @apply tw:text-[14px] tw:min-h-11;
+}
+.workspace-header > div,
+.header-user b {
+  @apply tw:text-[13px];
+}
+.header-user small {
+  @apply tw:text-[11px];
+}
+@media (max-height: 950px) {
+  .sidebar-help {
+    @apply tw:hidden;
+  }
+  .sidebar nav {
+    @apply tw:scrollbar-thin;
+  }
+}
+@media (max-width: 760px) {
+  .workspace-header > div {
+    @apply tw:text-[12px];
+  }
+  .sidebar nav a {
+    @apply tw:text-[14px];
+  }
+}
+.workspace.menu-collapsed .sidebar {
+  @apply tw:hidden;
+}
+.workspace.menu-collapsed .workspace-body {
+  @apply tw:mr-0;
+}
+img.avatar {
+  @apply tw:object-cover tw:rounded-[50%];
+}

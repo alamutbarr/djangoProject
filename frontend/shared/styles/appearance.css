@@ -1,0 +1,22 @@
+[data-theme="dark"] {
+  @apply tw:scheme-dark;
+  --ink: #e7f0ea;
+  --muted: #b7c4bc;
+  --line: #31423c;
+  --paper: #121a18;
+  --forest: #d7ebe4;
+}
+[data-theme="dark"] body,
+[data-theme="dark"] .workspace,
+[data-theme="dark"] .auth-layout {
+  @apply tw:bg-[#101816] tw:text-ink;
+}
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .workspace-header,
+[data-theme="dark"] .card,
+[data-theme="dark"] .auth-box,
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  @apply tw:bg-[#182420] tw:text-ink tw:border-line;
+}

@@ -1,0 +1,353 @@
+.muted {
+  @apply tw:text-muted;
+}
+.full {
+  @apply tw:col-span-full;
+}
+.nowrap {
+  @apply tw:whitespace-nowrap;
+}
+.block {
+  @apply tw:block tw:w-full;
+}
+.skip {
+  @apply tw:fixed tw:-top-25 tw:right-5 tw:p-3 tw:bg-brand tw:text-white tw:z-1000;
+}
+.skip:focus {
+  @apply tw:top-2.5;
+}
+.btn,
+.secondary-btn,
+.outline-btn,
+.danger-btn {
+  @apply tw:inline-flex tw:items-center tw:justify-center tw:gap-4 tw:min-h-[45px] tw:py-[11px] tw:px-5.5
+    tw:rounded-[7px] tw:font-semibold;
+  @apply tw:text-[13px] tw:[transition:background_0.2s,transform_0.2s];
+}
+.btn {
+  @apply tw:bg-brand tw:text-white tw:[border:1px_solid_var(--teal)];
+}
+.btn:hover {
+  @apply tw:bg-brand-dark tw:[transform:translateY(-1px)];
+}
+.btn.block {
+  @apply tw:flex tw:w-full;
+}
+.secondary-btn {
+  @apply tw:[border:1px_solid_var(--line)] tw:bg-white tw:text-ink tw:gap-2 tw:py-2 tw:px-3.5
+    tw:min-h-[37px] tw:text-[12px];
+}
+.secondary-btn:hover {
+  @apply tw:bg-[#f1f5f1];
+}
+.outline-btn {
+  @apply tw:[border:1px_solid_#ffffff6e] tw:bg-transparent tw:text-inherit;
+}
+.danger-btn {
+  @apply tw:bg-[#fff4f0] tw:text-[#b65e4c] tw:py-2 tw:px-3.5 tw:min-h-[37px] tw:text-[12px];
+}
+.icon-btn {
+  @apply tw:inline-flex tw:items-center tw:justify-center tw:min-w-9 tw:min-h-9
+    tw:bg-transparent tw:text-inherit tw:rounded-[7px] tw:p-[7px];
+}
+.icon-btn:hover {
+  @apply tw:bg-[#849b8f12];
+}
+.text-link {
+  @apply tw:text-brand tw:inline-flex tw:items-center tw:gap-2.5 tw:font-semibold tw:[background:none]
+    tw:p-0;
+}
+.text-link:hover {
+  @apply tw:underline;
+}
+.error {
+  @apply tw:bg-[#fff0ed] tw:text-[#a23e35] tw:py-3 tw:px-[15px] tw:rounded-[8px] tw:text-[13px]
+    tw:mt-3.5;
+}
+.info-note {
+  @apply tw:py-[13px] tw:px-4 tw:[border:1px_solid_#dbe8e0] tw:bg-[#f2f7f3];
+  @apply tw:rounded-[8px] tw:text-[12px];
+  @apply tw:leading-[2] tw:text-[#6b7e72] tw:mt-5;
+}
+.brand {
+  @apply tw:inline-flex tw:items-center tw:gap-3 tw:text-forest tw:min-w-[145px];
+}
+.brand span {
+  @apply tw:flex tw:flex-col tw:text-center tw:leading-[1.4];
+}
+.brand b {
+  @apply tw:font-latin tw:tracking-[4px];
+  @apply tw:text-[17px];
+  @apply tw:font-extrabold;
+}
+.brand small {
+  @apply tw:text-[9px] tw:[border-top:1px_solid_#7e969166] tw:pt-[5px] tw:mt-[5px] tw:whitespace-nowrap;
+}
+.brand.light {
+  @apply tw:text-[#f8f9f0];
+}
+.eyebrow {
+  @apply tw:text-[11px];
+  @apply tw:font-semibold tw:tracking-[0.2px] tw:block;
+}
+.eyebrow i {
+  @apply tw:inline-block tw:w-2 tw:h-2 tw:bg-gold tw:[border:4px_solid_#b9a36a3d] tw:box-content;
+  @apply tw:rounded-[50%] tw:align-middle tw:ml-2.5;
+}
+.modal {
+  @apply tw:[border:1px_solid_#e0e6dc];
+  @apply tw:rounded-[16px] tw:max-w-[520px] tw:w-[calc(100%_-_32px)] tw:p-7 tw:bg-[#fbfcf8]
+    tw:[box-shadow:0_30px_120px_#0a2f2b4d] tw:text-ink tw:max-h-[90svh] tw:overflow-auto;
+}
+.modal.wide {
+  @apply tw:max-w-[800px];
+}
+.modal::backdrop {
+  @apply tw:bg-[#0b292b9c] tw:[backdrop-filter:blur(5px)];
+}
+.modal-head {
+  @apply tw:flex tw:items-center tw:justify-between tw:mb-5.5 tw:[border-bottom:1px_solid_var(--line)]
+    tw:pb-4.5;
+}
+.modal-head h2 {
+  @apply tw:text-[20px];
+}
+.form-grid {
+  @apply tw:grid tw:grid-cols-2 tw:gap-5;
+}
+.card {
+  @apply tw:[border:1px_solid_#e4e9df];
+  @apply tw:rounded-[12px] tw:bg-[#fffefa] tw:overflow-hidden;
+}
+.card-head {
+  @apply tw:[padding:23px_25px_20px] tw:flex tw:items-center tw:justify-between tw:gap-5;
+}
+.card-head h2 {
+  @apply tw:text-[15px];
+  @apply tw:font-semibold;
+}
+.card-head p {
+  @apply tw:text-[10px] tw:text-[#98a18e] tw:mt-[3px];
+}
+.card-head .text-link {
+  @apply tw:text-[10px];
+}
+.badge {
+  @apply tw:text-[9px] tw:py-1 tw:px-[9px] tw:rounded-[5px] tw:inline-flex tw:items-center tw:gap-1.5
+    tw:bg-[#f1f3e9] tw:text-[#929c78] tw:whitespace-nowrap;
+  @apply tw:leading-[1.8];
+}
+.badge i {
+  @apply tw:w-1 tw:h-1 tw:rounded-[50%] tw:bg-current;
+}
+.badge.in_transit,
+.badge.assigned,
+.badge.approved {
+  @apply tw:bg-[#e9f3ee] tw:text-[#578c79];
+}
+.badge.completed,
+.badge.delivered,
+.badge.paid {
+  @apply tw:bg-[#edf3e5] tw:text-[#6f9055];
+}
+.badge.loading,
+.badge.pending,
+.badge.unpaid {
+  @apply tw:bg-[#f9f2df] tw:text-[#b49958];
+}
+.badge.cancelled {
+  @apply tw:bg-[#faeeea] tw:text-[#bd8071];
+}
+.badge.open {
+  @apply tw:bg-[#eaf2ec] tw:text-[#6d9475];
+}
+.badge.closed {
+  @apply tw:bg-[#f0f1ec] tw:text-[#98a08e];
+}
+.empty h3 {
+  @apply tw:text-[15px] tw:text-[#6f8464] tw:mt-4;
+}
+.empty p {
+  @apply tw:text-[11px] tw:mt-[7px] tw:max-w-[380px];
+}
+.empty .btn {
+  @apply tw:mt-5;
+}
+.error-state .btn {
+  @apply tw:mt-[25px];
+}
+@media (min-width: 1600px) {
+  .card-head {
+    @apply tw:py-[25px] tw:px-[29px];
+  }
+}
+@media (max-width: 1200px) {
+  .card-head {
+    @apply tw:p-5;
+  }
+}
+@media (max-width: 760px) {
+  .card-head {
+    @apply tw:py-[19px] tw:px-[17px] tw:gap-2.5;
+  }
+  .card-head h2 {
+    @apply tw:text-[14px];
+  }
+  .card-head p {
+    @apply tw:text-[9px];
+  }
+  .card-head .text-link {
+    @apply tw:text-[9px] tw:gap-[5px];
+  }
+  .form-grid {
+    @apply tw:gap-4;
+  }
+  .form-grid > label {
+    @apply tw:text-[11px];
+  }
+  .modal {
+    @apply tw:py-5.5 tw:px-5;
+  }
+  .modal-head h2 {
+    @apply tw:text-[18px];
+  }
+  .modal .form-grid {
+    @apply tw:grid-cols-[1fr];
+  }
+  .modal .full {
+    @apply tw:col-auto;
+  }
+  .modal .btn {
+    @apply tw:w-full;
+  }
+}
+@media (max-width: 400px) {
+  .form-grid {
+    @apply tw:grid-cols-[1fr];
+  }
+  .full {
+    @apply tw:col-auto;
+  }
+}
+.card-head h2 {
+  @apply tw:text-[16px];
+}
+@media (max-width: 760px) {
+  .card-head h2 {
+    @apply tw:text-[14px];
+  }
+}
+.card-head p {
+  @apply tw:text-[#64745e];
+}
+.info-note {
+  @apply tw:text-[#5f725e];
+}
+.form-grid > label {
+  @apply tw:text-[14px];
+}
+.card-head h2 {
+  @apply tw:text-[19px];
+}
+.badge {
+  @apply tw:text-[12px];
+}
+.card-head p {
+  @apply tw:text-[12px];
+}
+.btn,
+.secondary-btn,
+.danger-btn {
+  @apply tw:text-[14px];
+}
+.info-note,
+.error {
+  @apply tw:text-[13px];
+}
+@media (max-width: 760px) {
+  .card-head h2 {
+    @apply tw:text-[17px];
+  }
+  .badge {
+    @apply tw:text-[11px];
+  }
+  .btn,
+  .secondary-btn {
+    @apply tw:text-[13px];
+  }
+  .form-grid > label {
+    @apply tw:text-[14px];
+  }
+}
+.persian-date legend {
+  @apply tw:text-[14px] tw:mb-[7px];
+}
+.persian-date > div {
+  @apply tw:grid tw:grid-cols-[0.8fr_1.3fr_1fr] tw:gap-[7px];
+}
+.persian-date select {
+  @apply tw:py-2.5 tw:px-[5px] tw:text-[13px];
+}
+.persian-date small {
+  @apply tw:text-[10px] tw:text-[#6b7c65] tw:block tw:mt-[5px];
+}
+.error-state small {
+  @apply tw:block tw:wrap-anywhere tw:my-3 tw:mx-0;
+}
+.badge.on_hold {
+  @apply tw:bg-[#f3ead2] tw:text-[#6d5420];
+}
+.pagination {
+  @apply tw:flex tw:justify-between tw:items-center tw:py-[15px] tw:px-[23px]
+    tw:[border-top:1px_solid_var(--line)] tw:text-[10px] tw:text-[#9aa58e];
+}
+.pagination > div {
+  @apply tw:flex tw:gap-1.5;
+}
+.form-card {
+  @apply tw:p-7;
+}
+.form-card > .card-head {
+  @apply tw:[padding:0_0_28px];
+}
+.form-card h2 {
+  @apply tw:text-[18px] tw:mb-3;
+}
+.form-card form {
+  @apply tw:max-w-full;
+}
+.form-card .card-head h1 {
+  @apply tw:text-[26px];
+}
+@media (max-width: 760px) {
+  .pagination {
+    @apply tw:py-[13px] tw:px-[15px] tw:text-[9px];
+  }
+  .form-card {
+    @apply tw:py-5.5 tw:px-4.5;
+  }
+  .form-card > .card-head {
+    @apply tw:pb-[25px];
+  }
+  .form-card .card-head h1 {
+    @apply tw:text-[23px];
+  }
+  .form-card .card-head {
+    @apply tw:[align-items:start];
+  }
+  .form-card .card-head > .text-link {
+    @apply tw:text-[10px];
+  }
+  .form-card .card-head > div > p {
+    @apply tw:text-[9px];
+  }
+  .form-card .eyebrow {
+    @apply tw:text-[9px];
+  }
+}
+.pagination {
+  @apply tw:text-[#64745e];
+}
+.pagination {
+  @apply tw:text-[12px];
+}

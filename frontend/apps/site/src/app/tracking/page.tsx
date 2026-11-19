@@ -19,7 +19,7 @@ export default function Page() {
             ببینید.
           </p>
         </section>
-        <div className="public-tool-wrap">
+        <div className="tw:max-w-[850px]">
           <TrackingForm />
         </div>
       </main>

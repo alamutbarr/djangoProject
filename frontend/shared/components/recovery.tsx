@@ -11,10 +11,10 @@ export default function Recovery() {
   const uid = params.get("uid"),
     token = params.get("token");
   return (
-    <main id="main" className="section-wrap recovery-page">
+    <main id="main" className="section-wrap tw:max-w-[620px] tw:min-h-[100svh]">
       <Brand />
-      <section className="card form-card">
-        <h1>{uid && token ? "انتخاب رمز جدید" : "بازیابی حساب"}</h1>
+      <section className="card form-card tw:mt-[45px]">
+        <h1 className="tw:mb-[15px] tw:text-[28px]">{uid && token ? "انتخاب رمز جدید" : "بازیابی حساب"}</h1>
         <p className="muted">
           ایمیل ثبت‌شده در حساب لازم است. ارسال ایمیل در محیط عمومی به تنظیمات
           سرویس ایمیل نیاز دارد.
@@ -57,7 +57,7 @@ export default function Recovery() {
             {message}
           </p>
         )}
-        <Link className="text-link" href="/login">
+        <Link className="text-link tw:mt-6" href="/login">
           بازگشت به ورود
         </Link>
       </section>

@@ -1,0 +1,255 @@
+table {
+  @apply tw:w-full tw:border-collapse tw:text-right tw:whitespace-nowrap tw:text-[11px];
+}
+th {
+  @apply tw:bg-[#f7f8f1] tw:[border-top:1px_solid_#edf0e6];
+  @apply tw:[border-bottom:1px_solid_#edf0e6] tw:py-[11px] tw:px-[19px] tw:text-[10px];
+  @apply tw:font-normal tw:text-[#91a087];
+}
+td {
+  @apply tw:py-4.5 tw:px-[19px] tw:[border-bottom:1px_solid_#edf0e6] tw:text-[#4f654c];
+}
+tbody tr:last-child td {
+  @apply tw:[border-bottom:0];
+}
+tbody tr:hover {
+  @apply tw:bg-[#fafbf5];
+}
+.shipment-name b {
+  @apply tw:text-[11px];
+  @apply tw:font-medium tw:block tw:text-[#425c40];
+}
+.shipment-name small {
+  @apply tw:font-latin;
+  @apply tw:text-[8px] tw:text-[#a2ac98] tw:block tw:text-right tw:mt-1 tw:tracking-[0.5px];
+}
+.table-route svg {
+  @apply tw:text-[#a4b198];
+}
+.table-route + small {
+  @apply tw:text-[8px] tw:mt-[3px] tw:block;
+}
+.page-heading {
+  @apply tw:flex tw:items-center tw:justify-between tw:gap-5 tw:mb-[27px];
+}
+.page-heading h1 {
+  @apply tw:text-[27px];
+}
+.page-heading p {
+  @apply tw:text-[11px] tw:text-[#8e9c85] tw:mt-[5px];
+}
+.page-heading .btn {
+  @apply tw:text-[11px] tw:min-h-10.5 tw:gap-2.5;
+}
+.list-toolbar select {
+  @apply tw:text-[11px] tw:min-h-10 tw:w-[170px] tw:py-2 tw:px-3;
+}
+.search-field input {
+  @apply tw:[background:none] tw:[border:0] tw:min-h-10 tw:text-[11px] tw:p-2 tw:flex-1;
+}
+.search-field .text-link {
+  @apply tw:text-[10px] tw:whitespace-nowrap;
+}
+.list-toolbar > a {
+  @apply tw:mr-auto tw:whitespace-nowrap;
+}
+.big-route > div {
+  @apply tw:relative;
+}
+.big-route > div > svg {
+  @apply tw:text-brand tw:[margin:0_auto_7px];
+}
+.big-route small {
+  @apply tw:block tw:text-[#97a58c] tw:text-[10px];
+}
+.big-route h2 {
+  @apply tw:text-[23px] tw:mt-1;
+}
+.big-route .route-dash {
+  @apply tw:flex-1 tw:[border-top:1px_dashed_#b7c7ab] tw:my-0 tw:mx-[35px] tw:h-px;
+}
+.route-dash svg {
+  @apply tw:absolute tw:top-[-15px] tw:bg-[#f3f6ee];
+  @apply tw:right-[40%] tw:p-1 tw:w-9 tw:h-7.5;
+}
+.detail-grid {
+  @apply tw:gap-[0_30px];
+}
+.detail-grid > div {
+  @apply tw:py-3.5 tw:px-0 tw:[border-bottom:1px_solid_var(--line)];
+}
+dt {
+  @apply tw:text-[10px] tw:text-[#9ba58f] tw:mb-[5px];
+}
+dd {
+  @apply tw:m-0 tw:text-[12px] tw:wrap-anywhere;
+}
+.shipment-actions .btn {
+  @apply tw:text-[11px] tw:py-2.5 tw:px-[15px] tw:gap-2;
+}
+.rating-form h2,
+.rating-form .full,
+.rating-form .btn {
+  @apply tw:col-span-full;
+}
+.rating-form h2 {
+  @apply tw:m-0 tw:text-[16px];
+}
+.rating-form label {
+  @apply tw:grid tw:gap-1.5 tw:text-[13px];
+}
+.detail-section > h2 {
+  @apply tw:text-[16px] tw:mb-[17px];
+}
+.detail-section .card-head {
+  @apply tw:[padding:0_0_12px];
+}
+.list-row:last-child {
+  @apply tw:[border:0];
+}
+.list-row p {
+  @apply tw:text-[11px] tw:text-[#8a9a7e] tw:whitespace-pre-wrap;
+}
+.documents > a {
+  @apply tw:flex tw:items-center tw:gap-[15px] tw:py-3 tw:px-[15px] tw:bg-[#f5f7ef]
+    tw:[border:1px_solid_var(--line)];
+  @apply tw:rounded-[7px] tw:text-[#708b63] tw:text-[11px];
+}
+.documents > a > svg:last-child {
+  @apply tw:mr-auto;
+}
+.documents > a span {
+  @apply tw:wrap-anywhere;
+}
+.upload-btn {
+  @apply tw:cursor-pointer;
+}
+.inspection-row p {
+  @apply tw:text-[11px] tw:text-[#9aa58f];
+}
+.inspection-row b {
+  @apply tw:text-[12px];
+}
+.timeline-card h2 {
+  @apply tw:text-[17px];
+}
+.timeline li {
+  @apply tw:[border-right:1px_solid_#e0e7d7] tw:relative tw:[padding:0_22px_28px_0];
+}
+.timeline li:last-child {
+  @apply tw:border-r-transparent tw:pb-[5px];
+}
+.timeline li > i {
+  @apply tw:absolute tw:right-[-5px];
+  @apply tw:top-2 tw:w-[9px] tw:h-[9px] tw:bg-[#d4decb] tw:[border:2px_solid_#fffefa];
+  @apply tw:rounded-[50%];
+}
+.timeline li.latest > i {
+  @apply tw:bg-brand tw:[box-shadow:0_0_0_4px_#087f8c14];
+}
+.timeline b {
+  @apply tw:text-[11px];
+  @apply tw:font-medium;
+}
+.timeline p {
+  @apply tw:text-[10px] tw:text-[#93a087] tw:mt-[5px];
+}
+.timeline small {
+  @apply tw:text-[8px] tw:text-[#afb6a5] tw:mt-[5px] tw:block;
+}
+@media (min-width: 1600px) {
+  td {
+    @apply tw:py-5 tw:px-[25px];
+  }
+  .shipment-name b {
+    @apply tw:text-[12px];
+  }
+  table {
+    @apply tw:text-[12px];
+  }
+}
+@media (max-width: 760px) {
+  table {
+    @apply tw:text-[10px];
+  }
+  th {
+    @apply tw:py-2.5 tw:px-[15px] tw:text-[9px];
+  }
+  td {
+    @apply tw:py-4 tw:px-[15px];
+  }
+  .shipment-name b {
+    @apply tw:text-[10px];
+  }
+  .table-route + small {
+    @apply tw:text-[8px];
+  }
+  .page-heading {
+    @apply tw:[align-items:start] tw:gap-[13px] tw:flex-col tw:mb-[23px];
+  }
+  .page-heading h1 {
+    @apply tw:text-[24px];
+  }
+  .page-heading p {
+    @apply tw:text-[10px];
+  }
+  .page-heading .btn {
+    @apply tw:min-h-[39px] tw:text-[10px] tw:py-2 tw:px-3.5;
+  }
+  .page-heading > .badge {
+    @apply tw:self-end tw:-mt-7.5;
+  }
+  .list-toolbar select {
+    @apply tw:w-auto tw:flex-1 tw:text-[10px];
+  }
+  .list-toolbar > a {
+    @apply tw:text-[10px] tw:py-2 tw:px-2.5;
+  }
+  .search-field {
+    @apply tw:basis-full;
+  }
+  .big-route h2 {
+    @apply tw:text-[20px];
+  }
+  .big-route .route-dash {
+    @apply tw:my-0 tw:mx-[25px];
+  }
+  .detail-grid {
+    @apply tw:gap-[0_20px];
+  }
+  dd {
+    @apply tw:text-[11px];
+  }
+  .shipment-actions .btn {
+    @apply tw:text-[10px];
+  }
+}
+.page-heading p,
+.table-route + small,
+.shipment-name small,
+.detail-grid dt,
+.timeline p,
+.timeline small {
+  @apply tw:text-[#64745e];
+}
+table {
+  @apply tw:text-[13px];
+}
+th {
+  @apply tw:text-[12px];
+}
+.shipment-name b {
+  @apply tw:text-[13px];
+}
+.shipment-name small {
+  @apply tw:text-[11px];
+}
+.detail-grid dt,
+.timeline small {
+  @apply tw:text-[12px];
+}
+.detail-grid dd {
+  @apply tw:text-[14px];
+}
+
+/* Keep absolutely positioned accessible table labels inside the scroll container. */

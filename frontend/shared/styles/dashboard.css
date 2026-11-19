@@ -1,0 +1,223 @@
+.welcome .eyebrow {
+  @apply tw:text-[10px] tw:text-[#899980] tw:mb-1.5;
+}
+.welcome h1 {
+  @apply tw:text-[28px] tw:tracking-[-1px];
+  @apply tw:font-bold;
+}
+.welcome p {
+  @apply tw:text-[11px] tw:text-[#8c9887] tw:mt-[5px];
+}
+.today > span {
+  @apply tw:text-[9px] tw:text-[#a0a991] tw:block;
+}
+.today b {
+  @apply tw:text-[11px];
+  @apply tw:block tw:font-medium;
+}
+.today small {
+  @apply tw:text-[9px] tw:text-[#97a28d] tw:flex tw:items-center tw:justify-end tw:gap-[7px] tw:mt-[3px];
+}
+.today i {
+  @apply tw:w-1 tw:h-1 tw:bg-[#8bac78] tw:inline-block tw:rounded-[50%];
+}
+.stat-card > div {
+  @apply tw:flex tw:justify-between tw:items-center tw:text-[11px] tw:text-[#7e8b77];
+}
+.stat-card > div > svg {
+  @apply tw:text-[#98a88e];
+}
+.stat-card strong {
+  @apply tw:text-[30px];
+  @apply tw:font-semibold tw:tracking-[-1px] tw:block tw:[margin:8px_0_2px];
+  @apply tw:leading-[1.5];
+}
+.stat-card small {
+  @apply tw:text-[9px] tw:text-[#98a18e] tw:block;
+}
+.stat-card.featured {
+  @apply tw:bg-[#214f46] tw:border-[#214f46] tw:text-[#fbfcf3];
+}
+.stat-card.featured > div {
+  @apply tw:text-[#d7e2d1];
+}
+.stat-card.featured > div > svg {
+  @apply tw:text-[#9cba9b];
+}
+.stat-card.featured small {
+  @apply tw:text-[#a6bca1];
+}
+.stat-card.featured:after {
+  @apply tw:[content:""] tw:absolute tw:w-30 tw:h-30 tw:[border:1px_solid_#b1c6a61a];
+  @apply tw:rounded-[50%] tw:left-[-55px];
+  @apply tw:-bottom-17.5 tw:[box-shadow:0_0_0_22px_#b1c6a60b,0_0_0_44px_#b1c6a608];
+}
+.route-card .card-head {
+  @apply tw:pb-0;
+}
+.live-label i {
+  @apply tw:bg-[#92b16f] tw:w-[5px] tw:h-[5px] tw:inline-block tw:rounded-[50%];
+}
+.route-visual svg {
+  @apply tw:w-full tw:h-[180px] tw:opacity-75;
+}
+.route-summary > span {
+  @apply tw:flex tw:items-center tw:gap-1.5;
+}
+.route-summary > a {
+  @apply tw:flex tw:gap-1.5 tw:items-center tw:mr-auto tw:text-brand;
+}
+.attention-card .eyebrow {
+  @apply tw:text-[9px] tw:text-[#8b9b7f];
+}
+.attention-card h2 {
+  @apply tw:text-[24px] tw:mt-2.5;
+  @apply tw:leading-[1.65];
+  @apply tw:font-semibold;
+}
+.attention-card h2 em {
+  @apply tw:text-[#617e52];
+}
+.attention-card p {
+  @apply tw:text-[10px] tw:text-[#8b9980] tw:max-w-[255px] tw:mt-[11px] tw:relative tw:z-1;
+}
+.attention-card .btn {
+  @apply tw:py-[9px] tw:px-4 tw:min-h-9.5 tw:text-[10px] tw:mt-5.5 tw:relative tw:z-1 tw:gap-4;
+}
+@media (min-width: 1600px) {
+  .welcome h1 {
+    @apply tw:text-[32px];
+  }
+  .route-visual svg {
+    @apply tw:h-[215px];
+  }
+  .attention-card h2 {
+    @apply tw:text-[28px];
+  }
+  .attention-card p {
+    @apply tw:text-[12px] tw:max-w-[320px];
+  }
+  .attention-card .btn {
+    @apply tw:text-[11px];
+  }
+}
+@media (max-width: 1200px) {
+  .stat-card strong {
+    @apply tw:text-[26px];
+  }
+  .attention-card h2 {
+    @apply tw:text-[22px];
+  }
+  .route-summary > a {
+    @apply tw:hidden;
+  }
+  .route-visual svg {
+    @apply tw:h-[180px];
+  }
+}
+@media (max-width: 950px) {
+  .welcome h1 {
+    @apply tw:text-[23px];
+  }
+  .welcome .today b {
+    @apply tw:text-[10px];
+  }
+}
+@media (max-width: 760px) {
+  .welcome h1 {
+    @apply tw:text-[22px];
+  }
+  .welcome p {
+    @apply tw:text-[10px] tw:max-w-[220px];
+  }
+  .welcome .eyebrow {
+    @apply tw:text-[9px];
+  }
+  .today > span {
+    @apply tw:text-[8px];
+  }
+  .today b {
+    @apply tw:text-[9px]!;
+  }
+  .today small {
+    @apply tw:hidden;
+  }
+  .stat-card > div {
+    @apply tw:text-[10px];
+  }
+  .stat-card > div svg {
+    @apply tw:w-4.5;
+  }
+  .stat-card strong {
+    @apply tw:text-[25px];
+  }
+  .stat-card small {
+    @apply tw:text-[8px];
+  }
+  .route-card .card-head {
+    @apply tw:[padding:19px_17px_0];
+  }
+  .route-visual svg {
+    @apply tw:h-[155px];
+  }
+  .route-summary > a {
+    @apply tw:flex tw:text-[8px];
+  }
+}
+@media (max-width: 400px) {
+  .welcome h1 {
+    @apply tw:text-[19px];
+  }
+  .welcome p {
+    @apply tw:text-[9px];
+  }
+  .stat-card strong {
+    @apply tw:text-[23px];
+  }
+  .stat-card > div {
+    @apply tw:text-[9px];
+  }
+}
+.stat-card > div {
+  @apply tw:text-[12px];
+}
+.stat-card small {
+  @apply tw:text-[10px];
+}
+@media (max-width: 760px) {
+  .stat-card > div {
+    @apply tw:text-[10px];
+  }
+  .stat-card small {
+    @apply tw:text-[8px];
+  }
+}
+.welcome p,
+.stat-card small,
+.today > span,
+.today small {
+  @apply tw:text-[#64745e];
+}
+.stat-card.featured small {
+  @apply tw:text-[#c6d7bd];
+}
+.stat-card > div {
+  @apply tw:text-[14px];
+}
+.stat-card small {
+  @apply tw:text-[12px];
+}
+.stat-card strong {
+  @apply tw:text-[32px];
+}
+@media (max-width: 760px) {
+  .stat-card strong {
+    @apply tw:text-[29px];
+  }
+  .stat-card > div {
+    @apply tw:text-[12px];
+  }
+  .stat-card small {
+    @apply tw:text-[11px];
+  }
+}

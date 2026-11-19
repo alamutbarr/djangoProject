@@ -20,11 +20,11 @@ export default function Apps() {
             به صفحه اصلی گوشی اضافه کنید.
           </p>
         </section>
-        <div className="app-grid">
+        <div className="tw:grid tw:grid-cols-2 tw:gap-6 tw:below-600:grid-cols-[1fr]">
           {Object.entries(panelApps)
             .filter(([panel]) => panel !== "admin")
             .map(([panel, app]) => (
-              <article className="card app-card" key={panel}>
+              <article className="card app-card tw:p-7.5 tw:below-600:p-5.5 tw:flex tw:flex-col tw:items-start tw:gap-3.5" key={panel}>
                 <img
                   src={"/pwa/icons/" + panel + "-192.png"}
                   width={72}

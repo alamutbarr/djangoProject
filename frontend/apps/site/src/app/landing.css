@@ -1,0 +1,25 @@
+@layer theme, base, components, utilities;
+@reference "../../../../shared/styles/theme.css";
+
+@source "../components/home.tsx";
+
+@theme inline {
+  --background-image-landing-hero:
+    linear-gradient(
+      270deg,
+      rgba(10, 47, 47, 0.79),
+      rgba(12, 36, 37, 0.46) 65%,
+      rgba(12, 28, 28, 0.29)
+    ),
+    linear-gradient(0deg, rgba(12, 39, 40, 0.8), transparent 65%);
+  --background-image-landing-hero-mobile:
+    linear-gradient(270deg, #0c3438bf, #0d303a65),
+    linear-gradient(0deg, #133a3ce0, transparent);
+}
+
+/* Keep route utilities from changing shared components outside these sections. */
+@layer utilities {
+  :where(.landing-main, .landing-dialog) {
+    @tailwind utilities source(none);
+  }
+}

@@ -145,7 +145,7 @@ export default function LiveLocation({
       checkedAt - new Date(newest.observed_at || newest.created_at).getTime() >
         300000;
   return (
-    <section className="card detail-section">
+    <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
       <div className="card-head">
         <h2>نقشه و رصد موقعیت راننده</h2>
         <span className={"badge " + (stale ? "pending" : "in_transit")}>
@@ -163,7 +163,7 @@ export default function LiveLocation({
         }
       />
       {newest && (
-        <p className="location-caption">
+        <p className="tw:mt-[15px] tw:text-[#62745e]">
           <span dir="ltr">
             {newest.latitude}, {newest.longitude}
           </span>{" "}
@@ -176,8 +176,8 @@ export default function LiveLocation({
         </p>
       )}
       {canShare && (
-        <div className="tracking-controls">
-          <p>
+        <div className="tw:pt-5">
+          <p className="tw:mb-3.5">
             با شروع رصد، موقعیت شما در همین سفر برای صاحب بار، متصدی و اپراتور
             ارسال می‌شود.
           </p>

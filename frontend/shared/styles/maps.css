@@ -1,0 +1,16 @@
+.leaflet-container {
+  font-family: var(--font-vazir, Vazirmatn), Arial, sans-serif;
+  z-index: 0;
+  background: #e9eee3;
+}
+.leaflet-popup-content {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+@media (max-width: 760px),
+  (max-width: 950px) and (max-height: 500px) and (pointer: coarse) {
+  .workspace .map-shell .leaflet-container {
+    max-height: min(48svh, 340px);
+  }
+}

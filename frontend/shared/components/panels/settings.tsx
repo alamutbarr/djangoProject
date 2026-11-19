@@ -27,15 +27,15 @@ export default function Account({
         title="حساب کاربری شما"
         text="اطلاعات همکاری و تنظیمات امنیت حساب"
       />
-      <div className="settings-grid">
+      <div className="settings-grid tw:grid tw:grid-cols-[1fr_1fr] tw:gap-6 tw:[align-items:start] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5">
         <Security />
         <section className="card form-card">
           <h2>اطلاعات شخصی</h2>
-          <div className="profile-summary">
+          <div className="profile-summary tw:pt-5 tw:px-0 tw:pb-7 tw:flex tw:gap-[15px] tw:items-center">
             {user.avatar_url ? (
-              <img className="avatar large" src={user.avatar_url} alt="" />
+              <img className="avatar tw:w-[35px] tw:h-[35px] tw:bg-[#e9eddf] tw:border tw:border-[#e0e6d6] tw:text-[#687c56] tw:rounded-full tw:grid tw:place-items-center tw:font-semibold large" src={user.avatar_url} alt="" />
             ) : (
-              <span className="avatar large">{user.first_name?.[0] || "م"}</span>
+              <span className="avatar tw:w-[35px] tw:h-[35px] tw:bg-[#e9eddf] tw:border tw:border-[#e0e6d6] tw:text-[#687c56] tw:rounded-full tw:grid tw:place-items-center tw:font-semibold large">{user.first_name?.[0] || "م"}</span>
             )}
             <div>
               <b>{user.name || user.username}</b>
@@ -47,7 +47,7 @@ export default function Account({
               <label className="text-link">
                 تصویر پروفایل
                 <input
-                  className="sr-only"
+                  className="tw:sr-only!"
                   type="file"
                   accept=".jpg,.jpeg,.png"
                   onChange={(event) => {

@@ -1,0 +1,36 @@
+.pwa-toolbar > span {
+  @apply tw:me-auto;
+}
+.update-banner p {
+  @apply tw:m-0 tw:flex-1;
+}
+@media (max-width: 600px) {
+  .pwa-toolbar > span {
+    @apply tw:hidden;
+  }
+  .pwa-toolbar button {
+    @apply tw:min-h-9 tw:text-[12px];
+  }
+  .pwa-tools > .info-note {
+    @apply tw:text-[13px];
+  }
+  .pwa-tools .btn,
+  .update-banner .secondary-btn {
+    @apply tw:text-[13px];
+  }
+}
+
+.app-entry-tools {
+  @apply tw:[padding:12px_max(22px,calc((100vw_-_1180px)_/_2))];
+}
+.app-entry-tools .pwa-tools {
+  @apply tw:m-0;
+}
+.pwa-tools .pwa-ready {
+  @apply tw:text-[11px];
+}
+@media (max-width: 600px) {
+  .pwa-tools .pwa-ready {
+    @apply tw:hidden;
+  }
+}

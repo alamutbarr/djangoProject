@@ -61,14 +61,14 @@ export default function Help() {
             اطلاعات و نقش حساب را بررسی کنید.
           </p>
         </section>
-        <nav className="help-tabs">
+        <nav className="tw:flex tw:gap-3 tw:flex-wrap tw:mb-7.5">
           {guides.map((g) => (
             <a className="secondary-btn" key={g.id} href={"#" + g.id}>
               {g.name}
             </a>
           ))}
         </nav>
-        <div className="information-grid">
+        <div className="tw:grid tw:grid-cols-2 tw:gap-6 tw:below-600:grid-cols-[1fr]">
           {guides.map((g) => (
             <section id={g.id} className="card info-card" key={g.id}>
               <h2>پنل {g.name}</h2>

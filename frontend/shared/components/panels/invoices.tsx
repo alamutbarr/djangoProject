@@ -35,7 +35,7 @@ export default function Finance({
           <p>پرداخت‌های جزئی، مانده حساب و مرجع هر تراکنش ثبت‌شده</p>
         </div>
       </div>
-      <div className="financial-summary">
+      <div className="financial-summary tw:grid tw:grid-cols-[1fr_1fr] tw:gap-5.5 tw:mb-6.5 tw:below-760:gap-3">
         <div>
           <span>مجموع دریافتی ثبت‌شده</span>
           <strong>{money(dash?.revenue || 0)}</strong>
@@ -51,7 +51,7 @@ export default function Finance({
           <small>مبالغ به تومان · ثبت حسابداری پرداخت انجام‌شده</small>
         </div>
         {invoices.results.length ? (
-          <div className="table-wrap app-records">
+          <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records">
             <table role="table" aria-label="صورتحساب‌ها">
               <thead role="rowgroup">
                 <tr role="row">
@@ -134,7 +134,7 @@ export default function Finance({
           <h3>تاریخچه پرداخت‌ها</h3>
           {selected.payments.length ? (
             selected.payments.map((p) => (
-              <div className="list-row" key={p.id}>
+              <div className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={p.id}>
                 <b>{money(p.amount)}</b>
                 <span>{p.reference}</span>
                 <small>{date(p.created_at)}</small>

@@ -1,0 +1,43 @@
+/* The app reset and form defaults live in base.css. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) source(none) prefix(tw);
+
+@theme {
+  --animate-loading: spin 1.2s linear infinite;
+}
+
+/* Preserve the breakpoints shared by the public pages and workspaces. */
+@custom-variant below-1200 (@media (max-width: 1200px));
+@custom-variant below-1100 (@media (max-width: 1100px));
+@custom-variant below-950 (@media (max-width: 950px));
+@custom-variant below-850 (@media (max-width: 850px));
+@custom-variant below-760 (@media (max-width: 760px));
+@custom-variant below-600 (@media (max-width: 600px));
+@custom-variant below-560 (@media (max-width: 560px));
+@custom-variant below-400 (@media (max-width: 400px));
+@custom-variant wide (@media (min-width: 1600px));
+
+@theme inline {
+  --spacing: 4px;
+  --font-app: var(--font-vazir, Vazirmatn), Arial, sans-serif;
+  --font-latin: Arial, sans-serif;
+  --font-code: ui-monospace, Consolas, monospace;
+  --color-brand: var(--teal);
+  --color-brand-dark: var(--teal-dark);
+  --color-forest: var(--forest);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --color-app-accent: var(--app-accent);
+  --color-app-tint: var(--app-tint);
+  --color-app-surface: var(--app-surface);
+  --text-public-body: var(--public-text);
+  --text-public-lead: var(--public-lead);
+  --text-public-label: var(--public-label);
+  --text-public-note: var(--public-note);
+  --text-public-title: var(--public-title);
+  --text-public-heading: var(--public-heading);
+  --text-public-card-title: var(--public-card-title);
+}

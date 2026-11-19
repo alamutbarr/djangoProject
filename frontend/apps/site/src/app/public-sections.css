@@ -1,0 +1,28 @@
+.section-wrap {
+  @apply tw:max-w-[1220px] tw:m-auto tw:py-[95px] tw:px-7.5;
+}
+.section-wrap h2 {
+  @apply tw:text-[clamp(32px,3.2vw,49px)];
+  @apply tw:leading-[1.65] tw:tracking-[-1.5px];
+}
+.section-wrap p {
+  @apply tw:text-[15px];
+  @apply tw:leading-[2.35];
+}
+@media (max-width: 950px) {
+  .public-site .section-wrap {
+    @apply tw:py-17.5 tw:px-7;
+  }
+  .public-site .section-wrap h2 {
+    @apply tw:text-[34px];
+  }
+}
+@media (max-width: 760px) {
+  .public-site .section-wrap {
+    @apply tw:py-15 tw:px-[23px];
+  }
+  .public-site .section-wrap h2 {
+    @apply tw:text-[33px];
+    @apply tw:leading-[1.7];
+  }
+}

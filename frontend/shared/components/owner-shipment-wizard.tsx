@@ -395,7 +395,7 @@ export default function OwnerShipmentWizard({
 
   return (
     <div className="wizard">
-      <ol className="wizard-steps">
+      <ol className="wizard-steps tw:flex tw:flex-wrap tw:gap-2 tw:mt-0 tw:mx-0 tw:mb-4.5 tw:p-0 tw:list-none">
         {steps.map((label, index) => (
           <li key={label} className={index === step ? "active" : ""}>
             <button type="button" onClick={() => go(index)}>
@@ -619,7 +619,7 @@ export default function OwnerShipmentWizard({
           <fieldset className="full">
             <legend>بازه‌های بارگیری</legend>
             {windows.map((item) => (
-              <label key={item} className="check-line">
+              <label key={item} className="tw:flex tw:gap-2 tw:items-center">
                 <input
                   type="checkbox"
                   checked={draft.pickup_windows.includes(item)}
@@ -734,7 +734,7 @@ export default function OwnerShipmentWizard({
           <p className="muted full">
             ارزش در سامانه به تومان ذخیره می‌شود. حداقل ۱۰۰ میلیون ریال است.
           </p>
-          <label className="check-line">
+          <label className="tw:flex tw:gap-2 tw:items-center">
             <input
               type="checkbox"
               checked={draft.insurance_requested}
@@ -744,7 +744,7 @@ export default function OwnerShipmentWizard({
             />
             بیمه بار می‌خواهم
           </label>
-          <label className="check-line full">
+          <label className="tw:flex tw:gap-2 tw:items-center full">
             <input
               type="checkbox"
               checked={draft.requires_inspector}
@@ -788,7 +788,7 @@ export default function OwnerShipmentWizard({
         </div>
       )}
       {step === 8 && (
-        <dl className="detail-grid">
+        <dl className="detail-grid tw:grid tw:grid-cols-[1fr_1fr] tw:m-0">
           {[
             ["عنوان", draft.title],
             ["کالا", draft.cargo_type],
@@ -817,7 +817,7 @@ export default function OwnerShipmentWizard({
           {error}
         </p>
       )}
-      <div className="form-actions">
+      <div className="form-actions tw:mt-6.5 tw:flex tw:justify-end">
         {step > 0 && (
           <button type="button" className="secondary-btn" onClick={() => go(step - 1)}>
             <ArrowRight size={16} />
@@ -894,11 +894,12 @@ function PlaceFields({
         />
       </label>
       {matches.length > 0 && query.trim() !== city.trim() && (
-        <ul className="map-results full">
+        <ul className="tw:list-none tw:m-0 tw:p-0 tw:border tw:border-line tw:rounded-[12px] tw:max-h-45 tw:overflow-auto full">
           {matches.map((item) => (
             <li key={item.name + item.province}>
               <button
                 type="button"
+                className="tw:w-full tw:bg-transparent tw:px-3 tw:py-2 tw:text-right"
                 onClick={() => {
                   setQuery(item.name);
                   onChange({

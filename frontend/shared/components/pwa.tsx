@@ -110,13 +110,13 @@ export default function PWA({ panel }: { panel: PanelKey }) {
     }
   }
   return (
-    <div className="pwa-tools">
-      <div className="pwa-toolbar">
+    <div className="pwa-tools tw:text-[13px] tw:mt-0 tw:mx-0 tw:mb-5">
+      <div className="pwa-toolbar tw:gap-4 tw:text-[#60736c] tw:below-600:gap-2.5 tw:flex tw:items-center tw:flex-wrap">
         <span>
           {installed ? "برنامه " + app.short : "برنامه موبایل " + app.short}
         </span>
         {prepared && (
-          <small className="pwa-ready" role="status">
+          <small className="pwa-ready tw:text-[#527564] tw:inline-block" role="status">
             صفحه آفلاین آماده است
           </small>
         )}
@@ -143,20 +143,20 @@ export default function PWA({ panel }: { panel: PanelKey }) {
         </button>
       </div>
       {!online && (
-        <p className="connection-banner" role="status">
+        <p className="tw:flex tw:items-center tw:gap-3 tw:flex-wrap tw:py-4 tw:px-5 tw:bg-[#fff1d6] tw:text-[#665025] tw:rounded-[10px] tw:mt-3 tw:below-600:p-3.5" role="status">
           <WifiOff size={18} />
           اتصال دستگاه قطع است. اطلاعات خصوصی آفلاین ذخیره نمی‌شوند؛ پیش از
           تکرار عملیات، وضعیت آن را بررسی کنید.
         </p>
       )}
       {session && (
-        <p className="connection-banner" role="alert">
+        <p className="tw:flex tw:items-center tw:gap-3 tw:flex-wrap tw:py-4 tw:px-5 tw:bg-[#fff1d6] tw:text-[#665025] tw:rounded-[10px] tw:mt-3 tw:below-600:p-3.5" role="alert">
           نشست شما پایان یافته است.{" "}
           <a href={"/" + panel + "/app"}>ورود دوباره به همین پنل</a>
         </p>
       )}
       {waiting && (
-        <div className="update-banner" role="status">
+        <div className="update-banner tw:flex tw:items-center tw:gap-3 tw:flex-wrap tw:py-4 tw:px-5 tw:rounded-[10px] tw:mt-3 tw:bg-[#e9f4ed] tw:text-forest tw:below-600:p-3.5" role="status">
           <p>
             نسخهٔ جدید آماده است. پیش از بارگیری دوباره، تغییرات فرم را ذخیره
             کنید.

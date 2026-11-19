@@ -451,7 +451,7 @@ export default function Workspace({
   }
   function shipmentTable(rows: Shipment[]) {
     return rows.length ? (
-      <div className="table-wrap app-records shipment-table">
+      <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records shipment-table">
         <table role="table" aria-label="محموله‌ها">
           <thead role="rowgroup">
             <tr role="row">
@@ -471,7 +471,7 @@ export default function Workspace({
                 وضعیت
               </th>
               <th role="columnheader" scope="col">
-                <span className="sr-only">جزئیات</span>
+                <span className="tw:sr-only">جزئیات</span>
               </th>
             </tr>
           </thead>
@@ -481,9 +481,9 @@ export default function Workspace({
                 <td role="cell">
                   <Link
                     href={base + "/" + shipmentSection + "/" + s.id}
-                    className="shipment-name"
+                    className="shipment-name tw:flex tw:items-center tw:gap-[11px] tw:below-760:gap-2"
                   >
-                    <span className="cargo-icon">
+                    <span className="tw:bg-[#f2f4eb] tw:border tw:border-[#e7ecde] tw:w-9 tw:h-9.5 tw:rounded-[7px] tw:text-[#829b70] tw:below-760:w-7.5 tw:below-760:h-8.5 tw:grid tw:place-items-center">
                       <Package size={19} />
                     </span>
                     <span>
@@ -493,7 +493,7 @@ export default function Workspace({
                   </Link>
                 </td>
                 <td role="cell" data-label="مسیر حمل" data-wide="true">
-                  <div className="table-route">
+                  <div className="table-route tw:flex tw:items-center tw:gap-2.5">
                     <span>{s.origin}</span>
                     <ArrowLeft size={12} />
                     <span>{s.destination}</span>
@@ -691,14 +691,14 @@ export default function Workspace({
             )}
           </div>
           <div className="card">
-            <div className="list-toolbar">
+            <div className="list-toolbar tw:py-5 tw:px-[23px] tw:flex tw:gap-3.5 tw:items-center tw:below-1200:flex-wrap tw:below-760:p-[15px] tw:below-760:gap-2.5">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   setPage(1);
                   setSearch(query);
                 }}
-                className="search-field"
+                className="search-field tw:flex tw:items-center tw:gap-2 tw:bg-[#f8f9f3] tw:border tw:border-line tw:rounded-[7px] tw:py-0 tw:px-3 tw:max-w-[400px] tw:w-full tw:text-[#97a18d] tw:below-1200:max-w-full tw:below-760:text-[10px]"
               >
                 <Search size={18} />
                 <input
@@ -839,12 +839,12 @@ export default function Workspace({
     content = <NationalIdGate onSaved={setUser} />;
   return (
     <div
-      className={"workspace" + (collapsed ? " menu-collapsed" : "")}
+      className={"workspace tw:min-h-[100svh] tw:flex tw:bg-[#f6f7f3]" + (collapsed ? " menu-collapsed" : "")}
       data-role={role}
       data-section={section}
     >
-      <aside className="sidebar">
-        <div className="sidebar-brand">
+      <aside className="sidebar tw:w-60.5 tw:shrink-0 tw:bg-[#fffef9] tw:border-l tw:border-l-line tw:fixed tw:right-0 tw:top-0 tw:bottom-0 tw:z-30 tw:flex tw:flex-col tw:py-0 tw:px-[17px] tw:wide:w-65 tw:below-1200:w-[215px] tw:below-1200:py-0 tw:below-1200:px-3">
+        <div className="sidebar-brand tw:pt-[29px] tw:px-[17px] tw:pb-6 tw:flex tw:justify-between tw:items-center">
           <Brand />
           <button
             type="button"
@@ -858,8 +858,8 @@ export default function Workspace({
             <PanelRight size={18} />
           </button>
         </div>
-        <div className="workspace-label">
-          <span className="teal-dot" />
+        <div className="workspace-label tw:flex tw:items-center tw:gap-2 tw:border tw:border-[#e1e8dc] tw:bg-[#f5f7ef] tw:mt-0 tw:mx-[7px] tw:mb-[25px] tw:py-2.5 tw:px-3 tw:rounded-[7px] tw:text-[11px]">
+          <span className="tw:inline-block tw:w-1.5 tw:h-1.5 tw:rounded-full tw:bg-brand tw:shrink-0" />
           {roles[role]}
           <small>فضای کار شما</small>
         </div>
@@ -880,8 +880,8 @@ export default function Workspace({
             </Link>
           ))}
         </nav>
-        <div className="sidebar-bottom">
-          <div className="sidebar-help">
+        <div className="sidebar-bottom tw:mt-auto tw:pt-4 tw:shrink-0">
+          <div className="sidebar-help tw:bg-[#f1f3e9] tw:border tw:border-[#e8ebdf] tw:rounded-[9px] tw:text-center tw:pt-5 tw:px-2.5 tw:pb-4 tw:mt-0 tw:mx-1.5 tw:mb-[17px] tw:text-[#557653] tw:below-1200:py-4 tw:below-1200:px-2">
             <ShieldCheck size={25} strokeWidth={1.4} />
             <b>همراه شما در مسیر</b>
             <p>سؤالی دارید؟ ما اینجاییم.</p>
@@ -889,14 +889,14 @@ export default function Workspace({
               گفت‌وگو با پشتیبانی <ArrowLeft size={15} />
             </Link>
           </div>
-          <button className="logout" onClick={() => void logout()}>
+          <button className="tw:flex tw:items-center tw:gap-[13px] tw:text-[#91968a] tw:bg-transparent tw:py-3.5 tw:px-[23px] tw:border-t tw:border-t-line tw:w-full tw:text-[11px]" onClick={() => void logout()}>
             <LogOut size={18} />
             خروج از حساب
           </button>
         </div>
       </aside>
-      <div className="workspace-body">
-        <header className="workspace-header">
+      <div className="workspace-body tw:mr-60.5 tw:min-w-0 tw:flex-1 tw:flex tw:flex-col tw:wide:mr-65 tw:below-1200:mr-[215px] tw:below-760:mr-0">
+        <header className="workspace-header tw:h-20 tw:bg-[#fffefa] tw:border-b tw:border-b-line tw:py-0 tw:px-10 tw:flex tw:justify-between tw:items-center tw:gap-5 tw:wide:py-0 tw:wide:px-[55px] tw:below-1200:py-0 tw:below-1200:px-6 tw:below-760:h-[67px] tw:below-760:py-0 tw:below-760:px-4 tw:below-760:gap-1.5">
           <div className="desktop-crumb">
             <span className="muted">فضای کار {roles[role]}</span>
             <ChevronLeft size={13} />
@@ -961,7 +961,7 @@ export default function Workspace({
               <RefreshCw size={18} />
             </button>
             <Link
-              className="icon-btn notification-btn"
+              className="icon-btn notification-btn tw:relative tw:text-[#71816d]"
               href={base + "/notifications"}
               aria-label="اعلان‌ها"
               aria-current={section === "notifications" ? "page" : undefined}
@@ -969,15 +969,15 @@ export default function Workspace({
               <Bell size={20} />
               {!!dash?.notifications && <i />}
             </Link>
-            <span className="header-divider" />
+            <span className="header-divider tw:below-760:my-0 tw:below-760:mx-1.5 tw:h-7 tw:w-px tw:bg-line tw:my-0 tw:mx-[5px]" />
             <Link
-              className="header-user"
+              className="header-user tw:flex tw:items-center tw:gap-2.5"
               href={base + "/settings"}
               aria-label={
                 user ? "حساب کاربری «" + user.name + "»" : "حساب کاربری"
               }
             >
-              <span className="avatar" aria-hidden="true">
+              <span className="avatar tw:w-[35px] tw:h-[35px] tw:bg-[#e9eddf] tw:border tw:border-[#e0e6d6] tw:text-[#687c56] tw:rounded-full tw:grid tw:place-items-center tw:font-semibold" aria-hidden="true">
                 {user?.first_name?.[0] || "م"}
               </span>
               <span>
@@ -987,7 +987,7 @@ export default function Workspace({
             </Link>
           </div>
         </header>
-        <main id="main" className="workspace-main">
+        <main id="main" className="workspace-main tw:w-full tw:my-0 tw:mx-auto tw:pt-[33px] tw:px-10 tw:flex-1 tw:wide:py-[43px] tw:wide:px-[55px] tw:below-1200:py-6.5 tw:below-1200:px-6 tw:below-760:pt-[25px] tw:below-760:px-[17px] tw:below-760:pb-[35px] tw:max-w-[1640px] tw:pb-[max(32px,env(safe-area-inset-bottom))]">
           <PWA panel={panelPaths[role] as PanelKey} />
           {authError ? (
             <PanelError
@@ -996,12 +996,12 @@ export default function Workspace({
             />
           ) : null}
           {demo && (
-            <p className="demo-banner">
+            <p className="demo-banner tw:bg-[#f0f3e8] tw:border tw:border-dashed tw:border-[#dce4cf] tw:py-[7px] tw:px-3 tw:rounded-[6px] tw:mb-5 tw:below-760:mb-4.5 tw:text-[#64745e] tw:text-[11px]">
               محیط آزمایشی · حساب‌ها و محموله‌های اولیه، داده نمونه هستند.
             </p>
           )}
           {authError ? null : error ? (
-            <div className="error-state">
+            <div className="error-state tw:p-15 tw:text-center">
               <h2>دریافت اطلاعات انجام نشد</h2>
               <p className="error" role="alert">
                 {error}
@@ -1027,7 +1027,7 @@ export default function Workspace({
             </PanelBoundary>
           )}
         </main>
-        <footer className="workspace-footer">
+        <footer className="workspace-footer tw:flex tw:justify-between tw:border-t tw:border-t-[#e4e9dd] tw:py-[15px] tw:px-10 tw:below-760:py-3.5 tw:below-760:px-[17px] tw:text-[#64745e] tw:text-[12px]">
           <span>الموت · هر مسیر، یک تعهد است.</span>
           <Link href={siteHref("/help#" + role)}>راهنمای پنل</Link>
         </footer>
@@ -1042,7 +1042,7 @@ export default function Workspace({
         />
       )}
       {toast && (
-        <div className="toast" role="status">
+        <div className="toast tw:fixed tw:bottom-[25px] tw:left-7.5 tw:z-100 tw:bg-[#1b493f] tw:text-[#f1f5e9] tw:shadow-[0_10px_45px_#163c3726] tw:py-[15px] tw:px-[17px] tw:rounded-[10px] tw:flex tw:items-center tw:gap-5 tw:text-[12px] tw:max-w-[min(600px,calc(100%_-_40px))] tw:below-760:left-[17px] tw:below-760:bottom-[17px] tw:below-760:text-[11px] tw:below-760:py-3 tw:below-760:px-3.5" role="status">
           <span>{toast}</span>
           <button
             className="icon-btn"

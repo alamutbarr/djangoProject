@@ -1,0 +1,145 @@
+:root {
+  --teal: #087f8c;
+  --teal-dark: #076570;
+  --forest: #133d3b;
+  --ink: #203734;
+  --muted: #687764;
+  --line: #e5eae5;
+  --paper: #f8f8f3;
+  --gold: #bd9f5a;
+  --radius: 14px;
+}
+* {
+  @apply tw:box-border;
+}
+html {
+  @apply tw:scroll-smooth tw:scroll-pt-20;
+}
+body {
+  @apply tw:m-0 tw:text-ink tw:bg-[#f6f7f3] tw:font-app;
+  @apply tw:text-[15px];
+  @apply tw:leading-[1.9];
+}
+button,
+input,
+select,
+textarea {
+  @apply tw:[font:inherit];
+}
+button,
+a,
+input,
+select,
+textarea {
+  @apply tw:[-webkit-tap-highlight-color:transparent];
+}
+button,
+a {
+  @apply tw:touch-manipulation;
+}
+button {
+  @apply tw:cursor-pointer;
+}
+button:disabled {
+  @apply tw:opacity-50 tw:cursor-not-allowed;
+}
+a {
+  @apply tw:text-inherit tw:no-underline;
+}
+button {
+  @apply tw:[border:0];
+}
+img {
+  @apply tw:max-w-full tw:block;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  @apply tw:m-0;
+}
+h1,
+h2,
+h3 {
+  @apply tw:leading-[1.55];
+}
+h1 {
+  @apply tw:text-[30px] tw:tracking-[-1px];
+}
+h2 {
+  @apply tw:text-[21px];
+}
+h3 {
+  @apply tw:text-[18px];
+}
+em {
+  @apply tw:text-brand tw:not-italic;
+}
+p {
+  @apply tw:leading-[2];
+}
+svg {
+  @apply tw:shrink-0;
+}
+small,
+.small {
+  @apply tw:text-[12px];
+}
+code {
+  @apply tw:font-code;
+  @apply tw:text-[12px];
+}
+button:focus-visible,
+a:focus-visible {
+  @apply tw:[outline:3px_solid_#d0ae57];
+  @apply tw:outline-offset-4;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  @apply tw:[outline:2px_solid_#80b5b7];
+  @apply tw:outline-offset-1;
+}
+input,
+select,
+textarea {
+  @apply tw:[border:1px_solid_#dce3dd];
+  @apply tw:rounded-[8px] tw:bg-white tw:text-ink tw:py-[11px] tw:px-[13px] tw:min-h-11.5
+    tw:min-w-0 tw:w-full tw:text-[15px];
+}
+input::placeholder,
+textarea::placeholder {
+  @apply tw:text-[#a2aaa5];
+}
+textarea {
+  @apply tw:resize-y;
+}
+select {
+  @apply tw:pl-7.5;
+}
+label {
+  @apply tw:block tw:text-[14px];
+  @apply tw:font-medium;
+}
+label > input,
+label > textarea,
+label > select {
+  @apply tw:mt-[7px];
+}
+label .required {
+  @apply tw:text-brand;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    @apply tw:animate-none! tw:[transition:none]! tw:scroll-auto!;
+    @apply tw:[animation-duration:0.01ms]! tw:[transition-duration:0.01ms]!;
+  }
+}
+@media (max-width: 760px) {
+  body {
+    @apply tw:text-[14px];
+  }
+}

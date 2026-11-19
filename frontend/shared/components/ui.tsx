@@ -55,7 +55,7 @@ export function Empty({
   action?: ReactNode;
 }) {
   return (
-    <div className="empty">
+    <div className="empty tw:py-[55px] tw:px-[25px] tw:flex tw:items-center tw:flex-col tw:justify-center tw:min-h-55 tw:text-center tw:text-[#9baa91]">
       <PackageOpen size={42} strokeWidth={1} />
       <h3>{title}</h3>
       <p>{text}</p>
@@ -65,8 +65,8 @@ export function Empty({
 }
 export function Loading() {
   return (
-    <div className="loading-state" role="status">
-      <LoaderCircle className="spin" /> در حال دریافت اطلاعات…
+    <div className="tw:flex tw:gap-3 tw:items-center tw:justify-center tw:min-h-[50svh] tw:text-[#829475] tw:text-[12px]" role="status">
+      <LoaderCircle className="tw:animate-loading" /> در حال دریافت اطلاعات…
     </div>
   );
 }

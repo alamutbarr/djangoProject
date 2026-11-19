@@ -123,10 +123,11 @@ export default function LocationPicker({
   }, [query]);
 
   return (
-    <div className="map-picker">
-      <div className="map-search">
+    <div className="tw:min-h-70">
+      <div className="tw:flex tw:gap-2 tw:items-center">
         <Search size={15} />
         <input
+          className="tw:flex-1"
           value={query}
           placeholder={placeholder}
           onChange={(event) => setQuery(event.target.value)}
@@ -153,11 +154,12 @@ export default function LocationPicker({
         </button>
       </div>
       {results.length > 0 && (
-        <ul className="map-results">
+        <ul className="tw:list-none tw:m-0 tw:p-0 tw:border tw:border-line tw:rounded-[12px] tw:max-h-45 tw:overflow-auto">
           {results.map((item) => (
             <li key={item.lat + item.lon}>
               <button
                 type="button"
+                className="tw:w-full tw:bg-transparent tw:px-3 tw:py-2 tw:text-right"
                 onClick={() => {
                   setQuery(item.display_name);
                   setResults([]);
@@ -170,7 +172,7 @@ export default function LocationPicker({
           ))}
         </ul>
       )}
-      <div ref={holder} className="map-canvas" />
+      <div ref={holder} className="tw:min-h-70 tw:h-70 tw:rounded-[12px] tw:overflow-hidden tw:border tw:border-line" />
     </div>
   );
 }
