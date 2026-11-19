@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+runtime/
+backend/.venv/
+__pycache__/
+*.py[cod]
+.coverage
+htmlcov/
+node_modules/
+.next/
+dist/
+*.log
+uploads/
+media/
+*.sqlite3
