@@ -1,0 +1,31 @@
+.section-wrap {
+  max-width: 1220px;
+  margin: auto;
+  padding: 95px 30px;
+}
+.section-wrap h2 {
+  font-size: clamp(32px, 3.2vw, 49px);
+  line-height: 1.65;
+  letter-spacing: -1.5px;
+}
+.section-wrap p {
+  font-size: 15px;
+  line-height: 2.35;
+}
+@media (max-width: 950px) {
+  .public-site .section-wrap {
+    padding: 70px 28px;
+  }
+  .public-site .section-wrap h2 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 760px) {
+  .public-site .section-wrap {
+    padding: 60px 23px;
+  }
+  .public-site .section-wrap h2 {
+    font-size: 33px;
+    line-height: 1.7;
+  }
+}

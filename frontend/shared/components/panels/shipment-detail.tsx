@@ -209,7 +209,7 @@ export default function ShipmentDetail({
               </p>
             )}
             {canRate && (
-              <form className="rating-form" onSubmit={sendRating}>
+              <form className="rating-form tw:grid tw:gap-3" onSubmit={sendRating}>
                 <h2>امتیاز این مأموریت</h2>
                 <label>
                   امتیاز راننده
@@ -263,7 +263,7 @@ export default function ShipmentDetail({
                 نیاز دارد.
               </p>
             )}
-            <div className="shipment-actions">
+            <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
               {role === "operator" && shipment.status === "pending" && (
                 <button
                   className="btn"
@@ -405,7 +405,7 @@ export default function ShipmentDetail({
                 )}
             </div>
             {role === "owner" && shipment.price_status === "proposed" && (
-              <div className="shipment-actions">
+              <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
                 <button
                   className="btn"
                   disabled={busy}
@@ -437,7 +437,7 @@ export default function ShipmentDetail({
             {role === "operator" &&
               ["pending", "approved", "assigned"].includes(shipment.status) && (
                 <form
-                  className="rating-form"
+                  className="rating-form tw:grid tw:gap-3"
                   onSubmit={(event) => {
                     event.preventDefault();
                     void mutate(
@@ -486,7 +486,7 @@ export default function ShipmentDetail({
                   <input
                     type="file"
                     accept=".pdf,.png,.jpg,.jpeg"
-                    className="sr-only"
+                    className="tw:sr-only"
                     disabled={busy}
                     onChange={async (e) => {
                       const file = e.target.files?.[0];
@@ -508,7 +508,7 @@ export default function ShipmentDetail({
               با محموله
             </p>
             {shipment.documents?.length ? (
-              <div className="documents">
+              <div className="documents tw:flex tw:flex-col tw:gap-2 tw:mt-4">
                 {shipment.documents.map((d) => (
                   <a href={d.url} key={d.id}>
                     <FileText size={22} />
@@ -605,7 +605,7 @@ function ShipmentChat({ shipmentId }: { shipmentId: number }) {
   return (
     <section className="card detail-section">
       <h2>گفتگو با اپراتور</h2>
-      <div className="chat-log">
+      <div className="tw:max-h-[280px] tw:overflow-auto tw:grid tw:gap-2.5">
         {items.length === 0 && <p className="muted">هنوز پیامی نیست.</p>}
         {items.map((item) => (
           <p key={item.id}>

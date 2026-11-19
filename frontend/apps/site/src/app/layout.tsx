@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { siteUrl } from "@/lib/seo";
-import "@/styles/globals.css";
-import "@/styles/mobile-workspace.css";
-import "./public-site.css";
+import "./styles.css";
 import InputNormalizer from "@/components/input-normalizer";
 const vazir = localFont({
   src: [

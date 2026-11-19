@@ -111,7 +111,7 @@ export default function PWA({ panel }: { panel: PanelKey }) {
   }
   return (
     <div className="pwa-tools">
-      <div className="pwa-toolbar">
+      <div className="pwa-toolbar tw:flex tw:items-center tw:flex-wrap">
         <span>
           {installed ? "برنامه " + app.short : "برنامه موبایل " + app.short}
         </span>

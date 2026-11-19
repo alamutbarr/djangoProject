@@ -1,0 +1,66 @@
+.map-shell {
+  @apply tw:relative tw:mt-5;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.leaflet-container {
+  font-family: var(--font-vazir, Vazirmatn), Arial, sans-serif;
+  z-index: 0;
+  background: #e9eee3;
+}
+.leaflet-popup-content {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.map-empty {
+  @apply tw:absolute tw:bottom-8.5 tw:left-5 tw:right-5;
+  background: #fffef8ec;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  @apply tw:z-1 tw:pointer-events-none;
+}
+.tracking-controls p {
+  margin-bottom: 14px;
+}
+@media (max-width: 760px) {
+  .map-empty {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+.map-focus {
+  @apply tw:absolute tw:top-3.5 tw:right-3.5 tw:z-500;
+  background: #fffef9;
+  box-shadow: 0 2px 8px #173c2920;
+}
+.map-picker,
+.map-canvas {
+  min-height: 280px;
+}
+.map-canvas {
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.map-search {
+  @apply tw:flex tw:gap-2 tw:items-center;
+}
+.map-search input {
+  flex: 1;
+}
+.map-results {
+  @apply tw:list-none tw:m-0 tw:p-0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  max-height: 180px;
+  overflow: auto;
+}
+.map-results button {
+  @apply tw:w-full tw:text-right;
+  background: transparent;
+  padding: 8px 12px;
+}

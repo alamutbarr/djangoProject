@@ -1,5 +1,4 @@
 .workspace-header > .app-heading,
-.app-tabs,
 .app-dashboard-action,
 .ticket-back,
 .app-record-action-label {
@@ -19,20 +18,14 @@
   font-weight: 700;
 }
 .onboarding-progress {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
+  @apply tw:flex tw:flex-wrap tw:items-center tw:gap-3 tw:p-4;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: #fff;
 }
 .onboarding-progress > div {
   flex: 1 1 240px;
-  min-width: 0;
-  display: grid;
-  gap: 4px;
+  @apply tw:min-w-0 tw:grid tw:gap-1;
 }
 .onboarding-progress span {
   color: var(--muted);
@@ -48,31 +41,12 @@
 
 @media (max-width: 760px),
   (max-width: 950px) and (max-height: 500px) and (pointer: coarse) {
-  html:has(.workspace, .mobile-public) {
-    scroll-padding-block: calc(72px + env(safe-area-inset-top))
-      calc(78px + env(safe-area-inset-bottom));
-  }
-  .workspace,
-  .auth-layout,
-  .mobile-public {
+  .workspace {
     --app-accent: #086b73;
     --app-tint: #e3f3f2;
     --app-surface: #f3f7f5;
   }
-  :is(.workspace, .auth-layout)[data-role="driver"] {
-    --app-accent: #265e45;
-    --app-tint: #e4f1e8;
-  }
-  :is(.workspace, .auth-layout)[data-role="operator"] {
-    --app-accent: #224e60;
-    --app-tint: #e5eff4;
-  }
-  :is(.workspace, .auth-layout)[data-role="inspector"] {
-    --app-accent: #78532f;
-    --app-tint: #f6ecdd;
-  }
-  .workspace,
-  .mobile-public {
+  .workspace {
     --app-tab-height: 69px;
     --app-gutter: clamp(12px, 4vw, 22px);
     --app-start: max(var(--app-gutter), env(safe-area-inset-right));
@@ -98,8 +72,7 @@
   .workspace .workspace-header {
     position: sticky;
     inset-block-start: 0;
-    z-index: 30;
-    height: auto;
+    @apply tw:z-30 tw:h-auto;
     min-height: calc(62px + env(safe-area-inset-top));
     padding: calc(7px + env(safe-area-inset-top)) var(--app-start) 7px
       var(--app-end);
@@ -107,13 +80,11 @@
     gap: 4px;
   }
   .workspace-header > .app-heading {
-    display: flex;
-    min-width: 0;
+    @apply tw:flex tw:min-w-0;
     gap: 7px;
   }
   .app-heading-copy {
-    display: grid;
-    min-width: 0;
+    @apply tw:grid tw:min-w-0;
     line-height: 1.5;
   }
   .app-heading-copy small {
@@ -130,23 +101,16 @@
   }
   .app-mark,
   .workspace .app-back {
-    flex: none;
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
+    @apply tw:flex-none tw:grid tw:place-items-center tw:w-11 tw:h-11;
     border-radius: 13px;
     background: var(--app-tint);
     color: var(--app-accent);
   }
   .workspace-header > div:last-child {
-    flex: none;
-    gap: 0;
+    @apply tw:flex-none tw:gap-0;
   }
   .workspace .header-user {
-    justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
+    @apply tw:justify-center tw:min-w-11 tw:min-h-11;
   }
   .workspace .header-user .avatar {
     background: var(--app-tint);
@@ -157,72 +121,6 @@
   .workspace .notification-btn[aria-current] {
     background: var(--app-tint);
     color: var(--app-accent);
-  }
-  .app-tabs {
-    position: fixed;
-    inset: auto 0 0;
-    z-index: 35;
-    display: flex;
-    padding: 5px var(--app-start) calc(5px + env(safe-area-inset-bottom))
-      var(--app-end);
-    min-height: calc(var(--app-tab-height) + env(safe-area-inset-bottom));
-    background: #fff;
-    border-top: 1px solid #dfe8e3;
-    box-shadow: 0 -4px 24px #183e4610;
-  }
-  .app-tabs > :is(a, button) {
-    flex: 1 1 0;
-    min-width: 0;
-    min-height: 52px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: center;
-    color: #46605b;
-    background: transparent;
-  }
-  .app-tab-icon {
-    display: grid;
-    place-items: center;
-    min-width: 40px;
-    min-height: 30px;
-    border-radius: 10px;
-  }
-  .app-tabs :is([aria-current], .app-tab-selected) {
-    color: var(--app-accent);
-  }
-  .app-tabs :is([aria-current], .app-tab-selected) .app-tab-icon {
-    background: var(--app-tint);
-  }
-  .app-tabs .app-tab-primary .app-tab-icon {
-    background: var(--app-accent);
-    color: #fff;
-  }
-  .app-tabs .app-tab-primary[aria-current] .app-tab-icon {
-    outline: 2px solid var(--app-accent);
-    outline-offset: 2px;
-  }
-  .mobile-public {
-    padding-bottom: calc(var(--app-tab-height) + env(safe-area-inset-bottom));
-  }
-  .mobile-public .site-header {
-    padding-inline: var(--app-start) var(--app-end);
-  }
-  .mobile-public .site-mobile-menu a {
-    display: flex;
-    min-height: 44px;
-    align-items: center;
-  }
-  .mobile-public .site-mobile-menu nav {
-    gap: 2px;
-    max-height: 67dvh;
-    overflow: auto;
   }
   .workspace .workspace-main {
     padding: 16px var(--app-start)
@@ -238,26 +136,21 @@
       calc(var(--app-tab-height) + 10px + env(safe-area-inset-bottom))
       var(--app-end);
     max-width: none;
-    justify-content: space-between;
-    padding: 8px 12px;
+    @apply tw:justify-between tw:py-2 tw:px-3;
     font-size: 13px;
   }
   .workspace .icon-btn,
   .workspace :is(.btn, .secondary-btn, .danger-btn, .upload-btn),
-  .workspace .app-menu-links > *,
-  .auth-layout .icon-btn,
-  .auth-layout .btn {
+  .workspace .app-menu-links > * {
     min-height: 44px;
   }
-  .workspace .icon-btn,
-  .auth-layout .icon-btn {
+  .workspace .icon-btn {
     min-width: 44px;
   }
   .workspace :is(.btn, .secondary-btn, .danger-btn, .upload-btn) {
     font-size: 13px;
   }
-  .workspace .btn,
-  .role-auth .btn {
+  .workspace .btn {
     background: var(--app-accent);
   }
   .workspace :is(.page-heading, .card-head) :is(h1, h2),
@@ -276,8 +169,7 @@
     font-size: 16px;
   }
   .workspace .page-heading {
-    gap: 12px;
-    margin-bottom: 16px;
+    @apply tw:gap-3 tw:mb-4;
   }
   .workspace .page-heading > :is(.btn, .secondary-btn) {
     align-self: stretch;
@@ -307,8 +199,7 @@
     font-size: 11px;
   }
   .workspace .today {
-    flex: none;
-    min-width: auto;
+    @apply tw:flex-none tw:min-w-auto;
   }
   .workspace .today b {
     font-size: 11px !important;
@@ -316,10 +207,7 @@
   .app-dashboard-action {
     display: grid;
     grid-template-columns: 44px minmax(0, 1fr) auto;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 14px;
-    padding: 14px;
+    @apply tw:gap-2.5 tw:items-center tw:mb-3.5 tw:p-3.5;
     border-radius: 16px;
     background: var(--app-accent);
     color: #fff;
@@ -336,20 +224,16 @@
     opacity: 0.9;
   }
   .app-action-icon {
-    display: grid;
-    place-items: center;
+    @apply tw:grid tw:place-items-center;
     aspect-ratio: 1;
     background: #ffffff28;
     border-radius: 12px;
   }
   .workspace .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    @apply tw:grid-cols-2 tw:gap-2.5;
   }
   .workspace .stat-card {
-    min-width: 0;
-    min-height: 110px;
-    padding: 12px;
+    @apply tw:min-w-0 tw:min-h-27.5 tw:p-3;
     border-radius: 14px;
   }
   .workspace .stat-card > div {
@@ -388,9 +272,7 @@
     min-width: 0;
   }
   .workspace .search-field .text-link {
-    min-height: 44px;
-    padding-inline: 4px;
-    flex-shrink: 0;
+    @apply tw:min-h-11 tw:px-1 tw:shrink-0;
     font-size: 13px;
   }
 
@@ -399,20 +281,14 @@
   }
   .app-records table,
   .app-records tbody {
-    display: block;
-    min-width: 0;
-    width: 100%;
+    @apply tw:block tw:min-w-0 tw:w-full;
   }
   .app-records thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+    @apply tw:absolute tw:w-px tw:h-px tw:overflow-hidden;
     clip-path: inset(50%);
   }
   .app-records tbody tr {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    @apply tw:grid tw:grid-cols-2;
     gap: 9px 12px;
     padding: 12px;
     border: 1px solid #e0e9e4;
@@ -423,9 +299,7 @@
     margin-top: 9px;
   }
   .app-records tbody td {
-    display: block;
-    min-width: 0;
-    padding: 0;
+    @apply tw:block tw:min-w-0 tw:p-0;
     border: 0;
     text-align: start;
     white-space: normal;
@@ -440,8 +314,7 @@
   }
   .app-records tbody td:first-child {
     border-bottom: 1px solid #e7ede9;
-    padding-bottom: 8px;
-    font-weight: 700;
+    @apply tw:pb-2 tw:font-bold;
   }
   .app-records [data-label]::before {
     display: block;
@@ -477,8 +350,7 @@
   }
   .shipment-table [data-actions] .icon-btn {
     gap: 5px;
-    width: auto;
-    padding-inline: 8px;
+    @apply tw:w-auto tw:px-2;
     color: var(--app-accent);
     background: var(--app-tint);
   }
@@ -488,8 +360,7 @@
     font-weight: 700;
   }
 
-  .workspace :is(input, select, textarea),
-  .auth-layout :is(input, select, textarea) {
+  .workspace :is(input, select, textarea) {
     font-size: 16px;
     min-height: 44px;
   }
@@ -508,8 +379,7 @@
     font-size: 14px;
   }
   .workspace .form-actions > .btn {
-    width: 100%;
-    min-height: 48px;
+    @apply tw:w-full tw:min-h-12;
   }
   .workspace .form-section {
     padding: 11px;
@@ -537,8 +407,7 @@
     gap: 0 10px;
     padding: 2px 9px;
   }
-  .workspace .pwa-toolbar button,
-  .app-entry-tools .pwa-toolbar button {
+  .workspace .pwa-toolbar button {
     min-height: 44px;
   }
   .workspace .pwa-toolbar > span {
@@ -552,14 +421,12 @@
     display: none;
   }
   .workspace .onboarding-steps {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    @apply tw:grid tw:grid-cols-2;
     margin-block: 14px;
     padding: 0;
   }
   .workspace .onboarding-steps button {
-    display: flex;
-    align-items: center;
+    @apply tw:flex tw:items-center;
     gap: 5px;
     padding: 7px;
     min-height: 48px;
@@ -567,8 +434,7 @@
     font-size: 12px;
   }
   .workspace .onboarding-steps b {
-    flex: none;
-    margin: 0;
+    @apply tw:flex-none tw:m-0;
   }
   .workspace .crm-stage-tabs {
     flex-wrap: wrap;
@@ -588,8 +454,7 @@
     display: none;
   }
   .ticket-back {
-    display: inline-flex;
-    min-height: 44px;
+    @apply tw:inline-flex tw:min-h-11;
   }
   .workspace .messages {
     max-height: none;
@@ -601,31 +466,6 @@
   .workspace .ticket-item {
     min-height: 64px;
   }
-
-  :is(.workspace, .mobile-public) .modal {
-    position: fixed;
-    inset: auto 0 0;
-    width: 100%;
-    max-width: none;
-    max-height: calc(100dvh - max(18px, env(safe-area-inset-top)));
-    padding: 0 var(--app-start) calc(16px + env(safe-area-inset-bottom))
-      var(--app-end);
-    border-radius: 21px 21px 0 0;
-    border: 0;
-    background: #fff;
-    overscroll-behavior: contain;
-    scroll-padding-top: 66px;
-  }
-  :is(.workspace, .mobile-public) .modal-head {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    gap: 10px;
-    min-height: 62px;
-    padding: 8px 0;
-    background: #fff;
-    margin-bottom: 14px;
-  }
   .workspace .modal-head h2 {
     font-size: 17px;
   }
@@ -633,14 +473,12 @@
     max-height: min(77dvh, calc(100dvh - max(20px, env(safe-area-inset-top))));
   }
   .app-menu-links {
-    display: grid;
-    gap: 4px;
+    @apply tw:grid tw:gap-1;
   }
   .app-menu-links > * {
     display: grid;
     grid-template-columns: 34px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 8px;
+    @apply tw:items-center tw:gap-2;
     padding: 5px 7px;
     border-radius: 10px;
     text-align: start;
@@ -652,10 +490,7 @@
     color: var(--app-accent);
   }
   .app-menu-icon {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
+    @apply tw:grid tw:place-items-center tw:w-8.5 tw:h-8.5;
     border-radius: 9px;
   }
   .app-menu-links .app-menu-logout,
@@ -665,42 +500,11 @@
   .app-menu-logout .app-menu-icon {
     background: #fcebea;
   }
-
-  .auth-layout .auth-form-side {
-    padding-inline: max(17px, env(safe-area-inset-right))
-      max(17px, env(safe-area-inset-left));
-  }
-  .role-auth {
-    background: var(--app-surface);
-  }
-  .role-auth .auth-box {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 18px;
-  }
-  .auth-layout .auth-box > p,
-  .auth-layout .auth-box label {
-    font-size: 14px;
-  }
-  .auth-layout .auth-box .eyebrow {
-    color: var(--app-accent);
-  }
-  .app-entry-tools {
-    padding-top: max(10px, env(safe-area-inset-top));
-  }
 }
 
 @media (min-width: 640px) and (max-width: 950px) and (max-height: 500px) and (pointer: coarse) {
-  .workspace,
-  .mobile-public {
+  .workspace {
     --app-tab-height: 56px;
-  }
-  .app-tabs > :is(a, button) {
-    min-height: 44px;
-  }
-  .app-tab-icon {
-    min-height: 26px;
   }
   .workspace .stats-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -709,8 +513,7 @@
 
 @media (max-width: 760px) and (display-mode: standalone),
   (max-width: 950px) and (max-height: 500px) and (pointer: coarse) and (display-mode: standalone) {
-  .workspace:not([data-section="settings"]) .pwa-toolbar,
-  .app-entry-tools .pwa-toolbar {
+  .workspace:not([data-section="settings"]) .pwa-toolbar {
     display: none;
   }
 }

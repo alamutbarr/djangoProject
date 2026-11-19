@@ -15,7 +15,7 @@ export default function Services() {
       </section>
       <div className="article-grid">
         {Object.entries(servicePages).map(([slug, page]) => (
-          <article key={slug} className="card article-card">
+          <article key={slug} className="card article-card tw:flex tw:flex-col tw:items-start">
             <h2>{page.title}</h2>
             <p>{page.description}</p>
             <Link className="text-link" href={"/services/" + slug}>

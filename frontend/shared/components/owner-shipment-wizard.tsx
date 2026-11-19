@@ -817,7 +817,7 @@ export default function OwnerShipmentWizard({
           {error}
         </p>
       )}
-      <div className="form-actions">
+      <div className="form-actions tw:mt-6.5 tw:flex tw:justify-end">
         {step > 0 && (
           <button type="button" className="secondary-btn" onClick={() => go(step - 1)}>
             <ArrowRight size={16} />

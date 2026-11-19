@@ -186,7 +186,7 @@ export function OwnerKycReview() {
             </p>
           </div>
           {row.status === "pending" && (
-            <div className="shipment-actions">
+            <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
               <input
                 value={note[row.id] || ""}
                 maxLength={500}

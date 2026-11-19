@@ -1,0 +1,25 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7f0ea;
+  --muted: #b7c4bc;
+  --line: #31423c;
+  --paper: #121a18;
+  --forest: #d7ebe4;
+}
+[data-theme="dark"] body,
+[data-theme="dark"] .workspace,
+[data-theme="dark"] .auth-layout {
+  background: #101816;
+  color: var(--ink);
+}
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .workspace-header,
+[data-theme="dark"] .card,
+[data-theme="dark"] .auth-box,
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: #182420;
+  color: var(--ink);
+  border-color: var(--line);
+}

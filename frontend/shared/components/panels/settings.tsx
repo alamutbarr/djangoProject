@@ -31,7 +31,7 @@ export default function Account({
         <Security />
         <section className="card form-card">
           <h2>اطلاعات شخصی</h2>
-          <div className="profile-summary">
+          <div className="profile-summary tw:flex tw:gap-[15px] tw:items-center">
             {user.avatar_url ? (
               <img className="avatar large" src={user.avatar_url} alt="" />
             ) : (
@@ -47,7 +47,7 @@ export default function Account({
               <label className="text-link">
                 تصویر پروفایل
                 <input
-                  className="sr-only"
+                  className="tw:sr-only"
                   type="file"
                   accept=".jpg,.jpeg,.png"
                   onChange={(event) => {

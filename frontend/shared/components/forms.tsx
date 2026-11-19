@@ -173,7 +173,7 @@ export function ActionForm({
           {error}
         </p>
       )}
-      <div className="form-actions">
+      <div className="form-actions tw:mt-6.5 tw:flex tw:justify-end">
         <button className="btn" disabled={busy}>
           {busy ? "در حال ثبت…" : submit}
           <ArrowLeft size={17} />

@@ -58,7 +58,7 @@ export default async function Articles({
           <>
             <div className="article-grid">
               {data?.results.map((a) => (
-                <article className="card article-card" key={a.id}>
+                <article className="card article-card tw:flex tw:flex-col tw:items-start" key={a.id}>
                   <span className="eyebrow">{a.category}</span>
                   <h2>
                     <Link href={"/articles/" + a.slug}>{a.title}</Link>

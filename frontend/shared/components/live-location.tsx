@@ -163,7 +163,7 @@ export default function LiveLocation({
         }
       />
       {newest && (
-        <p className="location-caption">
+        <p className="tw:mt-[15px] tw:text-[#62745e]">
           <span dir="ltr">
             {newest.latitude}, {newest.longitude}
           </span>{" "}
@@ -176,7 +176,7 @@ export default function LiveLocation({
         </p>
       )}
       {canShare && (
-        <div className="tracking-controls">
+        <div className="tracking-controls tw:pt-5">
           <p>
             با شروع رصد، موقعیت شما در همین سفر برای صاحب بار، متصدی و اپراتور
             ارسال می‌شود.

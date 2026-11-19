@@ -1,0 +1,458 @@
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  @apply tw:text-right tw:whitespace-nowrap;
+  font-size: 11px;
+}
+th {
+  background: #f7f8f1;
+  border-top: 1px solid #edf0e6;
+  border-bottom: 1px solid #edf0e6;
+  padding: 11px 19px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #91a087;
+}
+td {
+  padding: 18px 19px;
+  border-bottom: 1px solid #edf0e6;
+  color: #4f654c;
+}
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+tbody tr:hover {
+  background: #fafbf5;
+}
+.shipment-name {
+  @apply tw:flex tw:items-center;
+  gap: 11px;
+}
+.shipment-name b {
+  font-size: 11px;
+  @apply tw:font-medium tw:block;
+  color: #425c40;
+}
+.shipment-name small {
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  color: #a2ac98;
+  @apply tw:block tw:text-right tw:mt-1;
+  letter-spacing: 0.5px;
+}
+.cargo-icon {
+  background: #f2f4eb;
+  border: 1px solid #e7ecde;
+  @apply tw:w-9 tw:h-9.5;
+  border-radius: 7px;
+  color: #829b70;
+}
+.table-route svg {
+  color: #a4b198;
+}
+.table-route + small {
+  font-size: 8px;
+  margin-top: 3px;
+  display: block;
+}
+.page-heading {
+  @apply tw:flex tw:items-center tw:justify-between tw:gap-5;
+  margin-bottom: 27px;
+}
+.page-heading h1 {
+  font-size: 27px;
+}
+.page-heading p {
+  font-size: 11px;
+  color: #8e9c85;
+  margin-top: 5px;
+}
+.page-heading .btn {
+  font-size: 11px;
+  @apply tw:min-h-10.5 tw:gap-2.5;
+}
+.list-toolbar {
+  padding: 20px 23px;
+  @apply tw:flex tw:gap-3.5 tw:items-center;
+}
+.list-toolbar select {
+  font-size: 11px;
+  min-height: 40px;
+  width: 170px;
+  padding: 8px 12px;
+}
+.search-field {
+  @apply tw:flex tw:items-center tw:gap-2;
+  background: #f8f9f3;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 0 12px;
+  max-width: 400px;
+  width: 100%;
+  color: #97a18d;
+}
+.search-field input {
+  background: none;
+  border: 0;
+  min-height: 40px;
+  font-size: 11px;
+  @apply tw:p-2 tw:flex-1;
+}
+.search-field .text-link {
+  font-size: 10px;
+  white-space: nowrap;
+}
+.list-toolbar > a {
+  @apply tw:mr-auto tw:whitespace-nowrap;
+}
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  @apply tw:gap-5.5 tw:[align-items:start];
+}
+.shipment-detail {
+  padding: 28px;
+}
+.big-route {
+  @apply tw:flex tw:items-center tw:justify-between;
+  background: #f3f6ee;
+  border: 1px solid #e6ecdf;
+  padding: 25px 35px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  text-align: center;
+}
+.big-route > div {
+  position: relative;
+}
+.big-route > div > svg {
+  color: var(--teal);
+  margin: 0 auto 7px;
+}
+.big-route small {
+  display: block;
+  color: #97a58c;
+  font-size: 10px;
+}
+.big-route h2 {
+  font-size: 23px;
+  margin-top: 4px;
+}
+.big-route .route-dash {
+  flex: 1;
+  border-top: 1px dashed #b7c7ab;
+  margin: 0 35px;
+  height: 1px;
+}
+.route-dash svg {
+  position: absolute;
+  top: -15px;
+  background: #f3f6ee;
+  right: 40%;
+  @apply tw:p-1 tw:w-9 tw:h-7.5;
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 30px;
+  margin: 0;
+}
+.detail-grid > div {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+dt {
+  font-size: 10px;
+  color: #9ba58f;
+  margin-bottom: 5px;
+}
+dd {
+  margin: 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.shipment-actions .btn {
+  font-size: 11px;
+  padding: 10px 15px;
+  gap: 8px;
+}
+.rating-form {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 18px;
+}
+.rating-form h2,
+.rating-form .full,
+.rating-form .btn {
+  grid-column: 1 / -1;
+}
+.rating-form h2 {
+  margin: 0;
+  font-size: 16px;
+}
+.rating-form label {
+  @apply tw:grid tw:gap-1.5;
+  font-size: 13px;
+}
+.complaint-form {
+  @apply tw:mb-4 tw:pb-4;
+  border-bottom: 1px solid var(--line, #e6ece8);
+}
+.detail-section {
+  @apply tw:mt-5.5 tw:p-6;
+}
+.detail-section > h2 {
+  font-size: 16px;
+  margin-bottom: 17px;
+}
+.detail-section .card-head {
+  padding: 0 0 12px;
+}
+.list-row {
+  @apply tw:flex tw:justify-between tw:items-center tw:gap-5;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.list-row:last-child {
+  border: 0;
+}
+.list-row p {
+  font-size: 11px;
+  color: #8a9a7e;
+  white-space: pre-wrap;
+}
+.documents > a {
+  @apply tw:flex tw:items-center;
+  gap: 15px;
+  padding: 12px 15px;
+  background: #f5f7ef;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #708b63;
+  font-size: 11px;
+}
+.documents > a > svg:last-child {
+  margin-right: auto;
+}
+.documents > a span {
+  overflow-wrap: anywhere;
+}
+.upload-btn {
+  cursor: pointer;
+}
+.inspection-row {
+  @apply tw:flex tw:gap-4;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  color: #769267;
+}
+.inspection-row p {
+  font-size: 11px;
+  color: #9aa58f;
+}
+.inspection-row b {
+  font-size: 12px;
+}
+.timeline-card {
+  padding: 25px;
+}
+.timeline-card h2 {
+  font-size: 17px;
+}
+.timeline {
+  list-style: none;
+  padding: 0 12px 0 0;
+  margin-top: 28px;
+}
+.timeline li {
+  border-right: 1px solid #e0e7d7;
+  position: relative;
+  padding: 0 22px 28px 0;
+}
+.timeline li:last-child {
+  border-right-color: transparent;
+  padding-bottom: 5px;
+}
+.timeline li > i {
+  position: absolute;
+  right: -5px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  background: #d4decb;
+  border: 2px solid #fffefa;
+  border-radius: 50%;
+}
+.timeline li.latest > i {
+  background: var(--teal);
+  box-shadow: 0 0 0 4px #087f8c14;
+}
+.timeline b {
+  font-size: 11px;
+  font-weight: 500;
+}
+.timeline p {
+  font-size: 10px;
+  color: #93a087;
+  margin-top: 5px;
+}
+.timeline small {
+  font-size: 8px;
+  color: #afb6a5;
+  margin-top: 5px;
+  display: block;
+}
+@media (min-width: 1600px) {
+  td {
+    padding: 20px 25px;
+  }
+  .shipment-name b {
+    font-size: 12px;
+  }
+  table {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .detail-layout {
+    grid-template-columns: 1fr 240px;
+  }
+  .list-toolbar {
+    flex-wrap: wrap;
+  }
+  .search-field {
+    max-width: 100%;
+  }
+}
+@media (max-width: 950px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .timeline-card {
+    order: 2;
+  }
+}
+@media (max-width: 760px) {
+  table {
+    font-size: 10px;
+  }
+  th {
+    padding: 10px 15px;
+    font-size: 9px;
+  }
+  td {
+    padding: 16px 15px;
+  }
+  .shipment-name b {
+    font-size: 10px;
+  }
+  .cargo-icon {
+    @apply tw:w-7.5 tw:h-8.5;
+  }
+  .shipment-name {
+    gap: 8px;
+  }
+  .table-route + small {
+    font-size: 8px;
+  }
+  .page-heading {
+    align-items: start;
+    gap: 13px;
+    flex-direction: column;
+    margin-bottom: 23px;
+  }
+  .page-heading h1 {
+    font-size: 24px;
+  }
+  .page-heading p {
+    font-size: 10px;
+  }
+  .page-heading .btn {
+    min-height: 39px;
+    font-size: 10px;
+    padding: 8px 14px;
+  }
+  .page-heading > .badge {
+    align-self: flex-end;
+    margin-top: -30px;
+  }
+  .list-toolbar {
+    padding: 15px;
+    gap: 10px;
+  }
+  .list-toolbar select {
+    @apply tw:w-auto tw:flex-1;
+    font-size: 10px;
+  }
+  .list-toolbar > a {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+  .search-field {
+    flex-basis: 100%;
+    font-size: 10px;
+  }
+  .detail-layout {
+    gap: 18px;
+  }
+  .shipment-detail {
+    padding: 18px;
+  }
+  .big-route {
+    padding: 20px;
+  }
+  .big-route h2 {
+    font-size: 20px;
+  }
+  .big-route .route-dash {
+    margin: 0 25px;
+  }
+  .detail-grid {
+    gap: 0 20px;
+  }
+  dd {
+    font-size: 11px;
+  }
+  .detail-section {
+    @apply tw:p-5 tw:mt-4.5;
+  }
+  .shipment-actions .btn {
+    font-size: 10px;
+  }
+}
+.page-heading p,
+.table-route + small,
+.shipment-name small,
+.detail-grid dt,
+.timeline p,
+.timeline small {
+  color: #64745e;
+}
+table {
+  font-size: 13px;
+}
+th {
+  font-size: 12px;
+}
+.shipment-name b {
+  font-size: 13px;
+}
+.shipment-name small {
+  font-size: 11px;
+}
+.detail-grid dt,
+.timeline small {
+  font-size: 12px;
+}
+.detail-grid dd {
+  font-size: 14px;
+}
+
+/* Keep absolutely positioned accessible table labels inside the scroll container. */
+.table-wrap {
+  @apply tw:relative tw:max-w-full tw:min-w-0;
+  overscroll-behavior-inline: contain;
+}

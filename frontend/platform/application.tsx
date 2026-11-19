@@ -8,8 +8,7 @@ import Recovery from "@/components/recovery";
 import InputNormalizer from "@/components/input-normalizer";
 import { PanelBoundary } from "@/components/panel-feedback";
 import { panelApps, validPanelRoute } from "@/lib/panels";
-import "../shared/styles/globals.css";
-import "../shared/styles/mobile-workspace.css";
+import "./styles.css";
 
 export type Panel = "driver" | "owner" | "inspector";
 function Application({ panel }: { panel: Panel }) {

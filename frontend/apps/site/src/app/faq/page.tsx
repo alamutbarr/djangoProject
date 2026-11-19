@@ -18,7 +18,7 @@ export default function Page() {
             پاسخ پرسش‌های ثبت بار، مدارک، بازرسی، نصب برنامه و پیگیری در الموت.
           </p>
         </section>
-        <div className="public-tool-wrap">
+        <div className="tw:max-w-[850px]">
           <FAQ />
         </div>
       </main>

@@ -471,7 +471,7 @@ export default function Workspace({
                 وضعیت
               </th>
               <th role="columnheader" scope="col">
-                <span className="sr-only">جزئیات</span>
+                <span className="tw:sr-only">جزئیات</span>
               </th>
             </tr>
           </thead>
@@ -483,7 +483,7 @@ export default function Workspace({
                     href={base + "/" + shipmentSection + "/" + s.id}
                     className="shipment-name"
                   >
-                    <span className="cargo-icon">
+                    <span className="cargo-icon tw:grid tw:place-items-center">
                       <Package size={19} />
                     </span>
                     <span>
@@ -493,7 +493,7 @@ export default function Workspace({
                   </Link>
                 </td>
                 <td role="cell" data-label="مسیر حمل" data-wide="true">
-                  <div className="table-route">
+                  <div className="table-route tw:flex tw:items-center tw:gap-2.5">
                     <span>{s.origin}</span>
                     <ArrowLeft size={12} />
                     <span>{s.destination}</span>
@@ -844,7 +844,7 @@ export default function Workspace({
       data-section={section}
     >
       <aside className="sidebar">
-        <div className="sidebar-brand">
+        <div className="sidebar-brand tw:flex tw:justify-between tw:items-center">
           <Brand />
           <button
             type="button"
@@ -880,7 +880,7 @@ export default function Workspace({
             </Link>
           ))}
         </nav>
-        <div className="sidebar-bottom">
+        <div className="sidebar-bottom tw:mt-auto tw:pt-4 tw:shrink-0">
           <div className="sidebar-help">
             <ShieldCheck size={25} strokeWidth={1.4} />
             <b>همراه شما در مسیر</b>
@@ -969,9 +969,9 @@ export default function Workspace({
               <Bell size={20} />
               {!!dash?.notifications && <i />}
             </Link>
-            <span className="header-divider" />
+            <span className="header-divider tw:h-7 tw:w-px tw:bg-line tw:my-0 tw:mx-[5px]" />
             <Link
-              className="header-user"
+              className="header-user tw:flex tw:items-center tw:gap-2.5"
               href={base + "/settings"}
               aria-label={
                 user ? "حساب کاربری «" + user.name + "»" : "حساب کاربری"

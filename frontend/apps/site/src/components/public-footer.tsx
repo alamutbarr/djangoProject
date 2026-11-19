@@ -28,9 +28,9 @@ export default function PublicFooter() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <div className="site-footer-grid">
-          <div className="site-footer-brand">
+          <div className="site-footer-brand tw:flex tw:flex-col tw:items-start tw:gap-[1.125rem]">
             <Brand light />
-            <Link className="site-footer-entry" href="/apps">
+            <Link className="site-footer-entry tw:inline-flex tw:items-center tw:gap-[0.5rem] tw:min-h-11 tw:font-semibold" href="/apps">
               ورود به پنل‌ها و نصب برنامه <ArrowUpLeft size={17} />
             </Link>
           </div>
@@ -47,7 +47,7 @@ export default function PublicFooter() {
             </nav>
           ))}
         </div>
-        <div className="site-footer-bottom">
+        <div className="site-footer-bottom tw:flex tw:flex-wrap tw:justify-between tw:items-center">
           <small>
             © {new Date().toLocaleDateString("fa-IR", { year: "numeric" })}{" "}
             الموت

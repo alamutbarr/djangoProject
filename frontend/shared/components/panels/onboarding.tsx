@@ -399,7 +399,7 @@ export default function Onboarding({
                       <label className="secondary-btn upload-btn">
                         {doc ? "جایگزینی مدرک" : "انتخاب و بارگذاری"}
                         <input
-                          className="sr-only"
+                          className="tw:sr-only"
                           type="file"
                           accept=".pdf,.png,.jpg,.jpeg"
                           disabled={busy}
@@ -437,7 +437,7 @@ export default function Onboarding({
         </section>
       )}
       {(review || step === 3) && (
-        <section className="card form-card onboarding-summary">
+        <section className="card form-card onboarding-summary tw:mt-6">
           <h2>بازبینی پرونده</h2>
           <dl className="detail-grid">
             {fields.map((f) => (

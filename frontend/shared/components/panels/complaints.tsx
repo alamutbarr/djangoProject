@@ -242,7 +242,7 @@ export default function Complaints({ role }: { role: Role }) {
                   </form>
                 )}
               {role === "operator" && (
-                <div className="shipment-actions">
+                <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
                   {Object.entries(complaintStatuses).map(([value, label]) => (
                     <button
                       key={value}

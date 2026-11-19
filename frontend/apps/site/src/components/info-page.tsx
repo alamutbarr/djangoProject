@@ -19,7 +19,7 @@ export default function InfoPage({ slug }: { slug: keyof typeof infoPages }) {
         </section>
         {slug === "about" && (
           <img
-            className="about-road"
+            className="about-road tw:block tw:w-full tw:object-cover tw:[margin:0_0_36px]"
             src="/alamut-road.jpg"
             alt="مسیر کوهستانی حمل بار"
             width={1200}
@@ -43,7 +43,7 @@ export default function InfoPage({ slug }: { slug: keyof typeof infoPages }) {
             </section>
           ))}
         </div>
-        <section className="content-cta">
+        <section className="content-cta tw:mt-12 tw:pt-8 tw:flex tw:items-center tw:gap-4.5 tw:flex-wrap">
           <h2>قدم بعدی را با هم روشن کنیم.</h2>
           <Link className="btn" href="/contact">
             گفت‌وگو درباره همکاری

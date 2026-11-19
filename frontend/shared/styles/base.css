@@ -1,0 +1,184 @@
+@font-face {
+  font-family: Vazirmatn;
+  src: url("/fonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 100 499;
+  font-display: swap;
+}
+@font-face {
+  font-family: Vazirmatn;
+  src: url("/fonts/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700 950;
+  font-display: swap;
+}
+@font-face {
+  font-family: Vazirmatn;
+  src: url("/fonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: Vazirmatn;
+  src: url("/fonts/vazirmatn-semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  --teal: #087f8c;
+  --teal-dark: #076570;
+  --forest: #133d3b;
+  --ink: #203734;
+  --muted: #687764;
+  --line: #e5eae5;
+  --paper: #f8f8f3;
+  --gold: #bd9f5a;
+  --radius: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body {
+  @apply tw:m-0 tw:text-ink;
+  background: #f6f7f3;
+  font-family: var(--font-vazir, Vazirmatn), Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  border: 0;
+}
+img {
+  @apply tw:max-w-full tw:block;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  line-height: 1.55;
+}
+h1 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+h2 {
+  font-size: 21px;
+}
+h3 {
+  font-size: 18px;
+}
+em {
+  @apply tw:text-brand tw:not-italic;
+}
+p {
+  line-height: 2;
+}
+svg {
+  flex-shrink: 0;
+}
+small,
+.small {
+  font-size: 12px;
+}
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #d0ae57;
+  outline-offset: 4px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #80b5b7;
+  outline-offset: 1px;
+}
+input,
+select,
+textarea {
+  border: 1px solid #dce3dd;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 11px 13px;
+  min-height: 46px;
+  @apply tw:min-w-0 tw:w-full;
+  font-size: 15px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #a2aaa5;
+}
+textarea {
+  resize: vertical;
+}
+select {
+  padding-left: 30px;
+}
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+label > input,
+label > textarea,
+label > select {
+  margin-top: 7px;
+}
+label .required {
+  color: var(--teal);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+@media (max-width: 760px) {
+  body {
+    font-size: 14px;
+  }
+}

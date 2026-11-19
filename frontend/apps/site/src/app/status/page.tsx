@@ -15,7 +15,7 @@ export default function Page() {
           <h1>وضعیت اتصال سرویس</h1>
           <p>بررسی لحظه‌ای ارتباط با سامانه الموت.</p>
         </section>
-        <div className="public-tool-wrap">
+        <div className="tw:max-w-[850px]">
           <ServiceStatus />
         </div>
       </main>

@@ -102,7 +102,7 @@ export default function Privacy() {
             </p>
           </section>
         </div>
-        <nav className="content-cta">
+        <nav className="content-cta tw:mt-12 tw:pt-8 tw:flex tw:items-center tw:gap-4.5 tw:flex-wrap">
           <Link className="btn" href="/contact">
             ثبت پرسش
           </Link>

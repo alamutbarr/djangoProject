@@ -1,0 +1,17 @@
+/* The app reset and form defaults live in base.css. */
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) source(none) prefix(tw);
+
+@theme {
+  --spacing: 4px;
+}
+
+@theme inline {
+  --color-brand: var(--teal);
+  --color-forest: var(--forest);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+}

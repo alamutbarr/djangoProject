@@ -1,0 +1,76 @@
+.pwa-tools {
+  font-size: 13px;
+  margin: 0 0 20px;
+}
+.pwa-toolbar {
+  gap: 16px;
+  color: #60736c;
+}
+.pwa-toolbar > span {
+  margin-inline-end: auto;
+}
+.connection-banner,
+.update-banner {
+  @apply tw:flex tw:items-center tw:gap-3 tw:flex-wrap tw:py-4 tw:px-5;
+  background: #fff1d6;
+  color: #665025;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+.update-banner {
+  background: #e9f4ed;
+  color: var(--forest);
+}
+.update-banner p {
+  @apply tw:m-0 tw:flex-1;
+}
+.standalone-state {
+  max-width: 680px;
+  @apply tw:my-12.5 tw:mx-auto tw:p-7;
+}
+@media (max-width: 600px) {
+  .pwa-toolbar {
+    gap: 10px;
+  }
+  .pwa-toolbar > span {
+    display: none;
+  }
+  .pwa-toolbar button {
+    min-height: 36px;
+    font-size: 12px;
+  }
+  .pwa-tools > .info-note {
+    font-size: 13px;
+  }
+  .connection-banner,
+  .update-banner {
+    padding: 14px;
+  }
+  .pwa-tools .btn,
+  .update-banner .secondary-btn {
+    font-size: 13px;
+  }
+  .standalone-state {
+    @apply tw:my-5 tw:mx-auto tw:p-5;
+  }
+}
+
+.app-entry-tools {
+  padding: 12px max(22px, calc((100vw - 1180px) / 2));
+  border-bottom: 1px solid var(--line);
+}
+.app-entry-tools .pwa-tools {
+  margin: 0;
+}
+.pwa-ready {
+  color: #527564;
+  display: inline-block;
+}
+.pwa-tools .pwa-ready {
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .pwa-tools .pwa-ready {
+    display: none;
+  }
+}

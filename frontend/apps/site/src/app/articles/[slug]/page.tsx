@@ -108,7 +108,7 @@ export default async function Article({ params }: Props) {
             );
           })}
         </article>
-        <aside className="content-cta">
+        <aside className="content-cta tw:mt-12 tw:pt-8 tw:flex tw:items-center tw:gap-4.5 tw:flex-wrap">
           <h2>قدم بعدی شما</h2>
           <Link className="btn" href="/apps">
             ورود به پنل مناسب

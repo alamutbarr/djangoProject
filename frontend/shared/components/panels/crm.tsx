@@ -95,7 +95,7 @@ export default function CRM() {
           <h1>از اولین تماس تا همکاری.</h1>
           <p>درخواست‌های سایت، سرنخ‌ها، تاریخچه تماس و پیگیری‌های تیم</p>
         </div>
-        <div className="shipment-actions">
+        <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
           <button className="btn" onClick={() => setModal("lead")}>
             سرنخ جدید
           </button>

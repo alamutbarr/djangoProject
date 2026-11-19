@@ -67,7 +67,7 @@ export default function Overview({
           <span className="eyebrow">هر مسیر، یک تعهد است</span>
           <h1>
             {user?.first_name} عزیز، روزتان بخیر
-            <span className="welcome-dot">.</span>
+            <span className="tw:text-brand">.</span>
           </h1>
           <p>اینجا، تصویر روشنی از مسیرهای پیش روی شماست.</p>
         </div>
@@ -116,7 +116,7 @@ export default function Overview({
           <ArrowLeft size={20} />
         </Link>
       )}
-      <div className="stats-grid">
+      <div className="stats-grid tw:grid">
         {[
           {
             t: "کل محموله‌ها",
@@ -157,7 +157,7 @@ export default function Overview({
           </article>
         ))}
       </div>
-      <div className="dashboard-middle">
+      <div className="dashboard-middle tw:grid">
         <section className="card route-card">
           <div className="card-head">
             <div>
@@ -168,7 +168,7 @@ export default function Overview({
               <i /> ثبت مرحله‌ای
             </span>
           </div>
-          <div className="route-visual">
+          <div className="route-visual tw:relative">
             <svg
               viewBox="0 0 700 220"
               role="img"
@@ -222,7 +222,7 @@ export default function Overview({
                 </g>
               ))}
             </svg>
-            <div className="route-labels">
+            <div className="route-labels tw:flex tw:justify-between">
               <span>ثبت درخواست</span>
               <span>تخصیص و بارگیری</span>
               <span>در مسیر</span>

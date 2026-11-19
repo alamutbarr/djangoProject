@@ -162,7 +162,7 @@ export default function Home() {
               از ثبت سفارش تا تحویل، در کنار شما. سریع، مطمئن و شفاف تا باری که
               به ما می‌سپارید بی‌دغدغه به مقصد برسد.
             </p>
-            <div className="hero-actions">
+            <div className="hero-actions tw:flex tw:items-center">
               <button className="btn" onClick={() => setEntry(true)}>
                 ورود به پنل‌ها
                 <ArrowLeft size={18} />
@@ -177,7 +177,7 @@ export default function Home() {
             <br />
             <b>مطمئن</b>
           </div>
-          <div className="hero-foot">
+          <div className="hero-foot tw:flex tw:justify-between tw:items-center">
             <span>الهام از ایران، ساخته برای آینده.</span>
             <a href="#manifesto">
               ادامه مطلب <ArrowDown size={14} />
@@ -186,11 +186,11 @@ export default function Home() {
           </div>
         </section>
         <section className="manifesto section-wrap" id="manifesto">
-          <div className="kicker">
+          <div className="kicker tw:flex tw:items-center">
             <span />
             دستی مطمئن در دنیایی پرتحرک <small>/ ۰۱</small>
           </div>
-          <div className="editorial-grid">
+          <div className="editorial-grid tw:grid">
             <h2>
               لجستیک زنجیره‌ای
               <br />
@@ -217,7 +217,7 @@ export default function Home() {
           </div>
         </section>
         <section className="services section-wrap" id="services">
-          <div className="kicker">
+          <div className="kicker tw:flex tw:items-center">
             <span />
             خدمات ما <small>/ ۰۲</small>
           </div>
@@ -233,7 +233,7 @@ export default function Home() {
           <div className="service-grid">
             {services.map((s, i) => (
               <article key={s.title} className="service-card">
-                <div className="service-top">
+                <div className="service-top tw:flex tw:justify-between tw:text-brand">
                   <s.icon size={29} strokeWidth={1.3} />
                   <span>{number(i + 1).padStart(2, "۰")}</span>
                 </div>
@@ -256,9 +256,9 @@ export default function Home() {
           </div>
         </section>
         <section className="approach" id="approach">
-          <div className="section-wrap approach-grid">
+          <div className="section-wrap approach-grid tw:grid tw:items-center">
             <div>
-              <div className="kicker light">
+              <div className="kicker tw:flex tw:items-center light">
                 <span />
                 روش الموت <small>/ ۰۳</small>
               </div>
@@ -305,11 +305,11 @@ export default function Home() {
           </div>
         </section>
         <section className="network section-wrap" id="network">
-          <div className="kicker">
+          <div className="kicker tw:flex tw:items-center">
             <span />
             فاصله میان مبدأ و مقصد <small>/ ۰۴</small>
           </div>
-          <div className="editorial-grid">
+          <div className="editorial-grid tw:grid">
             <div>
               <h2>
                 از نیشابور،
@@ -343,7 +343,7 @@ export default function Home() {
               <h3>بارتان در کدام مرحله است؟</h3>
             </div>
             <label>
-              <span className="sr-only">کد پیگیری</span>
+              <span className="tw:sr-only">کد پیگیری</span>
               <input
                 name="code"
                 placeholder="AL-XXXXXXXXXX"
@@ -373,11 +373,11 @@ export default function Home() {
         </section>
         <section className="contact-section" id="contact">
           <div className="section-wrap">
-            <div className="kicker">
+            <div className="kicker tw:flex tw:items-center">
               <span />
               بیایید وارد جزئیات شویم <small>/ ۰۵</small>
             </div>
-            <div className="editorial-grid">
+            <div className="editorial-grid tw:grid">
               <div>
                 <h2>
                   چه چیزی
@@ -397,7 +397,7 @@ export default function Home() {
                 </div>
               </div>
               {sent ? (
-                <div className="contact-success" role="status">
+                <div className="contact-success tw:flex tw:flex-col tw:items-center tw:justify-center tw:text-center tw:text-brand" role="status">
                   <CheckCircle2 size={50} />
                   <h3>شروع یک مسیر تازه</h3>
                   <p>{sent}</p>
@@ -462,7 +462,7 @@ export default function Home() {
           <p className="muted">
             نقش خود را انتخاب کنید و وارد فضای کارتان شوید.
           </p>
-          <div className="entry-choices">
+          <div className="entry-choices tw:flex tw:flex-col tw:gap-2.5 tw:my-6 tw:mx-0">
             {(Object.keys(roles) as Role[]).map((r) => (
               <Link key={r} href={appHref("/login?role=" + r)}>
                 <span>

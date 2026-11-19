@@ -24,7 +24,7 @@ export default function Apps() {
           {Object.entries(panelApps)
             .filter(([panel]) => panel !== "admin")
             .map(([panel, app]) => (
-              <article className="card app-card" key={panel}>
+              <article className="card app-card tw:flex tw:flex-col tw:items-start tw:gap-3.5" key={panel}>
                 <img
                   src={"/pwa/icons/" + panel + "-192.png"}
                   width={72}

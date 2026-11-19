@@ -57,6 +57,13 @@ pwsh -File scripts/stop.ps1 -Database
 pwsh -File scripts/verify.ps1
 ```
 
+## ساختار استایل فرانت‌اند
+
+- کلاس‌های چیدمان و ظاهر محلی را با پیشوند `tw:` در JSX بنویسید. رنگ‌های پالت مشترک و مقیاس فاصله‌ها از `frontend/shared/styles/theme.css` در دسترس Tailwind هستند.
+- `frontend/shared/styles/common.css` نقطهٔ ورود استایل‌های مشترک است. قواعد دکمه، فرم، وضعیت و سایر اجزای تکرارشونده در `primitives.css` قرار دارند.
+- استایل پنل‌ها از `panel-components.css` و `mobile-workspace.css` وارد می‌شود. Next.js این استایل‌ها را برای مسیر پنل و استایل لندینگ را برای صفحهٔ اصلی بارگذاری می‌کند. سه اپ Vite از `frontend/platform/styles.css` استفاده می‌کنند.
+
+
 ## پنل‌ها، صفحات عمومی و PWA
 
 [ورود و نصب برنامه‌ها](http://127.0.0.1:3001/apps) · [مقالات](http://127.0.0.1:3001/articles) · [درباره ما](http://127.0.0.1:3001/about) · [راهنمای پنل‌ها](http://127.0.0.1:3001/help)

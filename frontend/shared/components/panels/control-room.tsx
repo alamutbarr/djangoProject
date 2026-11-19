@@ -86,7 +86,7 @@ export default function ControlRoom() {
           ارتباط قطع شده؛ اطلاعات زیر مربوط به دریافت قبلی است. {error}
         </p>
       )}
-      <div className="stats-grid">
+      <div className="stats-grid tw:grid">
         {[
           ["پرونده راننده منتظر بررسی", data.pending_drivers],
           ["مدارک منقضی", data.expired_drivers],

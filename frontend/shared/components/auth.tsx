@@ -82,8 +82,8 @@ export default function Auth({
       }
       data-role={role}
     >
-      <div className="auth-form-side">
-        <div className="auth-top">
+      <div className="auth-form-side tw:flex tw:flex-col">
+        <div className="auth-top tw:flex tw:justify-between tw:items-center">
           <Brand />
           <Link href={siteHref("/")} className="text-link">
             صفحه اصلی <ArrowLeft size={17} />
@@ -382,7 +382,7 @@ export default function Auth({
       </div>
       <aside className="auth-photo">
         <img src="/alamut-road.jpg" alt="جاده‌ای میان کوهستان" />
-        <div className="auth-photo-overlay" />
+        <div className="auth-photo-overlay tw:absolute tw:inset-0" />
         <div>
           <ShieldCheck size={42} strokeWidth={1} />
           <h2>
