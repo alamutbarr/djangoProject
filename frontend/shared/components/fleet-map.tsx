@@ -110,7 +110,7 @@ export default function FleetMap({
     }
   }, [points, ready]);
   return (
-    <div className="map-shell">
+    <div className="map-shell tw:relative tw:mt-5 tw:border tw:border-line tw:rounded-[12px] tw:overflow-hidden">
       <div
         ref={el}
         style={{ height }}
@@ -118,12 +118,12 @@ export default function FleetMap({
         role="region"
       />
       {points.length > 0 && (
-        <button className="secondary-btn map-focus" onClick={focus}>
+        <button className="secondary-btn tw:absolute tw:top-3.5 tw:right-3.5 tw:z-500 tw:bg-[#fffef9] tw:shadow-[0_2px_8px_#173c2920]" onClick={focus}>
           تمرکز روی موقعیت‌ها
         </button>
       )}
       {!points.length && (
-        <p className="map-empty">
+        <p className="tw:absolute tw:bottom-8.5 tw:left-5 tw:right-5 tw:bg-[#fffef8ec] tw:py-3 tw:px-4.5 tw:rounded-[8px] tw:text-[13px] tw:z-1 tw:pointer-events-none tw:below-760:text-[12px] tw:below-760:p-2.5">
           هنوز موقعیت واقعی دریافت نشده است؛ نشانگر ساختگی نمایش داده نمی‌شود.
         </p>
       )}

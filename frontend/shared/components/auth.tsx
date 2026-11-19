@@ -78,18 +78,18 @@ export default function Auth({
     <main
       id="main"
       className={
-        "auth-layout" + (fixedRole || driverRegistration ? " role-auth" : "")
+        "auth-layout tw:min-h-[100svh] tw:grid tw:grid-cols-[1.1fr_1fr] tw:bg-[#fafbf7] tw:below-950:grid-cols-[1fr_0.7fr] tw:below-760:block" + (fixedRole || driverRegistration ? " role-auth" : "")
       }
       data-role={role}
     >
-      <div className="auth-form-side tw:flex tw:flex-col">
+      <div className="auth-form-side tw:py-8 tw:px-[7%] tw:below-950:py-7 tw:below-950:px-[6%] tw:below-760:py-[25px] tw:below-760:px-6 tw:below-760:min-h-[100svh] tw:flex tw:flex-col">
         <div className="auth-top tw:flex tw:justify-between tw:items-center">
           <Brand />
           <Link href={siteHref("/")} className="text-link">
             صفحه اصلی <ArrowLeft size={17} />
           </Link>
         </div>
-        <div className="auth-box">
+        <div className="auth-box tw:max-w-[420px] tw:w-full tw:mt-[65px] tw:mx-auto tw:mb-12.5 tw:below-950:mt-[45px] tw:below-760:my-[45px] tw:below-760:mx-auto">
           <span className="eyebrow">فضای کار یکپارچه الموت</span>
           <h1>
             {register
@@ -110,7 +110,7 @@ export default function Auth({
                 : "برای ادامه، نقش و مشخصات حساب خود را وارد کنید."}
           </p>
           {!fixedRole && (
-            <div className="role-tabs" role="group" aria-label="انتخاب نقش">
+            <div className="role-tabs tw:flex tw:gap-1 tw:p-[5px] tw:bg-[#edf0e9] tw:border tw:border-[#e4e9df] tw:rounded-[9px] tw:my-[27px] tw:mx-0" role="group" aria-label="انتخاب نقش">
               {(Object.keys(roles) as Role[])
                 .filter((r) => !register || ["owner", "driver"].includes(r))
                 .map((r) => (
@@ -165,7 +165,7 @@ export default function Auth({
               </label>
               {demoCode && (
                 <>
-                  <p className="demo-note">
+                  <p className="demo-note tw:bg-[#eff4e9] tw:border tw:border-dashed tw:border-[#cbd7bd] tw:rounded-[9px] tw:py-[13px] tw:px-[17px] tw:mt-5.5 tw:text-[#6e7d60] tw:text-[12px]">
                     کد آزمایشی: <code>{demoCode}</code>
                   </p>
                   <label>
@@ -268,7 +268,7 @@ export default function Auth({
             </label>
             <label>
               رمز عبور
-              <div className="password-input">
+              <div className="password-input tw:relative tw:mt-[7px]">
                 <input
                   name="password"
                   type={show ? "text" : "password"}
@@ -354,7 +354,7 @@ export default function Auth({
             </button>
           )}
           {demo && !register && !sms && (
-            <div className="demo-note">
+            <div className="demo-note tw:bg-[#eff4e9] tw:border tw:border-dashed tw:border-[#cbd7bd] tw:rounded-[9px] tw:py-[13px] tw:px-[17px] tw:mt-5.5 tw:text-[#6e7d60] tw:text-[12px]">
               <b>محیط آزمایشی با داده‌های نمونه</b>
               <p>
                 نام کاربری: <code>{role}.demo</code>
@@ -364,7 +364,7 @@ export default function Auth({
             </div>
           )}
           {(!fixedRole || ["owner", "driver"].includes(fixedRole)) && (
-            <p className="auth-switch">
+            <p className="auth-switch tw:text-center tw:text-[14px]">
               {register ? "قبلاً ثبت‌نام کرده‌اید؟" : "حساب کاربری ندارید؟"}{" "}
               <Link
                 href={(register ? "/login" : "/register") + "?role=" + role}
@@ -378,9 +378,9 @@ export default function Auth({
             انجام می‌شود. <Link href={siteHref("/privacy")}>حریم خصوصی</Link>
           </small>
         </div>
-        <small className="auth-bottom">الموت · هر مسیر، یک تعهد است.</small>
+        <small className="tw:text-center tw:text-[#8d998a] tw:text-[10px] tw:mt-auto tw:below-760:mt-5">الموت · هر مسیر، یک تعهد است.</small>
       </div>
-      <aside className="auth-photo">
+      <aside className="auth-photo tw:relative tw:overflow-hidden tw:min-h-full tw:below-760:hidden">
         <img src="/alamut-road.jpg" alt="جاده‌ای میان کوهستان" />
         <div className="auth-photo-overlay tw:absolute tw:inset-0" />
         <div>

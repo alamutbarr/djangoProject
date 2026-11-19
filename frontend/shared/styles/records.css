@@ -1,6 +1,3 @@
-.table-wrap {
-  overflow-x: auto;
-}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -27,10 +24,6 @@ tbody tr:last-child td {
 tbody tr:hover {
   background: #fafbf5;
 }
-.shipment-name {
-  @apply tw:flex tw:items-center;
-  gap: 11px;
-}
 .shipment-name b {
   font-size: 11px;
   @apply tw:font-medium tw:block;
@@ -42,13 +35,6 @@ tbody tr:hover {
   color: #a2ac98;
   @apply tw:block tw:text-right tw:mt-1;
   letter-spacing: 0.5px;
-}
-.cargo-icon {
-  background: #f2f4eb;
-  border: 1px solid #e7ecde;
-  @apply tw:w-9 tw:h-9.5;
-  border-radius: 7px;
-  color: #829b70;
 }
 .table-route svg {
   color: #a4b198;
@@ -74,25 +60,11 @@ tbody tr:hover {
   font-size: 11px;
   @apply tw:min-h-10.5 tw:gap-2.5;
 }
-.list-toolbar {
-  padding: 20px 23px;
-  @apply tw:flex tw:gap-3.5 tw:items-center;
-}
 .list-toolbar select {
   font-size: 11px;
   min-height: 40px;
   width: 170px;
   padding: 8px 12px;
-}
-.search-field {
-  @apply tw:flex tw:items-center tw:gap-2;
-  background: #f8f9f3;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  padding: 0 12px;
-  max-width: 400px;
-  width: 100%;
-  color: #97a18d;
 }
 .search-field input {
   background: none;
@@ -107,23 +79,6 @@ tbody tr:hover {
 }
 .list-toolbar > a {
   @apply tw:mr-auto tw:whitespace-nowrap;
-}
-.detail-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  @apply tw:gap-5.5 tw:[align-items:start];
-}
-.shipment-detail {
-  padding: 28px;
-}
-.big-route {
-  @apply tw:flex tw:items-center tw:justify-between;
-  background: #f3f6ee;
-  border: 1px solid #e6ecdf;
-  padding: 25px 35px;
-  margin-bottom: 25px;
-  border-radius: 8px;
-  text-align: center;
 }
 .big-route > div {
   position: relative;
@@ -155,10 +110,7 @@ tbody tr:hover {
   @apply tw:p-1 tw:w-9 tw:h-7.5;
 }
 .detail-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 0 30px;
-  margin: 0;
 }
 .detail-grid > div {
   padding: 14px 0;
@@ -179,10 +131,6 @@ dd {
   padding: 10px 15px;
   gap: 8px;
 }
-.rating-form {
-  grid-template-columns: 1fr 1fr;
-  margin-top: 18px;
-}
 .rating-form h2,
 .rating-form .full,
 .rating-form .btn {
@@ -196,25 +144,12 @@ dd {
   @apply tw:grid tw:gap-1.5;
   font-size: 13px;
 }
-.complaint-form {
-  @apply tw:mb-4 tw:pb-4;
-  border-bottom: 1px solid var(--line, #e6ece8);
-}
-.detail-section {
-  @apply tw:mt-5.5 tw:p-6;
-}
 .detail-section > h2 {
   font-size: 16px;
   margin-bottom: 17px;
 }
 .detail-section .card-head {
   padding: 0 0 12px;
-}
-.list-row {
-  @apply tw:flex tw:justify-between tw:items-center tw:gap-5;
-  padding: 17px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 12px;
 }
 .list-row:last-child {
   border: 0;
@@ -243,12 +178,6 @@ dd {
 .upload-btn {
   cursor: pointer;
 }
-.inspection-row {
-  @apply tw:flex tw:gap-4;
-  padding: 15px 0;
-  border-bottom: 1px solid var(--line);
-  color: #769267;
-}
 .inspection-row p {
   font-size: 11px;
   color: #9aa58f;
@@ -256,16 +185,8 @@ dd {
 .inspection-row b {
   font-size: 12px;
 }
-.timeline-card {
-  padding: 25px;
-}
 .timeline-card h2 {
   font-size: 17px;
-}
-.timeline {
-  list-style: none;
-  padding: 0 12px 0 0;
-  margin-top: 28px;
 }
 .timeline li {
   border-right: 1px solid #e0e7d7;
@@ -316,25 +237,6 @@ dd {
     font-size: 12px;
   }
 }
-@media (max-width: 1200px) {
-  .detail-layout {
-    grid-template-columns: 1fr 240px;
-  }
-  .list-toolbar {
-    flex-wrap: wrap;
-  }
-  .search-field {
-    max-width: 100%;
-  }
-}
-@media (max-width: 950px) {
-  .detail-layout {
-    grid-template-columns: 1fr;
-  }
-  .timeline-card {
-    order: 2;
-  }
-}
 @media (max-width: 760px) {
   table {
     font-size: 10px;
@@ -348,12 +250,6 @@ dd {
   }
   .shipment-name b {
     font-size: 10px;
-  }
-  .cargo-icon {
-    @apply tw:w-7.5 tw:h-8.5;
-  }
-  .shipment-name {
-    gap: 8px;
   }
   .table-route + small {
     font-size: 8px;
@@ -379,10 +275,6 @@ dd {
     align-self: flex-end;
     margin-top: -30px;
   }
-  .list-toolbar {
-    padding: 15px;
-    gap: 10px;
-  }
   .list-toolbar select {
     @apply tw:w-auto tw:flex-1;
     font-size: 10px;
@@ -393,16 +285,6 @@ dd {
   }
   .search-field {
     flex-basis: 100%;
-    font-size: 10px;
-  }
-  .detail-layout {
-    gap: 18px;
-  }
-  .shipment-detail {
-    padding: 18px;
-  }
-  .big-route {
-    padding: 20px;
   }
   .big-route h2 {
     font-size: 20px;
@@ -415,9 +297,6 @@ dd {
   }
   dd {
     font-size: 11px;
-  }
-  .detail-section {
-    @apply tw:p-5 tw:mt-4.5;
   }
   .shipment-actions .btn {
     font-size: 10px;
@@ -452,7 +331,3 @@ th {
 }
 
 /* Keep absolutely positioned accessible table labels inside the scroll container. */
-.table-wrap {
-  @apply tw:relative tw:max-w-full tw:min-w-0;
-  overscroll-behavior-inline: contain;
-}

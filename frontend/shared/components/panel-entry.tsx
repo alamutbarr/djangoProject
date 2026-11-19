@@ -34,7 +34,7 @@ export default function PanelEntry({ panel }: { panel: PanelKey }) {
   }, [needsDriverReview, router]);
   if (error)
     return (
-      <main id="main" className="standalone-state">
+      <main id="main" className="tw:max-w-[680px] tw:my-12.5 tw:mx-auto tw:p-7 tw:below-600:my-5 tw:below-600:mx-auto tw:below-600:p-5">
         <h1>{app.name}</h1>
         <p className="error" role="alert">
           {error}
@@ -54,8 +54,8 @@ export default function PanelEntry({ panel }: { panel: PanelKey }) {
     return <Workspace role={app.role} section="dashboard" />;
   if (user)
     return (
-      <main id="main" className="standalone-state">
-        <div className="app-entry-tools">
+      <main id="main" className="tw:max-w-[680px] tw:my-12.5 tw:mx-auto tw:p-7 tw:below-600:my-5 tw:below-600:mx-auto tw:below-600:p-5">
+        <div className="app-entry-tools tw:border-b tw:border-b-line">
           <PWA panel={panel} />
         </div>
         <h1>این برنامه ویژهٔ {app.short} است.</h1>
@@ -80,7 +80,7 @@ export default function PanelEntry({ panel }: { panel: PanelKey }) {
     );
   return (
     <>
-      <div className="app-entry-tools">
+      <div className="app-entry-tools tw:border-b tw:border-b-line">
         <PWA panel={panel} />
       </div>
       <Suspense fallback={<Loading />}>

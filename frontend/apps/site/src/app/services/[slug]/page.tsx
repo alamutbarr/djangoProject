@@ -47,7 +47,7 @@ export default async function Service({
   };
   return (
     <main id="main" className="service-page section-wrap">
-      <nav className="breadcrumbs">
+      <nav className="breadcrumbs tw:mt-[35px] tw:text-[#6e7e63] tw:text-[13px]">
         <Link href="/">خانه</Link>
         <span> / {data.title}</span>
       </nav>
@@ -61,7 +61,7 @@ export default async function Service({
           ))}
         </ol>
       </section>
-      <section className="service-faq">
+      <section className="service-faq tw:my-10 tw:mx-0">
         <h2>پرسش‌های متداول</h2>
         {data.faq.map(([q, a]) => (
           <details key={q}>

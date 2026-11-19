@@ -33,7 +33,7 @@ export default function Privacy() {
             </p>
           )}
         </header>
-        <div className="article-body">
+        <div className="article-body tw:max-w-[760px] tw:text-[17px] tw:leading-[2.3] tw:below-600:text-[16px]">
           <section>
             <h2>چه اطلاعاتی نگهداری می‌شود؟</h2>
             <p>
@@ -102,7 +102,7 @@ export default function Privacy() {
             </p>
           </section>
         </div>
-        <nav className="content-cta tw:mt-12 tw:pt-8 tw:flex tw:items-center tw:gap-4.5 tw:flex-wrap">
+        <nav className="content-cta tw:border-t tw:border-t-line tw:below-600:items-stretch tw:mt-12 tw:pt-8 tw:flex tw:items-center tw:gap-4.5 tw:flex-wrap">
           <Link className="btn" href="/contact">
             ثبت پرسش
           </Link>

@@ -124,7 +124,7 @@ export default function LocationPicker({
 
   return (
     <div className="map-picker">
-      <div className="map-search">
+      <div className="map-search tw:flex tw:gap-2 tw:items-center">
         <Search size={15} />
         <input
           value={query}
@@ -153,7 +153,7 @@ export default function LocationPicker({
         </button>
       </div>
       {results.length > 0 && (
-        <ul className="map-results">
+        <ul className="map-results tw:list-none tw:m-0 tw:p-0 tw:border tw:border-line tw:rounded-[12px] tw:max-h-45 tw:overflow-auto">
           {results.map((item) => (
             <li key={item.lat + item.lon}>
               <button
@@ -170,7 +170,7 @@ export default function LocationPicker({
           ))}
         </ul>
       )}
-      <div ref={holder} className="map-canvas" />
+      <div ref={holder} className="tw:min-h-70 tw:h-70 tw:rounded-[12px] tw:overflow-hidden tw:border tw:border-line" />
     </div>
   );
 }

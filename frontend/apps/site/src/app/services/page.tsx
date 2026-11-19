@@ -13,9 +13,9 @@ export default function Services() {
         <h1>خدمات الموت</h1>
         <p>از درخواست و تأمین ناوگان تا بازرسی، پیگیری و تحویل.</p>
       </section>
-      <div className="article-grid">
+      <div className="tw:grid tw:grid-cols-2 tw:gap-6 tw:below-600:grid-cols-[1fr]">
         {Object.entries(servicePages).map(([slug, page]) => (
-          <article key={slug} className="card article-card tw:flex tw:flex-col tw:items-start">
+          <article key={slug} className="card article-card tw:p-7.5 tw:below-600:p-5.5 tw:flex tw:flex-col tw:items-start">
             <h2>{page.title}</h2>
             <p>{page.description}</p>
             <Link className="text-link" href={"/services/" + slug}>

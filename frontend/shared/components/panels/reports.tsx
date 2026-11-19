@@ -17,17 +17,17 @@ export default function Reports({
         title="تصویر روشن عملکرد"
         text="گزارش از داده‌های واقعی قابل مشاهده برای نقش شما"
       />
-      <div className="reports-grid">
-        <section className="card report-card">
+      <div className="tw:grid tw:grid-cols-[1fr_1fr] tw:gap-6 tw:[align-items:start] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5">
+        <section className="card report-card tw:p-[27px] tw:below-760:p-[23px]">
           <h2>توزیع وضعیت محموله‌ها</h2>
           {dash.by_status.length ? (
             dash.by_status.map((s) => (
-              <div className="bar-row" key={s.status}>
+              <div className="bar-row tw:my-5.5 tw:mx-0" key={s.status}>
                 <div>
                   <span>{statuses[s.status]}</span>
                   <b>{number(s.count)}</b>
                 </div>
-                <div className="bar-track">
+                <div className="bar-track tw:h-[7px] tw:bg-[#edf1e5] tw:rounded-[4px] tw:overflow-hidden">
                   <i
                     style={{
                       width: (s.count / Math.max(dash.total, 1)) * 100 + "%",
@@ -40,9 +40,9 @@ export default function Reports({
             <Empty />
           )}
         </section>
-        <section className="card report-card">
+        <section className="card report-card tw:p-[27px] tw:below-760:p-[23px]">
           <h2>شاخص‌های عملیات</h2>
-          <div className="report-metric">
+          <div className="report-metric tw:py-5.5 tw:px-0 tw:flex tw:items-center tw:justify-between tw:border-b tw:border-b-line tw:text-[11px]">
             <span>نرخ تحویل از کل درخواست‌ها</span>
             <strong>
               {number(
@@ -53,11 +53,11 @@ export default function Reports({
               ٪
             </strong>
           </div>
-          <div className="report-metric">
+          <div className="report-metric tw:py-5.5 tw:px-0 tw:flex tw:items-center tw:justify-between tw:border-b tw:border-b-line tw:text-[11px]">
             <span>محموله‌های در جریان</span>
             <strong>{number(dash.active)}</strong>
           </div>
-          <div className="report-metric">
+          <div className="report-metric tw:py-5.5 tw:px-0 tw:flex tw:items-center tw:justify-between tw:border-b tw:border-b-line tw:text-[11px]">
             <span>درخواست‌های پشتیبانی باز</span>
             <strong>{number(dash.open_tickets)}</strong>
           </div>

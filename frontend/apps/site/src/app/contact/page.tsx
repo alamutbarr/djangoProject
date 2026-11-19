@@ -16,7 +16,7 @@ export default function Page() {
           <h1>تماس با ما</h1>
           <p>درخواست همکاری و پرسش خود را برای تیم عملیات الموت ثبت کنید.</p>
         </section>
-        <div className="public-contact-grid">
+        <div className="tw:grid tw:grid-cols-[1.1fr_1fr] tw:gap-7 tw:[align-items:start] tw:below-850:grid-cols-[1fr]">
           <ContactForm />
           <aside className="card info-card">
             <h2>برای محموله موجود</h2>

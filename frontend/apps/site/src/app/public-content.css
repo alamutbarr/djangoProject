@@ -19,14 +19,6 @@
 .service-page > .text-link {
   margin-right: 24px;
 }
-.breadcrumbs {
-  margin-top: 35px;
-  color: #6e7e63;
-  font-size: 13px;
-}
-.service-faq {
-  margin: 40px 0;
-}
 .service-faq details {
   padding: 20px 0;
   border-bottom: 1px solid var(--line);
@@ -50,11 +42,6 @@
     @apply tw:flex tw:my-5 tw:mx-0;
   }
 }
-.site-header {
-  max-width: 1320px;
-  @apply tw:m-auto tw:py-6 tw:px-8 tw:flex tw:items-center tw:gap-7;
-  border-bottom: 1px solid var(--line);
-}
 .site-header > nav {
   @apply tw:flex tw:items-center tw:justify-center tw:gap-5.5 tw:flex-1;
 }
@@ -63,9 +50,6 @@
 }
 .site-header > nav a:hover {
   color: var(--teal);
-}
-.site-mobile-menu {
-  display: none;
 }
 .content-page {
   max-width: 1180px;
@@ -93,11 +77,6 @@
   margin-top: 20px;
   max-width: 760px;
 }
-.information-grid,
-.article-grid,
-.app-grid {
-  @apply tw:grid tw:grid-cols-2 tw:gap-6;
-}
 .info-card {
   padding: 30px;
 }
@@ -118,19 +97,9 @@
   font: 15px Arial;
   color: var(--gold);
 }
-.about-road {
-  height: 360px;
-  border-radius: 18px;
-}
-.content-cta {
-  border-top: 1px solid var(--line);
-}
 .content-cta h2 {
   flex: 1;
   font-size: 24px;
-}
-.article-card {
-  padding: 30px;
 }
 .article-card h2 {
   font-size: 23px;
@@ -142,17 +111,11 @@
   line-height: 2;
   flex: 1;
 }
-.article-card > div,
-.article-meta {
+.article-card > div {
   @apply tw:flex tw:gap-6 tw:flex-wrap;
   color: #71827a;
   font-size: 13px;
   margin: 18px 0;
-}
-.article-search,
-.faq-filter {
-  @apply tw:flex tw:items-end tw:gap-4.5;
-  margin: 0 0 30px;
 }
 .article-search label,
 .faq-filter label {
@@ -160,11 +123,6 @@
 }
 .article-detail {
   max-width: 960px;
-}
-.article-body {
-  max-width: 760px;
-  font-size: 17px;
-  line-height: 2.3;
 }
 .article-body section {
   margin-bottom: 34px;
@@ -182,27 +140,11 @@
 .content-hero {
   overflow-wrap: anywhere;
 }
-.public-contact-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  @apply tw:gap-7 tw:[align-items:start];
-}
-.public-contact {
-  padding: 30px;
-}
 .public-contact label {
   @apply tw:block tw:mb-5;
 }
 .public-contact .btn {
   margin-top: 12px;
-}
-.tracking-result {
-  @apply tw:mt-7 tw:p-5;
-  background: #eff5ed;
-  border-radius: 12px;
-}
-.app-card {
-  padding: 30px;
 }
 .app-card img {
   border-radius: 18px;
@@ -223,15 +165,9 @@
 .public-site textarea {
   font-size: 16px;
 }
-.site-header {
-  padding-top: max(20px, env(safe-area-inset-top));
-}
 @media (max-width: 1100px) {
   .site-header > nav {
     gap: 12px;
-  }
-  .site-header {
-    @apply tw:gap-4.5 tw:px-6;
   }
   .site-header > nav a {
     font-size: 12px;
@@ -241,12 +177,6 @@
   .site-header > nav,
   .site-header > .secondary-btn {
     display: none;
-  }
-  .site-header {
-    @apply tw:justify-between tw:relative;
-  }
-  .site-mobile-menu {
-    display: block;
   }
   .site-mobile-menu summary {
     cursor: pointer;
@@ -274,23 +204,12 @@
   .content-hero p {
     font-size: 16px;
   }
-  .public-contact-grid {
-    grid-template-columns: 1fr;
-  }
 }
 @media (max-width: 600px) {
-  .information-grid,
-  .article-grid,
-  .app-grid {
-    grid-template-columns: 1fr;
-  }
   .content-page {
     padding: 20px 18px 48px;
   }
-  .info-card,
-  .article-card,
-  .app-card,
-  .public-contact {
+  .info-card {
     padding: 22px;
   }
   .content-hero h1 {
@@ -300,22 +219,9 @@
   .content-hero h2 {
     font-size: 20px;
   }
-  .about-road {
-    height: 230px;
-  }
-  .article-search,
-  .faq-filter {
-    @apply tw:flex-col tw:items-stretch tw:gap-2.5;
-  }
-  .content-cta {
-    align-items: stretch;
-  }
   .content-cta h2 {
     flex-basis: 100%;
     font-size: 22px;
-  }
-  .article-body {
-    font-size: 16px;
   }
   .article-body h2 {
     font-size: 22px;

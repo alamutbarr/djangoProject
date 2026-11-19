@@ -86,7 +86,7 @@ export default function Security() {
         />
       ) : (
         <>
-          <div className="mfa-key">
+          <div className="mfa-key tw:my-[25px] tw:mx-0 tw:p-5.5 tw:bg-[#f4f6ee] tw:rounded-[10px] tw:text-center">
             {qr && (
               <img
                 src={qr}

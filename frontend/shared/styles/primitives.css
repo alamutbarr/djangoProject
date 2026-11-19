@@ -237,13 +237,6 @@
   background: #f0f1ec;
   color: #98a08e;
 }
-.empty {
-  padding: 55px 25px;
-  @apply tw:flex tw:items-center tw:flex-col tw:justify-center;
-  min-height: 220px;
-  text-align: center;
-  color: #9baa91;
-}
 .empty h3 {
   font-size: 15px;
   color: #6f8464;
@@ -257,12 +250,6 @@
 .empty .btn {
   margin-top: 20px;
 }
-.loading-state {
-  @apply tw:flex tw:gap-3 tw:items-center tw:justify-center;
-  min-height: 50svh;
-  color: #829475;
-  font-size: 12px;
-}
 .spin {
   animation: spin 1.2s linear infinite;
 }
@@ -270,22 +257,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-.toast {
-  position: fixed;
-  bottom: 25px;
-  @apply tw:left-7.5 tw:z-100;
-  background: #1b493f;
-  color: #f1f5e9;
-  box-shadow: 0 10px 45px #163c3726;
-  padding: 15px 17px;
-  border-radius: 10px;
-  @apply tw:flex tw:items-center tw:gap-5;
-  font-size: 12px;
-  max-width: min(600px, calc(100% - 40px));
-}
-.error-state {
-  @apply tw:p-15 tw:text-center;
 }
 .error-state .btn {
   margin-top: 25px;
@@ -335,12 +306,6 @@
   }
   .modal .btn {
     width: 100%;
-  }
-  .toast {
-    left: 17px;
-    bottom: 17px;
-    font-size: 11px;
-    padding: 12px 14px;
   }
 }
 @media (max-width: 400px) {
@@ -401,12 +366,6 @@
     font-size: 14px;
   }
 }
-
-.persian-date {
-  padding: 0;
-  border: 0;
-  @apply tw:m-0 tw:min-w-0;
-}
 .persian-date legend {
   font-size: 14px;
   margin-bottom: 7px;
@@ -430,9 +389,6 @@
   display: block;
   overflow-wrap: anywhere;
   margin: 12px 0;
-}
-.check-line {
-  @apply tw:flex tw:gap-2 tw:items-center;
 }
 .badge.on_hold {
   background: #f3ead2;

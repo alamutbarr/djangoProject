@@ -36,7 +36,7 @@ export default function Team({
         text="احراز حساب‌ها و دسترسی به اطلاعات همکاری"
       />
       <section className="card">
-        <div className="list-toolbar">
+        <div className="list-toolbar tw:py-5 tw:px-[23px] tw:flex tw:gap-3.5 tw:items-center tw:below-1200:flex-wrap tw:below-760:p-[15px] tw:below-760:gap-2.5">
           <label>
             جست‌وجوی کاربر و ناوگان
             <input
@@ -59,7 +59,7 @@ export default function Team({
           </label>
           <span>{number(rows.length)} کاربر</span>
         </div>
-        <div className="table-wrap app-records">
+        <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records">
           <table role="table" aria-label="کاربران و ناوگان">
             <thead role="rowgroup">
               <tr role="row">
@@ -112,7 +112,7 @@ export default function Team({
                   </td>
                   <td role="cell" data-label="احراز حساب">
                     {u.verified ? (
-                      <span className="verified">
+                      <span className="tw:flex tw:items-center tw:gap-1.5 tw:text-[#63976e] tw:text-[10px]">
                         <ShieldCheck size={16} />
                         احراز شده
                       </span>

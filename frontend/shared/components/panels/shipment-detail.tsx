@@ -169,10 +169,10 @@ export default function ShipmentDetail({
         </div>
         <Badge status={shipment.status} />
       </div>
-      <div className="detail-layout">
+      <div className="tw:grid tw:grid-cols-[minmax(0,1fr)_280px] tw:gap-5.5 tw:[align-items:start] tw:below-1200:grid-cols-[1fr_240px] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5">
         <div>
-          <section className="card shipment-detail">
-            <div className="big-route">
+          <section className="card shipment-detail tw:p-7 tw:below-760:p-4.5">
+            <div className="big-route tw:flex tw:items-center tw:justify-between tw:bg-[#f3f6ee] tw:border tw:border-[#e6ecdf] tw:py-[25px] tw:px-[35px] tw:mb-[25px] tw:rounded-[8px] tw:text-center tw:below-760:p-5">
               <div>
                 <MapPin size={22} />
                 <small>مبدأ</small>
@@ -187,7 +187,7 @@ export default function ShipmentDetail({
                 <h2>{shipment.destination}</h2>
               </div>
             </div>
-            <dl className="detail-grid">
+            <dl className="detail-grid tw:grid tw:grid-cols-[1fr_1fr] tw:m-0">
               {facts
                 .filter(([, value]) => value)
                 .map(([k, v]) => (
@@ -209,7 +209,7 @@ export default function ShipmentDetail({
               </p>
             )}
             {canRate && (
-              <form className="rating-form tw:grid tw:gap-3" onSubmit={sendRating}>
+              <form className="rating-form tw:grid-cols-[1fr_1fr] tw:mt-4.5 tw:grid tw:gap-3" onSubmit={sendRating}>
                 <h2>امتیاز این مأموریت</h2>
                 <label>
                   امتیاز راننده
@@ -437,7 +437,7 @@ export default function ShipmentDetail({
             {role === "operator" &&
               ["pending", "approved", "assigned"].includes(shipment.status) && (
                 <form
-                  className="rating-form tw:grid tw:gap-3"
+                  className="rating-form tw:grid-cols-[1fr_1fr] tw:mt-4.5 tw:grid tw:gap-3"
                   onSubmit={(event) => {
                     event.preventDefault();
                     void mutate(
@@ -464,10 +464,10 @@ export default function ShipmentDetail({
           </section>
           <ShipmentChat shipmentId={shipment.id} />
           {Boolean(shipment.offers?.length) && (
-            <section className="card detail-section">
+            <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
               <h2>پیشنهادهای حمل</h2>
               {shipment.offers.map((o) => (
-                <div className="list-row" key={o.id}>
+                <div className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={o.id}>
                   <div>
                     <b>{o.driver_name}</b>
                     <p>{o.note || "آماده هماهنگی حمل"}</p>
@@ -477,7 +477,7 @@ export default function ShipmentDetail({
               ))}
             </section>
           )}
-          <section className="card detail-section">
+          <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
             <div className="card-head">
               <h2>اسناد و پیوست‌ها</h2>
               {(role !== "driver" || shipment.driver === user?.id) && (
@@ -533,11 +533,11 @@ export default function ShipmentDetail({
               shipment.status === "in_transit"
             }
           />
-          <section className="card detail-section">
+          <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
             <h2>گزارش‌های بازرسی</h2>
             {shipment.inspections?.length ? (
               shipment.inspections.map((i) => (
-                <div className="inspection-row" key={i.id}>
+                <div className="inspection-row tw:flex tw:gap-4 tw:py-[15px] tw:px-0 tw:border-b tw:border-b-line tw:text-[#769267]" key={i.id}>
                   <ShieldCheck size={24} />
                   <div>
                     <b>
@@ -559,10 +559,10 @@ export default function ShipmentDetail({
             )}
           </section>
         </div>
-        <aside className="card timeline-card">
+        <aside className="card timeline-card tw:p-[25px] tw:below-950:order-2">
           <h2>داستان این مسیر</h2>
           <p className="muted small">تمام تغییرات با نام ثبت‌کننده</p>
-          <ol className="timeline">
+          <ol className="timeline tw:list-none tw:[padding:0_12px_0_0] tw:mt-7">
             {shipment.events?.map((e, i) => (
               <li
                 key={e.id}
@@ -603,7 +603,7 @@ function ShipmentChat({ shipmentId }: { shipmentId: number }) {
     return () => clearInterval(timer);
   }, [shipmentId]);
   return (
-    <section className="card detail-section">
+    <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
       <h2>گفتگو با اپراتور</h2>
       <div className="tw:max-h-[280px] tw:overflow-auto tw:grid tw:gap-2.5">
         {items.length === 0 && <p className="muted">هنوز پیامی نیست.</p>}
@@ -617,7 +617,7 @@ function ShipmentChat({ shipmentId }: { shipmentId: number }) {
         ))}
       </div>
       <form
-        className="chat-form"
+        className="chat-form tw:flex tw:gap-2 tw:items-center"
         onSubmit={(event) => {
           event.preventDefault();
           setError("");

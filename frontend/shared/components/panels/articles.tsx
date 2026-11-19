@@ -57,7 +57,7 @@ export default function Editorial() {
         </button>
       </div>
       <section className="card">
-        <div className="list-toolbar">
+        <div className="list-toolbar tw:py-5 tw:px-[23px] tw:flex tw:gap-3.5 tw:items-center tw:below-1200:flex-wrap tw:below-760:p-[15px] tw:below-760:gap-2.5">
           <label>
             جست‌وجوی عنوان
             <input
@@ -69,7 +69,7 @@ export default function Editorial() {
             />
           </label>
         </div>
-        <div className="table-wrap app-records">
+        <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records">
           <table role="table" aria-label="مقالات">
             <thead role="rowgroup">
               <tr role="row">

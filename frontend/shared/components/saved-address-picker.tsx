@@ -72,7 +72,7 @@ export default function SavedAddressPicker() {
       </p>
     );
   return (
-    <fieldset className="saved-address-picker">
+    <fieldset className="saved-address-picker tw:border tw:border-[var(--line,#dfe6e2)] tw:rounded-[12px] tw:p-4.5 tw:mt-0 tw:mx-0 tw:mb-6">
       <legend>انتخاب از دفترچه نشانی</legend>
       <div className="form-grid">
         {(["origin", "destination"] as const).map((kind) => (

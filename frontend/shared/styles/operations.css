@@ -1,8 +1,3 @@
-.financial-summary {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  @apply tw:gap-5.5 tw:mb-6.5;
-}
 .financial-summary > div {
   padding: 24px 28px;
   background: #eaf1e6;
@@ -23,43 +18,20 @@
   font-size: 24px;
   @apply tw:mt-2.5 tw:font-semibold;
 }
-.reports-grid,
-.settings-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  @apply tw:gap-6 tw:[align-items:start];
-}
-.report-card {
-  padding: 27px;
-}
 .report-card h2 {
   font-size: 17px;
   margin-bottom: 25px;
-}
-.bar-row {
-  margin: 22px 0;
 }
 .bar-row > div:first-child {
   @apply tw:flex tw:justify-between;
   font-size: 11px;
   margin-bottom: 8px;
 }
-.bar-track {
-  height: 7px;
-  background: #edf1e5;
-  border-radius: 4px;
-  overflow: hidden;
-}
 .bar-track i {
   height: 100%;
   background: #6e9b7d;
   display: block;
   border-radius: 4px;
-}
-.report-metric {
-  @apply tw:py-5.5 tw:px-0 tw:flex tw:items-center tw:justify-between;
-  border-bottom: 1px solid var(--line);
-  font-size: 11px;
 }
 .report-metric strong {
   font-size: 27px;
@@ -69,18 +41,7 @@
   margin-top: 25px;
 }
 .tickets-layout {
-  display: grid;
-  grid-template-columns: 340px minmax(0, 1fr);
-  gap: 23px;
   align-items: start;
-}
-.ticket-item {
-  text-align: right;
-  background: none;
-  width: 100%;
-  padding: 21px;
-  border-bottom: 1px solid var(--line);
-  display: block;
 }
 .ticket-item > div {
   @apply tw:flex tw:justify-between tw:items-center tw:gap-2.5;
@@ -98,21 +59,12 @@
   background: #eff4e9;
   border-right: 3px solid var(--teal);
 }
-.conversation {
-  padding: 24px;
-}
 .conversation .card-head {
   padding: 0 0 18px;
   border-bottom: 1px solid var(--line);
 }
 .conversation form {
   padding-top: 20px;
-}
-.messages {
-  @apply tw:py-6 tw:px-0 tw:flex tw:flex-col;
-  gap: 15px;
-  max-height: 500px;
-  overflow: auto;
 }
 .message {
   padding: 15px 18px;
@@ -147,13 +99,6 @@
 .notice.unread {
   background: #f4f7ee;
 }
-.notice-icon {
-  @apply tw:w-10 tw:h-10;
-  background: #eaf0df;
-  @apply tw:grid tw:place-items-center;
-  color: #829a70;
-  border-radius: 10px;
-}
 .notice b {
   font-size: 12px;
   font-weight: 500;
@@ -168,14 +113,6 @@
   margin-right: auto;
   font-size: 11px;
 }
-.verified {
-  @apply tw:flex tw:items-center tw:gap-1.5;
-  color: #63976e;
-  font-size: 10px;
-}
-.profile-summary {
-  padding: 20px 0 28px;
-}
 .profile-summary b {
   font-size: 14px;
 }
@@ -187,28 +124,7 @@
   margin-bottom: 25px;
   font-size: 12px;
 }
-@media (max-width: 1200px) {
-  .tickets-layout {
-    grid-template-columns: 280px 1fr;
-  }
-}
-@media (max-width: 950px) {
-  .reports-grid,
-  .settings-grid {
-    grid-template-columns: 1fr;
-  }
-  .tickets-layout {
-    grid-template-columns: 1fr;
-  }
-  .ticket-list {
-    max-height: 300px;
-    overflow: auto;
-  }
-}
 @media (max-width: 760px) {
-  .financial-summary {
-    gap: 12px;
-  }
   .financial-summary > div {
     padding: 18px;
   }
@@ -217,19 +133,6 @@
   }
   .financial-summary strong {
     font-size: 18px;
-  }
-  .reports-grid,
-  .settings-grid {
-    gap: 18px;
-  }
-  .report-card {
-    padding: 23px;
-  }
-  .tickets-layout {
-    gap: 18px;
-  }
-  .conversation {
-    padding: 20px;
   }
   .notice {
     padding: 18px;
@@ -245,9 +148,6 @@
     font-size: 9px;
     gap: 5px;
   }
-  .notice-icon {
-    @apply tw:w-8.5 tw:h-8.5;
-  }
 }
 .financial-summary span,
 .notice small,
@@ -257,16 +157,6 @@
 }
 .notice small {
   font-size: 12px;
-}
-.credential-grid {
-  @apply tw:grid tw:grid-cols-2 tw:gap-4.5 tw:my-6 tw:mx-0;
-}
-.credential {
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fafcf7;
-  min-width: 0;
 }
 .credential > div:first-child {
   @apply tw:flex tw:justify-between tw:gap-3;
@@ -285,10 +175,6 @@
 }
 .credential .upload-btn {
   margin-top: 15px;
-}
-.onboarding-steps,
-.crm-stage-tabs {
-  @apply tw:flex tw:gap-2.5 tw:my-6 tw:mx-0 tw:overflow-auto tw:pb-2;
 }
 .onboarding-steps button,
 .crm-stage-tabs button {
@@ -327,9 +213,6 @@
   white-space: pre-wrap;
 }
 @media (max-width: 760px) {
-  .credential-grid {
-    grid-template-columns: 1fr;
-  }
   .onboarding-steps button {
     font-size: 12px;
     padding: 10px 12px;
@@ -337,13 +220,6 @@
   .credential > div:first-child {
     flex-wrap: wrap;
   }
-}
-
-.saved-address-picker {
-  border: 1px solid var(--line, #dfe6e2);
-  border-radius: 12px;
-  padding: 18px;
-  margin: 0 0 24px;
 }
 .saved-address-picker legend {
   @apply tw:py-0 tw:px-2 tw:font-medium;
@@ -355,11 +231,6 @@
 textarea[name="body"] {
   min-height: 140px;
 }
-.wizard-steps {
-  @apply tw:flex tw:flex-wrap tw:gap-2;
-  margin: 0 0 18px;
-  @apply tw:p-0 tw:list-none;
-}
 .wizard-steps button {
   background: transparent;
   border: 1px solid var(--line);
@@ -370,9 +241,6 @@ textarea[name="body"] {
   background: var(--teal);
   color: white;
   border-color: var(--teal);
-}
-.chat-form {
-  @apply tw:flex tw:gap-2 tw:items-center;
 }
 .chat-form textarea {
   flex: 1;

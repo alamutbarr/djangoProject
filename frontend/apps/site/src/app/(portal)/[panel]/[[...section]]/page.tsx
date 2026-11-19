@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../../panel-styles.css";
 import Workspace from "@/components/workspace";
 import PanelEntry from "@/components/panel-entry";
 import {

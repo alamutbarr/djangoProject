@@ -68,7 +68,7 @@ export default function Help() {
             </a>
           ))}
         </nav>
-        <div className="information-grid">
+        <div className="tw:grid tw:grid-cols-2 tw:gap-6 tw:below-600:grid-cols-[1fr]">
           {guides.map((g) => (
             <section id={g.id} className="card info-card" key={g.id}>
               <h2>پنل {g.name}</h2>

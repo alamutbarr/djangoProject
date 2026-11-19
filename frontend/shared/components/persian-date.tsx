@@ -82,7 +82,7 @@ export default function PersianDate({
     max = name === "birth_date" ? now.year - 18 : now.year + 20,
     years = Array.from({ length: max - min + 1 }, (_, i) => max - i);
   return (
-    <fieldset className="persian-date">
+    <fieldset className="persian-date tw:p-0 tw:border-0 tw:m-0 tw:min-w-0">
       <legend>
         {label.replace(" (میلادی)", "")} {required ? "*" : ""}
       </legend>

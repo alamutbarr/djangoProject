@@ -44,7 +44,7 @@ export default function Notifications({
         {notices.results.length ? (
           notices.results.map((n) => (
             <div className={"notice " + (!n.read ? "unread" : "")} key={n.id}>
-              <span className="notice-icon">
+              <span className="tw:w-10 tw:h-10 tw:bg-[#eaf0df] tw:grid tw:place-items-center tw:text-[#829a70] tw:rounded-[10px] tw:below-760:w-8.5 tw:below-760:h-8.5">
                 <Bell size={20} />
               </span>
               <div>

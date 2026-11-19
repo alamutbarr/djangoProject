@@ -11,7 +11,7 @@ export default function Recovery() {
   const uid = params.get("uid"),
     token = params.get("token");
   return (
-    <main id="main" className="section-wrap recovery-page">
+    <main id="main" className="section-wrap recovery-page tw:max-w-[620px] tw:min-h-[100svh]">
       <Brand />
       <section className="card form-card">
         <h1>{uid && token ? "انتخاب رمز جدید" : "بازیابی حساب"}</h1>

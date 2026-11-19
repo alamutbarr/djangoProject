@@ -9,7 +9,7 @@ export function PanelError({
   retry: () => void;
 }) {
   return (
-    <div className="error-state" role="alert">
+    <div className="error-state tw:p-15 tw:text-center" role="alert">
       <h2>نمایش اطلاعات انجام نشد</h2>
       <p>{error instanceof Error ? error.message : String(error)}</p>
       {error instanceof ApiError && error.requestId && (

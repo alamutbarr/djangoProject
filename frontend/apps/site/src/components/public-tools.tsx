@@ -10,7 +10,7 @@ export function FAQ() {
   );
   return (
     <>
-      <div className="faq-filter">
+      <div className="faq-filter tw:flex tw:items-end tw:gap-4.5 tw:mt-0 tw:mx-0 tw:mb-7.5 tw:below-600:flex-col tw:below-600:items-stretch tw:below-600:gap-2.5">
         <label>
           جست‌وجوی پرسش
           <input
@@ -31,7 +31,7 @@ export function FAQ() {
           </select>
         </label>
       </div>
-      <div className="service-faq">
+      <div className="service-faq tw:my-10 tw:mx-0">
         {rows.map((f) => (
           <details key={f.q}>
             <summary>{f.q}</summary>
@@ -83,7 +83,7 @@ export function ContactForm() {
       </div>
     );
   return (
-    <form className="card public-contact" onSubmit={submit}>
+    <form className="card public-contact tw:p-7.5 tw:below-600:p-5.5" onSubmit={submit}>
       <h2>شروع یک گفت‌وگو</h2>
       <label>
         نام و نام خانوادگی
@@ -138,7 +138,7 @@ export function TrackingForm() {
     [result, setResult] = useState<Tracking | null>(null);
   return (
     <form
-      className="card public-contact"
+      className="card public-contact tw:p-7.5 tw:below-600:p-5.5"
       onSubmit={async (e) => {
         e.preventDefault();
         setBusy(true);
@@ -182,7 +182,7 @@ export function TrackingForm() {
         </p>
       )}
       {result && (
-        <section role="status" className="tracking-result">
+        <section role="status" className="tracking-result tw:mt-7 tw:p-5 tw:bg-[#eff5ed] tw:rounded-[12px]">
           <h2>
             {result.origin} ← {result.destination}
           </h2>

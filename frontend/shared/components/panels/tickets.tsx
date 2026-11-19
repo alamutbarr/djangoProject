@@ -34,14 +34,14 @@ export default function Support({
           تیکت جدید
         </button>
       </div>
-      <div className={"tickets-layout" + (ticket ? " conversation-open" : "")}>
-        <section className="card ticket-list">
+      <div className={"tickets-layout tw:grid tw:grid-cols-[340px_minmax(0,1fr)] tw:gap-[23px] tw:below-1200:grid-cols-[280px_1fr] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5" + (ticket ? " conversation-open" : "")}>
+        <section className="card ticket-list tw:below-950:max-h-75 tw:below-950:overflow-auto">
           {tickets.results.length ? (
             tickets.results.map((t) => (
               <button
                 key={t.id}
                 className={
-                  "ticket-item " + (ticket?.id === t.id ? "selected" : "")
+                  "ticket-item tw:text-right tw:bg-transparent tw:w-full tw:p-[21px] tw:border-b tw:border-b-line tw:block " + (ticket?.id === t.id ? "selected" : "")
                 }
                 onClick={() => setTicket(t)}
               >
@@ -60,7 +60,7 @@ export default function Support({
           )}
           {pager(tickets.count)}
         </section>
-        <section className="card conversation">
+        <section className="card conversation tw:p-6 tw:below-760:p-5">
           {ticket ? (
             <>
               <div className="card-head">
@@ -87,7 +87,7 @@ export default function Support({
                   </button>
                 )}
               </div>
-              <div className="messages">
+              <div className="messages tw:py-6 tw:px-0 tw:flex tw:flex-col tw:gap-[15px] tw:max-h-[500px] tw:overflow-auto">
                 {ticket.messages.map((m) => (
                   <article
                     key={m.id}

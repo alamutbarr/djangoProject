@@ -28,7 +28,7 @@ function Application({ panel }: { panel: Panel }) {
   const [role, section = "app", detailId] = parts;
   if (role !== panel || !validPanelRoute(panel, parts.slice(1)))
     return (
-      <main id="main" className="empty">
+      <main id="main" className="empty tw:py-[55px] tw:px-[25px] tw:flex tw:items-center tw:flex-col tw:justify-center tw:min-h-55 tw:text-center tw:text-[#9baa91]">
         <h1>این صفحه در دسترس نیست.</h1>
         <a className="btn" href={`/${panel}/app`}>
           ورود به برنامه

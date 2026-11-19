@@ -86,14 +86,14 @@ export default function ControlRoom() {
           ارتباط قطع شده؛ اطلاعات زیر مربوط به دریافت قبلی است. {error}
         </p>
       )}
-      <div className="stats-grid tw:grid">
+      <div className="stats-grid tw:grid-cols-4 tw:gap-[17px] tw:mb-[25px] tw:wide:gap-6 tw:below-950:grid-cols-[1fr_1fr] tw:below-760:gap-3 tw:below-760:mb-4.5 tw:grid">
         {[
           ["پرونده راننده منتظر بررسی", data.pending_drivers],
           ["مدارک منقضی", data.expired_drivers],
           ["رخداد باز", data.open_incidents],
           ["پیگیری عقب‌افتاده", data.overdue_followups],
         ].map(([title, value]) => (
-          <article className="stat-card" key={title}>
+          <article className="stat-card tw:border tw:border-[#e3e8dc] tw:rounded-[11px] tw:pt-[21px] tw:px-[23px] tw:pb-4.5 tw:bg-[#fffefa] tw:relative tw:overflow-hidden tw:min-h-36.5 tw:wide:py-6 tw:wide:px-7 tw:wide:min-h-40 tw:below-1200:py-4.5 tw:below-1200:px-[17px] tw:below-760:py-4 tw:below-760:px-4.5 tw:below-760:min-h-[133px] tw:below-760:rounded-[9px] tw:below-400:p-3.5" key={title}>
             <span>{title}</span>
             <strong>{number(value)}</strong>
           </article>
@@ -120,7 +120,7 @@ export default function ControlRoom() {
           }))}
           height={430}
         />
-        <div className="table-wrap app-records">
+        <div className="tw:overflow-x-auto tw:relative tw:max-w-full tw:min-w-0 tw:[overscroll-behavior-inline:contain] app-records">
           <table role="table" aria-label="آخرین موقعیت ناوگان">
             <thead role="rowgroup">
               <tr role="row">
@@ -176,7 +176,7 @@ export default function ControlRoom() {
           </table>
         </div>
       </section>
-      <div className="reports-grid detail-section">
+      <div className="tw:grid tw:grid-cols-[1fr_1fr] tw:gap-6 tw:[align-items:start] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5 detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
         <section className="card form-card">
           <h2>هشدارهای نیازمند اقدام</h2>
           <p>

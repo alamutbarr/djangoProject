@@ -1,0 +1,13 @@
+@import "../../../../../shared/styles/auth.css";
+@import "../../../../../shared/styles/pwa.css";
+@import "../../../../../shared/styles/panel-components.css";
+@import "../../../../../shared/styles/mobile-workspace.css";
+@reference "../../../../../shared/styles/theme.css";
+
+@source "../../../../../shared/components";
+
+@layer utilities {
+  :where(.portal-page) {
+    @tailwind utilities source(none);
+  }
+}
