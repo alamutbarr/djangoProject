@@ -83,3 +83,17 @@
 .public-site .site-footer .brand {
   @apply tw:transform-none;
 }
+
+.landing-main,
+.site-footer {
+  overflow-x: clip;
+}
+
+.landing-main :where(h1, h2, h3, p, small) {
+  overflow-wrap: break-word;
+}
+
+.public-site .app-tabs > :is(a, button) > span:last-child {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}

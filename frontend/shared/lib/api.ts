@@ -104,6 +104,8 @@ export type Shipment = {
   }[];
   documents: { id: number; name: string; url: string }[];
   locations: Location[];
+  open_critical?: boolean;
+  invoice_id?: number | null;
 };
 export type Page<T> = {
   count: number;
@@ -154,12 +156,12 @@ export const urgencies: Record<string, string> = {
 };
 export const trailerTypes: Record<string, string> = {
   روباز: "روباز",
-  "بغل‌بازشو": "بغل‌بازشو",
+  بغل‌بازشو: "بغل‌بازشو",
   مسقف: "مسقف",
   کمپرسی: "کمپرسی",
-  "یخچال‌دار": "یخچال‌دار",
+  یخچال‌دار: "یخچال‌دار",
   کفی: "کفی",
-  "لبه‌دار": "لبه‌دار",
+  لبه‌دار: "لبه‌دار",
   "ترانزیت چادری": "ترانزیت چادری",
   کانتینربر: "کانتینربر",
 };

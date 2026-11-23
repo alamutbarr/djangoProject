@@ -1,5 +1,6 @@
 "use client";
 import { number, type Role, type Shipment, type User } from "@/lib/api";
+import { nationalIdOk } from "@/lib/national-id";
 import type { Dash } from "@/lib/workspace-types";
 import {
   ArrowLeft,
@@ -85,6 +86,12 @@ export default function Overview({
           </small>
         </div>
       </div>
+      {role === "owner" && user && !nationalIdOk(user.national_id) && (
+        <p className="info-note">
+          برای ثبت بار، کد ملی معتبر را در{" "}
+          <Link href={base + "/settings"}>حساب کاربری</Link> ذخیره کنید.
+        </p>
+      )}
       {role === "owner" && user && !/^\d{10}$/.test(user.postal_code || "") && (
         <p className="info-note">
           برای ثبت بار، کد پستی ۱۰ رقمی را در{" "}
@@ -93,12 +100,25 @@ export default function Overview({
       )}
       {role === "owner" &&
         user &&
+        (!user.kyc_status || user.kyc_status === "missing") && (
+          <p className="info-note">
+            مدارک احراز هویت را در{" "}
+            <Link href={base + "/settings#owner-identity"}>حساب کاربری</Link>{" "}
+            بارگذاری کنید. تا تأیید اپراتور، ثبت بار در محیط واقعی بسته می‌ماند.
+          </p>
+        )}
+      {role === "owner" &&
+        user &&
         user.kyc_status &&
         user.kyc_status !== "approved" &&
         user.kyc_status !== "missing" && (
           <p className="info-note">
-            احراز هویت شما {user.kyc_status === "rejected" ? "رد شده" : "در انتظار بررسی"} است.
-            تا تأیید اپراتور، ثبت بار بسته می‌ماند.
+            احراز هویت شما{" "}
+            {user.kyc_status === "rejected" ? "رد شده" : "در انتظار بررسی"} است.
+            تا تأیید اپراتور، ثبت بار بسته می‌ماند.{" "}
+            <Link href={base + "/settings#owner-identity"}>
+              مشاهده وضعیت احراز
+            </Link>
           </p>
         )}
       {mobileAction && (
@@ -123,12 +143,15 @@ export default function Overview({
             v: dash.total,
             i: Package,
             s: "از شروع همکاری",
+            href: base + "/shipments",
+            active: false,
           },
           {
             t: "حمل‌های فعال",
             v: dash.active,
             i: Truck,
             s: "در چرخه عملیات",
+            href: base + "/shipments",
             active: true,
           },
           {
@@ -136,16 +159,29 @@ export default function Overview({
             v: dash.delivered,
             i: CheckCircle2,
             s: "رسیده به مقصد",
+            href: base + "/shipments",
+            active: false,
           },
           {
             t: role === "inspector" ? "نیازمند پیگیری" : "مانده صورتحساب",
             v: role === "inspector" ? dash.open_tickets : dash.unpaid,
             i: role === "inspector" ? MessageSquare : Wallet,
             s: role === "inspector" ? "تیکت باز" : "تومان",
+            href:
+              role === "inspector"
+                ? base + "/tickets"
+                : role !== "operator" || user?.capabilities.includes("finance")
+                  ? base + "/invoices"
+                  : base + "/shipments",
+            active: false,
           },
         ].map((x) => (
-          <article
-            className={"stat-card tw:border tw:border-[#e3e8dc] tw:rounded-[11px] tw:pt-[21px] tw:px-[23px] tw:pb-4.5 tw:bg-[#fffefa] tw:relative tw:overflow-hidden tw:min-h-36.5 tw:wide:py-6 tw:wide:px-7 tw:wide:min-h-40 tw:below-1200:py-4.5 tw:below-1200:px-[17px] tw:below-760:py-4 tw:below-760:px-4.5 tw:below-760:min-h-[133px] tw:below-760:rounded-[9px] tw:below-400:p-3.5 " + (x.active ? "featured" : "")}
+          <Link
+            href={x.href}
+            className={
+              "stat-card tw:block tw:border tw:border-[#e3e8dc] tw:rounded-[11px] tw:pt-[21px] tw:px-[23px] tw:pb-4.5 tw:bg-[#fffefa] tw:relative tw:overflow-hidden tw:min-h-36.5 tw:wide:py-6 tw:wide:px-7 tw:wide:min-h-40 tw:below-1200:py-4.5 tw:below-1200:px-[17px] tw:below-760:py-4 tw:below-760:px-4.5 tw:below-760:min-h-[133px] tw:below-760:rounded-[9px] tw:below-400:p-3.5 " +
+              (x.active ? "featured" : "")
+            }
             key={x.t}
           >
             <div>
@@ -154,7 +190,7 @@ export default function Overview({
             </div>
             <strong>{number(x.v)}</strong>
             <small>{x.s}</small>
-          </article>
+          </Link>
         ))}
       </div>
       <div className="tw:grid-cols-[1.8fr_1fr] tw:gap-5.5 tw:mb-[25px] tw:wide:gap-6.5 tw:wide:grid-cols-[1.9fr_1fr] tw:below-1200:grid-cols-[1.5fr_1fr] tw:below-1200:gap-[17px] tw:below-950:grid-cols-[1fr] tw:below-760:mb-4.5 tw:grid">
@@ -304,7 +340,11 @@ export default function Overview({
 
 function MountainMark() {
   return (
-    <svg className="tw:absolute tw:-bottom-1.5 tw:-left-5 tw:text-[#c3cdb2] tw:w-37.5 tw:h-25 tw:opacity-80" viewBox="0 0 160 90" aria-hidden="true">
+    <svg
+      className="tw:absolute tw:-bottom-1.5 tw:-left-5 tw:text-[#c3cdb2] tw:w-37.5 tw:h-25 tw:opacity-80"
+      viewBox="0 0 160 90"
+      aria-hidden="true"
+    >
       <path
         d="M5 85 55 10l48 75H5Zm58 0 42-60 47 60H63Z"
         fill="none"

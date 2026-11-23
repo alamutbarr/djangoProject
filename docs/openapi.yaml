@@ -3196,6 +3196,13 @@ components:
           items:
             $ref: '#/components/schemas/Location'
           readOnly: true
+        open_critical:
+          type: boolean
+          readOnly: true
+        invoice_id:
+          type: integer
+          readOnly: true
+          nullable: true
         code:
           type: string
           readOnly: true
@@ -3490,6 +3497,13 @@ components:
           items:
             $ref: '#/components/schemas/Location'
           readOnly: true
+        open_critical:
+          type: boolean
+          readOnly: true
+        invoice_id:
+          type: integer
+          readOnly: true
+          nullable: true
         code:
           type: string
           readOnly: true
@@ -3573,8 +3587,10 @@ components:
       - inspections
       - inspector
       - inspector_name
+      - invoice_id
       - locations
       - offers
+      - open_critical
       - origin
       - origin_address
       - owner
