@@ -82,7 +82,7 @@ export function OwnerKycForm({
     }
   }
   return (
-    <section className="card form-card">
+    <section className="card form-card" id="owner-identity">
       <h2>احراز هویت صاحب بار</h2>
       <p className="muted">
         وضعیت: {labels[user.kyc_status || identity?.status || "missing"]}
@@ -94,7 +94,10 @@ export function OwnerKycForm({
         <form onSubmit={saveType} className="form-grid">
           <label className="full">
             نوع مدرک
-            <select value={idType} onChange={(event) => setIdType(event.target.value)}>
+            <select
+              value={idType}
+              onChange={(event) => setIdType(event.target.value)}
+            >
               <option value="national_card">کارت ملی</option>
               <option value="birth_certificate">شناسنامه</option>
             </select>
@@ -170,7 +173,10 @@ export function OwnerKycReview() {
       {error && <p className="error">{error}</p>}
       {rows.length === 0 && <p className="muted">درخواستی ثبت نشده است.</p>}
       {rows.map((row) => (
-        <article className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={row.id}>
+        <article
+          className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]"
+          key={row.id}
+        >
           <div>
             <b>{row.user_name}</b>
             <p>
@@ -192,10 +198,16 @@ export function OwnerKycReview() {
                 maxLength={500}
                 placeholder="یادداشت بررسی"
                 onChange={(event) =>
-                  setNote((current) => ({ ...current, [row.id]: event.target.value }))
+                  setNote((current) => ({
+                    ...current,
+                    [row.id]: event.target.value,
+                  }))
                 }
               />
-              <button className="btn" onClick={() => void review(row.id, "approved")}>
+              <button
+                className="btn"
+                onClick={() => void review(row.id, "approved")}
+              >
                 تأیید
               </button>
               <button
@@ -212,11 +224,7 @@ export function OwnerKycReview() {
   );
 }
 
-export function NationalIdGate({
-  onSaved,
-}: {
-  onSaved: (user: User) => void;
-}) {
+export function NationalIdGate({ onSaved }: { onSaved: (user: User) => void }) {
   const [nationalId, setNationalId] = useState("");
   const [postal, setPostal] = useState("");
   const [error, setError] = useState("");

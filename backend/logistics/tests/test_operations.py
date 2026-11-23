@@ -774,6 +774,18 @@ class OperationsTests(TestCase):
             ).status_code,
             400,
         )
+        detail = self.client.get(f"/api/shipments/{s.pk}/")
+        self.assertTrue(detail.data["open_critical"])
+        self.assertIsNone(detail.data["invoice_id"])
+        Invoice.objects.create(shipment=s, amount=s.price)
+        self.client.force_authenticate(self.owner)
+        owner_view = self.client.get(f"/api/shipments/{s.pk}/")
+        self.assertEqual(owner_view.data["invoice_id"], s.invoice.id)
+        self.assertTrue(owner_view.data["open_critical"])
+        self.client.force_authenticate(self.inspector)
+        inspector_view = self.client.get(f"/api/shipments/{s.pk}/")
+        self.assertTrue(inspector_view.data["open_critical"])
+        self.assertIsNone(inspector_view.data["invoice_id"])
 
     def test_partial_payment_and_overpayment(self):
         s = self.shipment(status="completed")

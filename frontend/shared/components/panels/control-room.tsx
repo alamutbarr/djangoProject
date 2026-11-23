@@ -88,15 +88,19 @@ export default function ControlRoom() {
       )}
       <div className="stats-grid tw:grid-cols-4 tw:gap-[17px] tw:mb-[25px] tw:wide:gap-6 tw:below-950:grid-cols-[1fr_1fr] tw:below-760:gap-3 tw:below-760:mb-4.5 tw:grid">
         {[
-          ["پرونده راننده منتظر بررسی", data.pending_drivers],
-          ["مدارک منقضی", data.expired_drivers],
-          ["رخداد باز", data.open_incidents],
-          ["پیگیری عقب‌افتاده", data.overdue_followups],
-        ].map(([title, value]) => (
-          <article className="stat-card tw:border tw:border-[#e3e8dc] tw:rounded-[11px] tw:pt-[21px] tw:px-[23px] tw:pb-4.5 tw:bg-[#fffefa] tw:relative tw:overflow-hidden tw:min-h-36.5 tw:wide:py-6 tw:wide:px-7 tw:wide:min-h-40 tw:below-1200:py-4.5 tw:below-1200:px-[17px] tw:below-760:py-4 tw:below-760:px-4.5 tw:below-760:min-h-[133px] tw:below-760:rounded-[9px] tw:below-400:p-3.5" key={title}>
+          ["پرونده راننده منتظر بررسی", data.pending_drivers, "/admin/team"],
+          ["مدارک منقضی", data.expired_drivers, "/admin/team"],
+          ["رخداد باز", data.open_incidents, "/admin/incidents"],
+          ["پیگیری عقب‌افتاده", data.overdue_followups, "/admin/crm"],
+        ].map(([title, value, href]) => (
+          <Link
+            className="stat-card tw:block tw:border tw:border-[#e3e8dc] tw:rounded-[11px] tw:pt-[21px] tw:px-[23px] tw:pb-4.5 tw:bg-[#fffefa] tw:relative tw:overflow-hidden tw:min-h-36.5 tw:wide:py-6 tw:wide:px-7 tw:wide:min-h-40 tw:below-1200:py-4.5 tw:below-1200:px-[17px] tw:below-760:py-4 tw:below-760:px-4.5 tw:below-760:min-h-[133px] tw:below-760:rounded-[9px] tw:below-400:p-3.5"
+            href={String(href)}
+            key={title}
+          >
             <span>{title}</span>
             <strong>{number(value)}</strong>
-          </article>
+          </Link>
         ))}
       </div>
       <p className="info-note">
@@ -180,8 +184,13 @@ export default function ControlRoom() {
         <section className="card form-card">
           <h2>هشدارهای نیازمند اقدام</h2>
           <p>
-            درخواست بررسی‌نشده: {number(data.pending_shipments)} · بدون راننده:{" "}
-            {number(data.unassigned)}
+            <Link href="/admin/shipments">
+              درخواست بررسی‌نشده: {number(data.pending_shipments)}
+            </Link>
+            {" · "}
+            <Link href="/admin/shipments">
+              بدون راننده: {number(data.unassigned)}
+            </Link>
           </p>
           {data.moving_without_location.map((s) => (
             <Link

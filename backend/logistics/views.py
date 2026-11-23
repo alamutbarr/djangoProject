@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db import transaction, connection
-from django.db.models import Q, Sum, Count
+from django.db.models import Count, Exists, OuterRef, Q, Sum
 from django.http import FileResponse, HttpResponse
 from django.middleware.csrf import get_token
 from django.shortcuts import get_object_or_404
@@ -155,14 +155,24 @@ def health(request):
 
 
 def shipment_scope(user, market=True):
-    qs = Shipment.objects.select_related(
-        "owner", "driver", "inspector", "rating"
-    ).prefetch_related(
-        "events__actor",
-        "offers__driver",
-        "inspections__inspector",
-        "documents",
-        "locations",
+    qs = (
+        Shipment.objects.select_related(
+            "owner", "driver", "inspector", "rating", "invoice"
+        )
+        .annotate(
+            open_critical_flag=Exists(
+                Incident.objects.filter(
+                    shipment_id=OuterRef("pk"), severity="critical"
+                ).exclude(status="resolved")
+            )
+        )
+        .prefetch_related(
+            "events__actor",
+            "offers__driver",
+            "inspections__inspector",
+            "documents",
+            "locations",
+        )
     )
     if user.role == "owner":
         return qs.filter(owner=user)

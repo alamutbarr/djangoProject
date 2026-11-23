@@ -1,11 +1,20 @@
 "use client";
 import { PanelError, usePanelRefresh } from "../panel-feedback";
-import { useEffect, useState } from "react";
-import { api, date, type Page, type Shipment, type Role } from "@/lib/api";
+import { useEffect, useRef, useState } from "react";
+import Link from "@/lib/navigation";
+import {
+  api,
+  date,
+  panelPaths,
+  type Page,
+  type Shipment,
+  type Role,
+} from "@/lib/api";
 import { ActionForm } from "../forms";
 import { Loading, Empty, Modal } from "../ui";
 type Incident = {
   id: number;
+  shipment: number;
   code: string;
   kind: string;
   severity: string;
@@ -26,7 +35,9 @@ export default function Incidents({ role }: { role: Role }) {
     [shipments, setShipments] = useState<Shipment[]>([]),
     [modal, setModal] = useState<Incident | "new" | null>(null),
     [error, setError] = useState(""),
-    [page, setPage] = useState(1);
+    [page, setPage] = useState(1),
+    [presetShipment, setPresetShipment] = useState("");
+  const presetHandled = useRef(false);
   async function load() {
     try {
       setData(await api("incidents/?page=" + page));
@@ -48,8 +59,19 @@ export default function Incidents({ role }: { role: Role }) {
   }
   usePanelRefresh(load);
   useEffect(() => {
+    setPresetShipment(
+      new URLSearchParams(window.location.search).get("shipment") || "",
+    );
+  }, []);
+  useEffect(() => {
     void load();
   }, [page]);
+  useEffect(() => {
+    if (presetHandled.current || !presetShipment) return;
+    if (!shipments.some((item) => String(item.id) === presetShipment)) return;
+    presetHandled.current = true;
+    setModal("new");
+  }, [presetShipment, shipments]);
   if (!data)
     return error ? (
       <PanelError error={error} retry={() => void load()} />
@@ -74,7 +96,14 @@ export default function Incidents({ role }: { role: Role }) {
             <article className="notice incident" key={i.id}>
               <div>
                 <b>
-                  {i.code} · {kinds[i.kind]} ·{" "}
+                  <Link
+                    dir="ltr"
+                    href={"/" + panelPaths[role] + "/shipments/" + i.shipment}
+                  >
+                    {i.code}
+                  </Link>
+                  {" · "}
+                  {kinds[i.kind]} ·{" "}
                   {i.severity === "critical" ? "بحرانی" : "عادی"}
                 </b>
                 <p>{i.description}</p>
@@ -127,6 +156,11 @@ export default function Incidents({ role }: { role: Role }) {
                       label: "محموله",
                       required: true,
                       full: true,
+                      value: shipments.some(
+                        (item) => String(item.id) === presetShipment,
+                      )
+                        ? presetShipment
+                        : "",
                       options: shipments.map((s) => ({
                         value: String(s.id),
                         label: s.code + " · " + s.title,

@@ -228,6 +228,29 @@ class ShipmentSerializer(serializers.ModelSerializer):
     inspections = InspectionSerializer(many=True, read_only=True)
     documents = DocumentSerializer(many=True, read_only=True)
     locations = serializers.SerializerMethodField()
+    open_critical = serializers.SerializerMethodField()
+    invoice_id = serializers.SerializerMethodField()
+
+    @extend_schema_field(OpenApiTypes.BOOL)
+    def get_open_critical(self, obj):
+        flag = getattr(obj, "open_critical_flag", None)
+        if flag is not None:
+            return bool(flag)
+        return (
+            obj.incidents.filter(severity="critical")
+            .exclude(status="resolved")
+            .exists()
+        )
+
+    @extend_schema_field({"type": "integer", "nullable": True})
+    def get_invoice_id(self, obj):
+        request = self.context.get("request")
+        if request is not None and getattr(request.user, "role", "") == "inspector":
+            return None
+        try:
+            return obj.invoice.id
+        except Invoice.DoesNotExist:
+            return None
 
     @extend_schema_field(LocationSerializer(many=True))
     def get_locations(self, obj):

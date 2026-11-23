@@ -4,10 +4,12 @@ import {
   complaintStatuses,
   complaintTypes,
   date,
+  panelPaths,
   type Page,
   type Role,
   type Shipment,
 } from "@/lib/api";
+import Link from "@/lib/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import { Badge, Empty } from "../ui";
 
@@ -31,6 +33,7 @@ export default function Complaints({ role }: { role: Role }) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [reply, setReply] = useState("");
+  const [presetShipment, setPresetShipment] = useState("");
 
   async function load(keep?: number) {
     const page = await api<Page<Complaint>>("complaints/");
@@ -46,6 +49,9 @@ export default function Complaints({ role }: { role: Role }) {
   }
 
   useEffect(() => {
+    setPresetShipment(
+      new URLSearchParams(window.location.search).get("shipment") || "",
+    );
     void load().catch((e: Error) => setError(e.message));
   }, [role]);
 
@@ -128,7 +134,10 @@ export default function Complaints({ role }: { role: Role }) {
       <div className="tickets-layout tw:grid tw:grid-cols-[340px_minmax(0,1fr)] tw:gap-[23px] tw:below-1200:grid-cols-[280px_1fr] tw:below-950:grid-cols-[1fr] tw:below-760:gap-4.5">
         <section className="card ticket-list tw:below-950:max-h-75 tw:below-950:overflow-auto">
           {role === "owner" && (
-            <form className="form-grid tw:mb-4 tw:pb-4 tw:border-b tw:border-b-[var(--line,#e6ece8)]" onSubmit={create}>
+            <form
+              className="form-grid tw:mb-4 tw:pb-4 tw:border-b tw:border-b-[var(--line,#e6ece8)]"
+              onSubmit={create}
+            >
               <label>
                 موضوع
                 <select name="type" required defaultValue="">
@@ -142,7 +151,19 @@ export default function Complaints({ role }: { role: Role }) {
               </label>
               <label>
                 محموله مرتبط
-                <select name="shipment" defaultValue="">
+                <select
+                  name="shipment"
+                  key={
+                    presetShipment
+                      ? presetShipment + ":" + shipments.length
+                      : "shipment"
+                  }
+                  defaultValue={
+                    shipments.some((item) => String(item.id) === presetShipment)
+                      ? presetShipment
+                      : ""
+                  }
+                >
                   <option value="">بدون محموله</option>
                   {shipments.map((item) => (
                     <option key={item.id} value={item.id}>
@@ -175,7 +196,8 @@ export default function Complaints({ role }: { role: Role }) {
                 key={item.id}
                 type="button"
                 className={
-                  "ticket-item tw:text-right tw:bg-transparent tw:w-full tw:p-[21px] tw:border-b tw:border-b-line tw:block " + (selected?.id === item.id ? "selected" : "")
+                  "ticket-item tw:text-right tw:bg-transparent tw:w-full tw:p-[21px] tw:border-b tw:border-b-line tw:block " +
+                  (selected?.id === item.id ? "selected" : "")
                 }
                 onClick={() => setSelected(item)}
               >
@@ -201,9 +223,21 @@ export default function Complaints({ role }: { role: Role }) {
                   <h2>{complaintTypes[selected.type] || selected.type}</h2>
                   <p>
                     {complaintStatuses[selected.status] || selected.status}
-                    {selected.shipment_code
-                      ? " · " + selected.shipment_code
-                      : ""}
+                    {selected.shipment ? (
+                      <>
+                        {" · "}
+                        <Link
+                          href={
+                            "/" +
+                            panelPaths[role] +
+                            "/shipments/" +
+                            selected.shipment
+                          }
+                        >
+                          {selected.shipment_code}
+                        </Link>
+                      </>
+                    ) : null}
                   </p>
                 </div>
               </div>
@@ -218,7 +252,10 @@ export default function Complaints({ role }: { role: Role }) {
                 </p>
               )}
               {selected.messages.map((message) => (
-                <div className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={message.id}>
+                <div
+                  className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]"
+                  key={message.id}
+                >
                   <div>
                     <b>{message.author_name || "پیام"}</b>
                     <p>{message.body}</p>

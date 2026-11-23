@@ -5,6 +5,7 @@ import {
   handlingMethods,
   money,
   number,
+  panelPaths,
   pickupWindows,
   statuses,
   urgencies,
@@ -27,7 +28,13 @@ import {
   Truck,
 } from "lucide-react";
 import Link from "@/lib/navigation";
-import { useEffect, useState, type Dispatch, type FormEvent, type SetStateAction } from "react";
+import {
+  useEffect,
+  useState,
+  type Dispatch,
+  type FormEvent,
+  type SetStateAction,
+} from "react";
 import { Badge, Empty } from "../ui";
 import LiveLocation from "../live-location";
 export default function ShipmentDetail({
@@ -57,6 +64,8 @@ export default function ShipmentDetail({
   const deliveryReady = shipment.inspections?.find(
     (i) => i.stage === "delivery",
   )?.passed;
+  const panelBase = "/" + panelPaths[role];
+  const blocksMovement = Boolean(shipment.open_critical);
   const [driverScore, setDriverScore] = useState(0);
   const [inspectorScore, setInspectorScore] = useState(0);
   const [comment, setComment] = useState("");
@@ -209,7 +218,10 @@ export default function ShipmentDetail({
               </p>
             )}
             {canRate && (
-              <form className="rating-form tw:grid-cols-[1fr_1fr] tw:mt-4.5 tw:grid tw:gap-3" onSubmit={sendRating}>
+              <form
+                className="rating-form tw:grid-cols-[1fr_1fr] tw:mt-4.5 tw:grid tw:gap-3"
+                onSubmit={sendRating}
+              >
                 <h2>امتیاز این مأموریت</h2>
                 <label>
                   امتیاز راننده
@@ -263,6 +275,15 @@ export default function ShipmentDetail({
                 نیاز دارد.
               </p>
             )}
+            {blocksMovement && (
+              <p className="info-note">
+                یک رخداد بحرانی باز است. تا رفع آن، شروع حرکت و تکمیل محموله
+                ممکن نیست.{" "}
+                <Link href={panelBase + "/incidents?shipment=" + shipment.id}>
+                  مشاهده رخدادها
+                </Link>
+              </p>
+            )}
             <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
               {role === "operator" && shipment.status === "pending" && (
                 <button
@@ -312,7 +333,9 @@ export default function ShipmentDetail({
                   <button
                     className="btn"
                     disabled={
-                      busy || (shipment.status === "loading" && !loadingReady)
+                      busy ||
+                      (shipment.status === "loading" &&
+                        (!loadingReady || blocksMovement))
                     }
                     onClick={() =>
                       mutate("shipments/" + shipment.id + "/transition/", {
@@ -355,7 +378,7 @@ export default function ShipmentDetail({
                 shipment.status === "delivered" && (
                   <button
                     className="btn"
-                    disabled={busy || !deliveryReady}
+                    disabled={busy || !deliveryReady || blocksMovement}
                     onClick={() =>
                       mutate("shipments/" + shipment.id + "/transition/", {
                         status: "completed",
@@ -368,7 +391,9 @@ export default function ShipmentDetail({
                   </button>
                 )}
               {role === "operator" &&
-                ["pending", "approved", "assigned"].includes(shipment.status) && (
+                ["pending", "approved", "assigned"].includes(
+                  shipment.status,
+                ) && (
                   <button
                     className="secondary-btn"
                     disabled={busy}
@@ -403,6 +428,27 @@ export default function ShipmentDetail({
                     لغو درخواست
                   </button>
                 )}
+            </div>
+            <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
+              <Link
+                className="secondary-btn"
+                href={panelBase + "/incidents?shipment=" + shipment.id}
+              >
+                گزارش رخداد
+              </Link>
+              {role === "owner" && (
+                <Link
+                  className="secondary-btn"
+                  href={panelBase + "/complaints?shipment=" + shipment.id}
+                >
+                  ثبت شکایت
+                </Link>
+              )}
+              {role !== "inspector" && shipment.invoice_id ? (
+                <Link className="secondary-btn" href={panelBase + "/invoices"}>
+                  صورتحساب این محموله
+                </Link>
+              ) : null}
             </div>
             {role === "owner" && shipment.price_status === "proposed" && (
               <div className="shipment-actions tw:flex tw:flex-wrap tw:gap-2.5 tw:mt-[25px]">
@@ -467,7 +513,10 @@ export default function ShipmentDetail({
             <section className="card detail-section tw:mt-5.5 tw:p-6 tw:below-760:p-5 tw:below-760:mt-4.5">
               <h2>پیشنهادهای حمل</h2>
               {shipment.offers.map((o) => (
-                <div className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]" key={o.id}>
+                <div
+                  className="list-row tw:flex tw:justify-between tw:items-center tw:gap-5 tw:py-[17px] tw:px-0 tw:border-b tw:border-b-line tw:text-[12px]"
+                  key={o.id}
+                >
                   <div>
                     <b>{o.driver_name}</b>
                     <p>{o.note || "آماده هماهنگی حمل"}</p>
@@ -537,7 +586,10 @@ export default function ShipmentDetail({
             <h2>گزارش‌های بازرسی</h2>
             {shipment.inspections?.length ? (
               shipment.inspections.map((i) => (
-                <div className="inspection-row tw:flex tw:gap-4 tw:py-[15px] tw:px-0 tw:border-b tw:border-b-line tw:text-[#769267]" key={i.id}>
+                <div
+                  className="inspection-row tw:flex tw:gap-4 tw:py-[15px] tw:px-0 tw:border-b tw:border-b-line tw:text-[#769267]"
+                  key={i.id}
+                >
                   <ShieldCheck size={24} />
                   <div>
                     <b>
@@ -584,15 +636,19 @@ export default function ShipmentDetail({
 }
 function ShipmentChat({ shipmentId }: { shipmentId: number }) {
   const [items, setItems] = useState<
-    { id: number; author_name: string; role: string; body: string; created_at: string }[]
+    {
+      id: number;
+      author_name: string;
+      role: string;
+      body: string;
+      created_at: string;
+    }[]
   >([]);
   const [body, setBody] = useState("");
   const [error, setError] = useState("");
   async function load() {
     try {
-      setItems(
-        await api("shipments/" + shipmentId + "/messages/"),
-      );
+      setItems(await api("shipments/" + shipmentId + "/messages/"));
     } catch {
       setItems([]);
     }

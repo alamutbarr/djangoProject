@@ -160,7 +160,7 @@ export default function Home() {
               className={
                 "public-nav tw:flex tw:items-center tw:gap-11 tw:text-public-label tw:text-[#e9ede7d1] tw:below-1200:gap-7" +
                 (menu
-                  ? " tw:below-760:absolute tw:below-760:inset-x-[15px] tw:below-760:top-[83px] tw:below-760:flex-col tw:below-760:items-stretch tw:below-760:gap-2.5 tw:below-760:rounded-[9px] tw:below-760:border tw:below-760:border-[#6f91836e] tw:below-760:bg-[#173f3cf5] tw:below-760:p-[25px] tw:below-760:[&>a]:min-h-11 tw:below-760:[&>a]:p-2.5"
+                  ? " tw:below-760:absolute tw:below-760:inset-x-[15px] tw:below-760:top-[83px] tw:below-760:z-20 tw:below-760:max-h-[min(70dvh,28rem)] tw:below-760:flex-col tw:below-760:items-stretch tw:below-760:gap-2.5 tw:below-760:overflow-auto tw:below-760:rounded-[9px] tw:below-760:border tw:below-760:border-[#6f9183] tw:below-760:bg-[#173f3c] tw:below-760:p-[25px] tw:below-760:shadow-[0_18px_40px_#0c2428cc] tw:below-760:[&>a]:min-h-11 tw:below-760:[&>a]:p-2.5 tw:below-760:[&>button]:min-h-11"
                   : " tw:below-760:hidden")
               }
             >
@@ -181,7 +181,10 @@ export default function Home() {
               ))}
               <button
                 className="outline-btn tw:gap-4 tw:px-4 tw:py-2.5"
-                onClick={() => setEntry(true)}
+                onClick={() => {
+                  setMenu(false);
+                  setEntry(true);
+                }}
               >
                 ورود <ArrowUpLeft size={16} />
               </button>
@@ -204,7 +207,7 @@ export default function Home() {
             <p className="eyebrow tw:mb-[1rem] tw:text-[#eceee5]">
               <i /> حمل بار، با خیال راحت
             </p>
-            <h1 className="tw:text-[clamp(2.125rem,1.1rem+5vw,5.25rem)] tw:leading-[1.45] tw:font-bold">
+            <h1 className="tw:max-w-full tw:text-[clamp(2.125rem,1.1rem+5vw,5.25rem)] tw:leading-[1.45] tw:font-bold tw:break-words">
               مسیر مطمئن،
               <br />
               <em className="tw:text-[#149fa4]">حمل هوشمند.</em>
@@ -234,7 +237,7 @@ export default function Home() {
             <br />
             <b>مطمئن</b>
           </div>
-          <div className="tw:relative tw:mx-(--public-gutter) tw:flex tw:items-center tw:justify-between tw:gap-[1rem] tw:pb-[1.25rem] tw:text-public-note tw:text-[#c0cfca]">
+          <div className="tw:relative tw:mx-(--public-gutter) tw:flex tw:flex-wrap tw:items-center tw:justify-between tw:gap-x-[1rem] tw:gap-y-2 tw:pb-[1.25rem] tw:text-public-note tw:text-[#c0cfca]">
             <span>الهام از ایران، ساخته برای آینده.</span>
             <a
               href="#manifesto"
@@ -270,7 +273,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="tw:mt-[65px] tw:flex tw:items-center tw:gap-[25px] tw:text-public-note tw:text-[#556b60] tw:below-760:mt-[35px] tw:below-760:gap-3">
+          <div className="tw:mt-[65px] tw:flex tw:flex-wrap tw:items-center tw:gap-[25px] tw:text-public-note tw:text-[#556b60] tw:below-760:mt-[35px] tw:below-760:gap-3">
             <span>کار در جزئیات است</span>
             <i className="tw:relative tw:h-px tw:flex-1 tw:bg-line tw:after:absolute tw:after:-top-3 tw:after:left-[45%] tw:after:text-[16px] tw:after:text-brand tw:after:content-['←']" />
             <span>و در کسانی که مراقب آن‌ها هستند</span>
@@ -312,8 +315,8 @@ export default function Home() {
                 >
                   {s.text}
                 </p>
-                <div className="tw:mt-5 tw:flex tw:items-center tw:justify-between tw:gap-2.5 tw:below-760:gap-1.5">
-                  <small className="tw:text-public-note tw:text-[#556b60]">
+                <div className="tw:mt-5 tw:flex tw:flex-wrap tw:items-center tw:justify-between tw:gap-2.5 tw:below-760:gap-1.5">
+                  <small className="tw:min-w-0 tw:flex-1 tw:text-public-note tw:leading-[1.7] tw:text-[#556b60]">
                     <i className="tw:ml-1.5 tw:inline-block tw:size-[5px] tw:rounded-[50%] tw:bg-gold" />
                     {s.note}
                   </small>
@@ -433,7 +436,7 @@ export default function Home() {
             </div>
           </div>
           <form
-            className="tw:mt-17.5 tw:grid tw:grid-cols-[1fr_1fr_auto] tw:items-center tw:gap-6 tw:border tw:border-[#e0e6da] tw:bg-[#eef2e9] tw:p-7.5 tw:below-950:grid-cols-[1fr_auto] tw:below-760:mt-10 tw:below-760:grid-cols-1 tw:below-760:gap-4 tw:below-760:px-4.5 tw:below-760:py-5.5"
+            className="tw:mt-17.5 tw:grid tw:min-w-0 tw:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] tw:items-center tw:gap-6 tw:border tw:border-[#e0e6da] tw:bg-[#eef2e9] tw:p-7.5 tw:[&>*]:min-w-0 tw:below-950:grid-cols-[minmax(0,1fr)_auto] tw:below-760:mt-10 tw:below-760:grid-cols-1 tw:below-760:gap-4 tw:below-760:px-4.5 tw:below-760:py-5.5"
             onSubmit={track}
           >
             <div className="tw:below-950:col-span-full tw:below-760:col-auto">
@@ -461,7 +464,7 @@ export default function Home() {
               </p>
             )}
             {tracking && (
-              <div className="full tw:flex tw:items-center tw:gap-7.5 tw:border-t tw:border-line tw:pt-5 tw:below-760:flex-wrap tw:below-760:gap-3">
+              <div className="full tw:flex tw:min-w-0 tw:flex-wrap tw:items-center tw:gap-7.5 tw:border-t tw:border-line tw:pt-5 tw:below-760:gap-3">
                 <b dir="ltr">{tracking.code}</b>
                 <span>
                   {tracking.origin} ← {tracking.destination}
@@ -502,7 +505,7 @@ export default function Home() {
               </div>
               {sent ? (
                 <div
-                  className="tw:h-[350px] tw:flex tw:flex-col tw:items-center tw:justify-center tw:text-center tw:text-brand"
+                  className="tw:flex tw:min-h-[16rem] tw:flex-col tw:items-center tw:justify-center tw:px-2 tw:py-8 tw:text-center tw:text-brand"
                   role="status"
                 >
                   <CheckCircle2 size={50} />
@@ -556,10 +559,7 @@ export default function Home() {
                     />
                   </label>
                   {error && (
-                    <p
-                      className={`error ${sectionText} tw:mt-5 tw:max-w-[380px] tw:text-[#66725f]`}
-                      role="alert"
-                    >
+                    <p className="error" role="alert">
                       {error}
                     </p>
                   )}

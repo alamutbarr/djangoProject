@@ -8,7 +8,7 @@ const links = [
   { href: "/", label: "خانه", icon: Home },
   { href: "/services", label: "خدمات", icon: Layers3 },
   { href: "/tracking", label: "پیگیری بار", icon: Search },
-  { href: "/apps", label: "ورود به پنل‌ها", icon: PanelsTopLeft },
+  { href: "/apps", label: "پنل‌ها", icon: PanelsTopLeft },
 ];
 
 export default function PublicMobileNav() {
